@@ -7,8 +7,6 @@ function peco-history-selection() {
 zle -N peco-history-selection  
 bindkey '^R' peco-history-selection  
 
-# ---------------------------------------------------------------------------
-
 # promptの表示設定
 # ref. https://qiita.com/mikan3rd/items/d41a8ca26523f950ea9d
 
@@ -34,13 +32,12 @@ setopt hist_ignore_dups
 # スペースで始まるコマンド行はヒストリリストから削除
 setopt hist_ignore_space
 
-# ---------------------------------------------------------------------------
-
 # rbenv
 export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
 
-# ---------------------------------------------------------------------------
+# nodejs
+export PATH="$HOME/.nodebrew/current/bin:$PATH"
 
 # mysql
 export PATH="/usr/local/opt/mysql@5.7/bin:$PATH"
@@ -51,3 +48,14 @@ export PATH="/usr/local/opt/mysql@5.7/bin:$PATH"
 # カスタムコマンド
 export PATH=$HOME/custom_commands:$PATH
 
+# fzf
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+export FZF_DEFAULT_COMMAND='rg --files --hidden --glob "!.git"'
+export FZF_DEFAULT_OPTS='--height 40% --reverse --border'
+
+fd() {
+  local dir
+  dir=$(find ${1:-.} -path '*/\.*' -prune \
+                  -o -type d -print 2> /dev/null | fzf +m) &&
+  cd "$dir"
+}
