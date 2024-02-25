@@ -7,6 +7,8 @@ COMPLEX_MODIFICATIONS_JSONS_DIR="${BASE_JSON_DIR}/complex_modifications"
 KARABINER_COMPLEX_MODIFICATIONS_DIR="${CONFIG_KARABINER_DIR}/assets/complex_modifications"
 
 # Link karanier.json
+mkdir -p "${CONFIG_KARABINER_DIR}"
+
 ln -fnsv "${BASE_JSON_DIR}/karabiner.json" "${CONFIG_KARABINER_DIR}/karabiner.json"
 
 # Link complex_modifications json
