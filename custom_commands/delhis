@@ -1,0 +1,10 @@
+#!/bin/sh
+#
+# .zsh_history から指定した文字列が含まれる行を削除
+#
+
+export LC_ALL=C
+
+# sed コマンドは区切り文字が / なのでエスケープする
+TARGET_KEYWORD=${1//\//\\/}
+sed -i -e "/$TARGET_KEYWORD/d" ~/.zsh_history

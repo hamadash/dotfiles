@@ -1,0 +1,25 @@
+name: 'Dotfiles'
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  dotfiles:
+    name: 'Dotfiles'
+    runs-on: macos-latest
+
+    defaults:
+      run:
+        shell: bash
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Setup Dotfiles
+        run: make

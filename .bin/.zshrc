@@ -11,11 +11,11 @@ bindkey '^R' peco-history-selection
 # ref. https://qiita.com/mikan3rd/items/d41a8ca26523f950ea9d
 
 # git-promptの読み込み
-source ~/.zsh/git-prompt.sh
+source ~/dotfiles/.zsh/git-prompt.sh
 
 # git-completionの読み込み
-fpath=(~/.zsh $fpath)
-zstyle ':completion:*:*:git:*' script ~/.zsh/git-completion.bash
+fpath=(~/dotfiles/.zsh $fpath)
+zstyle ':completion:*:*:git:*' script ~/dotfiles/.zsh/git-completion.bash
 autoload -Uz compinit && compinit
 
 # プロンプトのオプション表示設定
@@ -36,17 +36,11 @@ setopt hist_ignore_space
 export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
 
-# nodejs
-export PATH="$HOME/.nodebrew/current/bin:$PATH"
-
 # mysql
 export PATH="/usr/local/opt/mysql@5.7/bin:$PATH"
 
-# z
-. ~/z/z.sh
-
 # カスタムコマンド
-export PATH=$HOME/custom_commands:$PATH
+export PATH=~/dotfiles/custom_commands:$PATH
 
 # fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
