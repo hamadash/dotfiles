@@ -1,16 +1,16 @@
 all: init link defaults brew other_apps
 
 init:
-  .bin/init.sh
+	.bin/init.sh
 
 link:
-  .bin/link.sh
+	.bin/link.sh
 
 defaults:
-  .bin/defaults.sh
+	.bin/defaults.sh
 
 brew:
-  .bin/brew.sh
+	.bin/brew.sh
 
 other_apps:
-  .bin/other_apps.sh
+	.bin/other_apps.sh
