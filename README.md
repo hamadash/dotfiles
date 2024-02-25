@@ -36,6 +36,26 @@ ls -l ${HOME}/Library/Application\ Support/Google/Chrome/Default/Extensions | aw
 ls -l ${HOME}/Library/Application\ Support/BraveSoftware/Brave-Browser/Default/Extensions | awk '{print $9}' | sed 's/^/https:\/\/chrome.google.com\/webstore\/detail\//g' | sed -e '1,2d' > ~/dotfiles/brave/extensions
 ```
 
+### Karabiner-Elements
+
+旧端末で以下のコマンドを実行し、 karabiner_elements フォルダに各種設定ファイルをエクスポートする。
+
+```sh
+cp ~/.config/karabiner/karabiner.json ~/dotfiles/karabiner_elements/karabiner.json
+```
+
+```sh
+cp ~/.config/karabiner/assets/complex_modifications/*.json ~/dotfiles/karabiner_elements/assets/complex_modifications/
+```
+
+その後、以下のコマンドを実行し、新端末に設定を反映する。
+
+```sh
+sh karabiner_elements/sync.sh
+```
+
 ### Raycast
 
 旧端末で `Export Settings & Data` で、 raycast フォルダに rayconfig ファイルをエクスポートする。
+
+その後、新端末で rayconfig ファイルをエクスポートする。

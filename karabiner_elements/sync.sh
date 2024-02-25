@@ -3,13 +3,13 @@
 BASE_JSON_DIR="$(cd "$(dirname "$0")" && pwd)"
 CONFIG_KARABINER_DIR="${HOME}/.config/karabiner"
 
-COMPLEX_MODIFICATIONS_JSONS_DIR="${BASE_JSON_DIR}/complex_modifications"
+COMPLEX_MODIFICATIONS_JSONS_DIR="${BASE_JSON_DIR}/assets/complex_modifications"
 KARABINER_COMPLEX_MODIFICATIONS_DIR="${CONFIG_KARABINER_DIR}/assets/complex_modifications"
 
 # Link karanier.json
 mkdir -p "${CONFIG_KARABINER_DIR}"
 
-ln -fnsv "${BASE_JSON_DIR}/karabiner.json" "${CONFIG_KARABINER_DIR}/karabiner.json"
+cp "${BASE_JSON_DIR}/karabiner.json" "${CONFIG_KARABINER_DIR}/karabiner.json"
 
 # Link complex_modifications json
 mkdir -p "${KARABINER_COMPLEX_MODIFICATIONS_DIR}"

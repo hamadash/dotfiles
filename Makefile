@@ -1,4 +1,4 @@
-all: init link defaults brew other_apps vscode karabiner_elements
+all: init link defaults brew other_apps vscode
 
 init:
 	.bin/init.sh
@@ -17,6 +17,3 @@ other_apps:
 
 vscode:
 	.vscode/sync.sh
-
-karabiner_elements:
-	karabiner_elements/sync.sh
