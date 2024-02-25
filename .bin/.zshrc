@@ -1,3 +1,14 @@
+# nodenv
+export PATH="$HOME/.nodenv/bin:$PATH"
+eval "$(nodenv init -)"
+
+# rbenv
+export PATH="$HOME/.rbenv/bin:$PATH"
+eval "$(rbenv init -)"
+
+# mysql
+export PATH="/usr/local/opt/mysql@5.7/bin:$PATH"
+
 # peco
 function peco-history-selection() {  
     BUFFER=`history -n 1 | tail -r  | awk '!a[$0]++' | peco`  
@@ -31,13 +42,6 @@ setopt PROMPT_SUBST ; PS1='[%n %c$(__git_ps1 "(%s)")]\$'
 setopt hist_ignore_dups
 # スペースで始まるコマンド行はヒストリリストから削除
 setopt hist_ignore_space
-
-# rbenv
-export PATH="$HOME/.rbenv/bin:$PATH"
-eval "$(rbenv init -)"
-
-# mysql
-export PATH="/usr/local/opt/mysql@5.7/bin:$PATH"
 
 # カスタムコマンド
 export PATH=~/dotfiles/custom_commands:$PATH
