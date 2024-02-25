@@ -25,4 +25,4 @@ cask "slack"
 cask "visual-studio-code"
 cask "warp"
 
-mas "Hidden Bar", id: 1452453066
+# mas "Hidden Bar", id: 1452453066
