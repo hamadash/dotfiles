@@ -25,4 +25,5 @@ cask "slack"
 cask "visual-studio-code"
 cask "warp"
 
+# GitHub Actions ではインストールできない？
 # mas "Hidden Bar", id: 1452453066
