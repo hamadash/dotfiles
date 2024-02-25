@@ -20,7 +20,7 @@ cd dotfiles && make
 
 ### Browser
 
-chrome/extensions, brave/extensions に記載された URL にアクセスし、直接追加する。
+以下の各ブラウザのディレクトリにある extensions に記載された URL にアクセスし、直接追加する。
 
 ブラウザごとに、以下のコマンドで現在使っている端末の拡張機能をエクスポートできるので、移行前に旧端末で実行しておく。
 
@@ -38,7 +38,7 @@ ls -l ${HOME}/Library/Application\ Support/BraveSoftware/Brave-Browser/Default/E
 
 ### Karabiner-Elements
 
-旧端末で以下のコマンドを実行し、 karabiner_elements フォルダに各種設定ファイルをエクスポートする。
+旧端末で以下のコマンドを実行し、 karabiner_elements ディレクトリに各種設定ファイルをエクスポートする。
 
 ```sh
 cp ~/.config/karabiner/karabiner.json ~/dotfiles/karabiner_elements/karabiner.json
@@ -56,6 +56,6 @@ sh karabiner_elements/sync.sh
 
 ### Raycast
 
-旧端末で `Export Settings & Data` で、 raycast フォルダに rayconfig ファイルをエクスポートする。
+旧端末で `Export Settings & Data` で、 raycast ディレクトリに rayconfig ファイルをエクスポートする。
 
-その後、新端末で rayconfig ファイルをエクスポートする。
+その後、新端末で rayconfig ファイルを手動でインポートする。
