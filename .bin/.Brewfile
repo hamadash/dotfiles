@@ -5,10 +5,16 @@ tap "homebrew/cask"
 tap "homebrew/cask-versions"
 tap "homebrew/core"
 
+brew "fzf"
 brew "git"
 brew "git-secrets"
 brew "mas"
+brew "mysql@5.7"
 brew "nodenv"
+brew "peco"
+brew "redis"
+brew "rbenv"
+brew "ripgrep"
 brew "wget"
 
 cask "alt-tab"
@@ -25,5 +31,5 @@ cask "slack"
 cask "visual-studio-code"
 cask "warp"
 
-# GitHub Actions ではインストールできない？
+# GitHub Actions ではインストールできない
 # mas "Hidden Bar", id: 1452453066
