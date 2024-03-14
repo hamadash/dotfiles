@@ -40,3 +40,4 @@ app_dl_curl "Rectangle" https://github.com/rxhanson/Rectangle/releases/download/
 
 # TODO
 # google日本語入力 https://www.google.co.jp/ime/
+# skitch
