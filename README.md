@@ -10,8 +10,6 @@
 git clone https://github.com/hamadash/dotfiles.git
 ```
 
-`.bin/.Brewfile` の mas のコメントアウトを外す
-
 ```sh
 cd dotfiles && make
 ```
@@ -37,13 +35,6 @@ ls -l ${HOME}/Library/Application\ Support/Google/Chrome/Default/Extensions | aw
 ```sh
 ls -l ${HOME}/Library/Application\ Support/BraveSoftware/Brave-Browser/Default/Extensions | awk '{print $9}' | sed 's/^/https:\/\/chrome.google.com\/webstore\/detail\//g' | sed -e '1,2d' > ~/dotfiles/brave/extensions
 ```
-
-### Clipy
-
-旧端末で `Edit Snippets` の `Export` で、 clipy ディレクトリに snippets.xml をエクスポートする。
-
-その後、新端末で snippets.xml を手動でインポートする。
-
 
 ### Karabiner-Elements
 
@@ -84,7 +75,3 @@ cd ~/dotfiles && sh oh_my_zsh/sync.sh
 旧端末で `Export Settings & Data` で、 raycast ディレクトリに rayconfig ファイルをエクスポートする。
 
 その後、新端末で rayconfig ファイルを手動でインポートする。
-
-### dotfile とは関係ないが新端末でやっておくとよいこと
-
-- Guest 用のログインアカウントを作成する

@@ -29,12 +29,9 @@ cask "karabiner-elements"
 cask "raycast"
 cask "notion"
 cask "postman"
-cask "skitch"
 cask "slack"
 cask "visual-studio-code"
 cask "warp"
 
 # GitHub Actions ではインストールできない
-# mas "CotEditor", id: 1024640650
 # mas "Hidden Bar", id: 1452453066
-# mas "Quick View Calendar", id: 1087080039
