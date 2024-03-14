@@ -63,22 +63,6 @@ cp ~/.config/karabiner/assets/complex_modifications/*.json ~/dotfiles/karabiner_
 sh karabiner_elements/sync.sh
 ```
 
-### Oh My Zsh
-
-以下を順番に実行する。
-
-```sh
-sh oh_my_zsh/install.sh
-```
-
-```sh
-cd ~/tmp && git clone git@github.com:wting/autojump.git
-```
-
-```sh
-cd ~/dotfiles && sh oh_my_zsh/sync.sh
-```
-
 ### Raycast
 
 旧端末で `Export Settings & Data` で、 raycast ディレクトリに rayconfig ファイルをエクスポートする。
