@@ -1,7 +1,40 @@
 // Place your key bindings in this file to override the defaults
 [
   {
-    "key": "alt+v",
-    "command": "toggleVim"
-  }
+    "key": "shift+cmd+i",
+    "command": "workbench.files.action.showActiveFileInExplorer"
+  },
+  {
+    "key": "ctrl+z",
+    "command": "git.stageSelectedRanges",
+    "when": "isInDiffEditor && !operationInProgress"
+  },
+  {
+    "key": "cmd+k alt+cmd+s",
+    "command": "-git.stageSelectedRanges",
+    "when": "isInDiffEditor && !operationInProgress"
+  },
+  {
+    "key": "ctrl+shift+z",
+    "command": "git.unstageSelectedRanges",
+    "when": "isInDiffEditor && !operationInProgress"
+  },
+  {
+    "key": "cmd+k cmd+n",
+    "command": "-git.unstageSelectedRanges",
+    "when": "isInDiffEditor && !operationInProgress"
+  },
+  {
+    "key": "cmd+down",
+    "command": "-workbench.action.terminal.focus",
+    "when": "accessibilityModeEnabled && accessibleViewOnLastLine && terminalHasBeenCreated && accessibleViewCurrentProviderId == 'terminal' || accessibilityModeEnabled && accessibleViewOnLastLine && terminalProcessSupported && accessibleViewCurrentProviderId == 'terminal'"
+  },
+  {
+    "key": "cmd+t",
+    "command": "-workbench.action.showAllSymbols"
+  },
+  {
+    "key": "cmd+t cmd+t",
+    "command": "workbench.action.terminal.focus"
+  },
 ]

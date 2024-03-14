@@ -17,3 +17,6 @@ other_apps:
 
 vscode:
 	.vscode/sync.sh
+
+neovim:
+	.nvim/sync.sh
