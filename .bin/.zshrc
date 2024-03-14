@@ -1,16 +1,3 @@
-# zsh
-setopt no_beep
-setopt auto_pushd
-setopt pushd_ignore_dups
-setopt auto_cd
-setopt hist_ignore_dups
-setopt inc_append_history
-
-# nvim
-alias vi="nvim"
-alias vim="nvim"
-alias view="nvim -R"
-
 # nodenv
 export PATH="$HOME/.nodenv/bin:$PATH"
 eval "$(nodenv init -)"
