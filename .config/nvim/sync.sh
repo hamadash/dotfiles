@@ -3,6 +3,8 @@
 SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
 NVIM_CONF_DIR="${HOME}/.config/nvim"
 
+rm -rf "${NVIM_CONF_DIR}/"{,.[!.],..?}*
+
 ln -fnsv "${SCRIPT_DIR}/init.lua" "${NVIM_CONF_DIR}/init.lua"
 ln -fnsv "${SCRIPT_DIR}/lazy-lock.json" "${NVIM_CONF_DIR}/lazy-lock.json"
 

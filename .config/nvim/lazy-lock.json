@@ -1,5 +1,6 @@
 {
   "coc.nvim": { "branch": "master", "commit": "4f687224e67046144e86e4df9b5b13cb150ec841" },
+  "git-messenger.vim": { "branch": "master", "commit": "8a61bdfa351d4df9a9118ee1d3f45edbed617072" },
   "gitsigns.nvim": { "branch": "main", "commit": "078041e9d060a386b0c9d3a8c7a7b019a35d3fb0" },
   "gitui.nvim": { "branch": "main", "commit": "6595bef945ad53c3e8410edec2e86f36b3f8971e" },
   "lazy.nvim": { "branch": "main", "commit": "83493db50a434a4c5c648faf41e2ead80f96e478" },
@@ -13,5 +14,7 @@
   "plenary.nvim": { "branch": "master", "commit": "f7adfc4b3f4f91aab6caebf42b3682945fbc35be" },
   "telescope-file-browser.nvim": { "branch": "master", "commit": "3bece973c5d80e7da447157822d5b0e73558d361" },
   "telescope-ui-select.nvim": { "branch": "master", "commit": "6e51d7da30bd139a6950adf2a47fda6df9fa06d2" },
-  "telescope.nvim": { "branch": "master", "commit": "3b8399c27380d09c44f55c8fbeff0bd7a4ed3f8d" }
+  "telescope.nvim": { "branch": "master", "commit": "3b8399c27380d09c44f55c8fbeff0bd7a4ed3f8d" },
+  "toggleterm.nvim": { "branch": "main", "commit": "193786e0371e3286d3bc9aa0079da1cd41beaa62" },
+  "vim-multiple-cursors": { "branch": "master", "commit": "6456718e1d30b42c04b920c5413ca44f68f08759" }
 }
