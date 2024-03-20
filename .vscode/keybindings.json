@@ -61,4 +61,9 @@
     "key": "shift+cmd+c",
     "command": "git.checkout"
   },
+  {
+    "key": "shift+cmd+l",
+    "command": "-extension.insertLogStatement",
+    "when": "editorTextFocus"
+  },
 ]
