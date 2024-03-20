@@ -66,5 +66,10 @@
   "chatgpt.lang": "en",
   "window.zoomLevel": 1,
   "vscodeGoogleTranslate.preferredLanguage": "Japanese",
-  "vim.disableExtension": true,
+  "extensions.experimental.affinity": {
+    "asvetliakov.vscode-neovim": 1
+  },
+  "editor.accessibilitySupport": "off",
+  "vscode-neovim.neovimExecutablePaths.darwin": "/opt/homebrew/bin/nvim",
+  "vscode-neovim.neovimInitVimPaths.darwin": "/Users/shohamada/.config/nvim/init.vim",
 }
