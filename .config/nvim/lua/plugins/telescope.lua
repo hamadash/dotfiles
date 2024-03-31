@@ -17,7 +17,8 @@ return {
       h.nmap("<Leader>fk", "<CMD>Telescope keymaps<CR>")
       h.nmap("<Leader>fh", "<CMD>Telescope help_tags<CR>")
       h.nmap("<Leader>fc", "<CMD>Telescope git_commits<CR>")
-      h.nmap("<Leader>fb", function()
+      h.nmap("<Leader>fb", "<CMD>Telescope buffers<CR>")
+      h.nmap("<Leader>fbb", function()
         return "<CMD>Telescope file_browser cwd=" .. vim.fn.expand("%:p:h") .. "<CR>"
       end, { silent = true, expr = true })
     end,

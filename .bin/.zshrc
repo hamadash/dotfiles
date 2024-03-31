@@ -70,5 +70,12 @@ fd() {
   cd "$dir"
 }
 
+vf() {
+  nvim "$(fzf)"
+}
+
 # zoxide
 eval "$(zoxide init zsh)" 
+
+# tmux
+export TMUX_TMPDIR=/tmp

@@ -3,6 +3,7 @@ local function my_on_attach(bufnr)
   local function opts(desc)
     return { desc = "nvim-tree: " .. desc, buffer = bufnr, noremap = true, silent = true, nowait = true }
   end
+
   -- default mappings
   api.config.mappings.default_on_attach(bufnr)
   -- custom mappings
@@ -11,21 +12,35 @@ local function my_on_attach(bufnr)
   vim.keymap.set("n", "?", api.tree.toggle_help, opts("Help"))
 end
 
+
 return {
   "nvim-tree/nvim-tree.lua",
-  dependencies = { "nvim-tree/nvim-web-devicons" },
+  dependencies = {
+    "nvim-tree/nvim-web-devicons"
+  },
   keys = {
-    { "<C-n>", "<cmd>NvimTreeToggle<CR>", { silent = true, desc = "NvimTreeToggle" } },
+    {
+      "<C-n>", "<cmd>NvimTreeToggle<CR>", {
+        silent = true,
+        desc = "NvimTreeToggle"
+      }
+    },
   },
   opts = {
     on_attach = my_on_attach,
     view = {
-      width = 35 
+      width = 35
     },
     filters = {
       git_ignored = true,
       dotfiles = false,
       custom = { "^.git$", "node_modules" },
+    },
+    update_focused_file = {
+      enable = true,
+      update_root = {
+        enable = true,
+      },
     },
   },
 }

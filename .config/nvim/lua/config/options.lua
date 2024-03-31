@@ -37,3 +37,6 @@ vim.opt.ignorecase = true
 vim.opt.smartcase = true
 vim.opt.incsearch = true
 vim.opt.hlsearch = true
+
+-- 補完入力
+vim.opt.completeopt = "menuone,noinsert"
