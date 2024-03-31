@@ -79,3 +79,6 @@ eval "$(zoxide init zsh)"
 
 # tmux
 export TMUX_TMPDIR=/tmp
+
+# lazygit
+alias lg="lazygit"
