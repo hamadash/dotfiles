@@ -1,5 +1,6 @@
 gui:
   nerdFontsVersion: "3"
+  showFileIcons: true
 customCommands:
   - key: 'u'
     context: 'files'
