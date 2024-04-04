@@ -10,6 +10,7 @@ return {
     h.nmap("[b", "<CMD>BufferLineCycleNext<CR>", { silent = true, noremap = true })
     h.nmap("]b", "<CMD>BufferLineCyclePrev<CR>", { silent = true, noremap = true })
     h.nmap("<Leader>bw", "<CMD>bdelete<CR>", { silent = true, noremap = true })
+    h.nmap("<Leader>bco", "<CMD>BufferLineCloseOthers<CR>", { silent = true, noremap = true })
   end,
   opts = {
     numbers = "ordinal",
