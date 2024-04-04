@@ -8,3 +8,5 @@
   ss = stash
 [init]
 	defaultBranch = main
+[delta]
+  side-by-side = true
