@@ -7,8 +7,6 @@ return {
     "nvim-tree/nvim-web-devicons"
   },
   init = function ()
-    h.nmap("[b", "<CMD>BufferLineCycleNext<CR>", { silent = true, noremap = true })
-    h.nmap("]b", "<CMD>BufferLineCyclePrev<CR>", { silent = true, noremap = true })
     h.nmap("<C-q>", "<CMD>bdelete<CR>", { silent = true, noremap = true })
     h.nmap("<Leader>bco", "<CMD>BufferLineCloseOthers<CR>", { silent = true, noremap = true })
   end,
