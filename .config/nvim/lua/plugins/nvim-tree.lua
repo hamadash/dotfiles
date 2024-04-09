@@ -36,6 +36,11 @@ return {
       dotfiles = false,
       custom = { "^.git$", "node_modules" },
     },
+    actions = {
+      open_file = {
+        quit_on_open = true,
+      },
+    },
     update_focused_file = {
       enable = true,
       update_root = {
