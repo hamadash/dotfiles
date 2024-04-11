@@ -50,3 +50,6 @@ h.nmap("<M-j>", "<Cmd>move .+1<CR>==", opts_with(""))
 h.nmap("<M-k>", "<Cmd>move .-2<CR>==", opts_with(""))
 -- vim.keymap.set("x", "<M-j>", ":move '>+1<CR>gv=gv")
 -- vim.keymap.set("x", "<M-k>", ":move '<-2<CR>gv=gv")
+
+-- 現在のファイルの相対パスをコピー
+h.nmap("<Leader>cfp", "<Cmd>let @*=expand('%')<CR>", opts_with("Copy current file relative path"))
