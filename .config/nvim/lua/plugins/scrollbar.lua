@@ -16,7 +16,10 @@ return {
         Info = { color = colors.info },
         Hint = { color = colors.hint },
         Misc = { color = colors.purple },
-      }
+      },
+      handlers = {
+        search = true,
+      },
     })
   end
 }
