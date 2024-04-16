@@ -22,6 +22,7 @@ brew "redis"
 brew "rbenv"
 brew "ripgrep"
 brew "tmux"
+brew "typos-cli"
 brew "wget"
 brew "zoxide"
 
