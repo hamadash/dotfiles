@@ -25,6 +25,7 @@ return {
     end,
     config = function()
       local telescope = require("telescope")
+      local telescope_actions = require("telescope.actions")
       local lga_actions = require("telescope-live-grep-args.actions")
 
       telescope.setup({
@@ -36,9 +37,11 @@ return {
                   ["<C-n>"] = "cycle_history_next",
                   ["<C-p>"] = "cycle_history_prev",
                   ["<C-q>"] = "close",
+                  ["<C-d>"] = telescope_actions.delete_buffer,
             },
             n = {
                   ["q"] = "close",
+                  ["<C-d>"] = telescope_actions.delete_buffer,
             },
           },
           prompt_prefix = " ",
