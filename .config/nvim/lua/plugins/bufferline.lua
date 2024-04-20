@@ -8,6 +8,7 @@ return {
   },
   init = function ()
     h.nmap("<C-q>", "<CMD>bdelete<CR>", { silent = true, noremap = true })
+    h.nmap("<Leader>bp", "<CMD>BufferLinePick<CR>", { silent = true, noremap = true })
     h.nmap("<Leader>bco", "<CMD>BufferLineCloseOthers<CR>", { silent = true, noremap = true })
   end,
   opts = {
