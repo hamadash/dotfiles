@@ -5,5 +5,6 @@ return {
   init = function()
     h.nmap("*", "<Plug>(asterisk-z*)")
     h.vmap("*", "<Plug>(asterisk-z*)")
+    h.nmap("<Leader>*", "*cgn")
   end
 }
