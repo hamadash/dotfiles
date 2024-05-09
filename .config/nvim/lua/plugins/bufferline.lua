@@ -6,21 +6,20 @@ return {
   dependencies = {
     "nvim-tree/nvim-web-devicons"
   },
-  init = function ()
-    h.nmap("<C-q>", "<CMD>bdelete<CR>", { silent = true, noremap = true })
-    h.nmap("<Leader>bp", "<CMD>BufferLinePick<CR>", { silent = true, noremap = true })
-    h.nmap("<Leader>bco", "<CMD>BufferLineCloseOthers<CR>", { silent = true, noremap = true })
-  end,
   opts = {
-    numbers = "ordinal",
-    show_close_icon = true,
+    options = {
+      numbers = "ordinal",
+      show_close_icon = true,
+    },
   },
-  config = function ()
-    require('bufferline').setup({
-      options = {
-        numbers = "ordinal",
-        show_close_icon = true,
-      },
-    })
-  end,
+  keys = {
+    { "<C-q>", [["<CMD>bdelete<CR>"]], mode = "n", expr = true, replace_keycodes = false },
+    { "<S-h>", [["<CMD>BufferLineCyclePrev<CR>"]], mode = "n", expr = true, replace_keycodes = false },
+    { "<S-l>", [["<CMD>BufferLineCycleNext<CR>"]], mode = "n", expr = true, replace_keycodes = false },
+    { "[t", [["<CMD>BufferLineMovePrev<CR>"]], mode = "n", expr = true, replace_keycodes = false },
+    { "]t", [["<CMD>BufferLineMoveNext<CR>"]], mode = "n", expr = true, replace_keycodes = false },
+    { "<Leader>bp", [["<CMD>BufferLinePick<CR>"]], mode = "n", expr = true, replace_keycodes = false },
+    { "<Leader>bco", [["<CMD>BufferLineCloseOthers<CR>"]], mode = "n", expr = true, replace_keycodes = false },
+  },
+  lazy = false,
 }
