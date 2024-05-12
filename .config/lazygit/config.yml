@@ -1,0 +1,20 @@
+gui:
+  nerdFontsVersion: "3"
+  showFileIcons: true
+customCommands:
+  - key: 'u'
+    context: 'files'
+    description: 'stash include untracked'
+    command: 'git stash save --include-untracked "{{index .PromptResponses 0}}" '
+    prompts:
+      - type: 'input'
+        title: 'Stash Message'
+        initialValue: 'WIP'
+git:
+  paging:
+    colorArg: always
+    pager: delta --dark --paging=never
+  allBranchesLogCmd: git log --graph --color=always --date=format:'%Y-%m-%d %H:%M' --pretty=format:'%C(#a0a0a0 reverse)%h%Creset %C(cyan)%ad%Creset %C(#dd4814)%ae%Creset %C(yellow reverse)%d%Creset %n%C(green bold)%s%Creset%n' --
+  branchLogCmd: git log --graph --color=always --date=format:'%Y-%m-%d %H:%M' --pretty=format:'%C(#a0a0a0 reverse)%h%Creset %C(cyan)%ad%Creset %C(#dd4814)%ae%Creset %C(yellow reverse)%d%Creset %n%C(green bold)%s%Creset%n' {{branchName}} --
+os:
+  editPreset: 'nvim'

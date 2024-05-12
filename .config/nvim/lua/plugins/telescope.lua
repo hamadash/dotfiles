@@ -8,12 +8,13 @@ return {
       "nvim-lua/plenary.nvim",
       "kyazdani42/nvim-web-devicons",
       "nvim-telescope/telescope-ui-select.nvim",
-      "nvim-telescope/telescope-file-browser.nvim"
+      "nvim-telescope/telescope-file-browser.nvim",
+      "nvim-telescope/telescope-live-grep-args.nvim",
     },
     cmd = "Telescope",
     init = function()
       h.nmap("<Leader>ff", "<CMD>Telescope find_files<CR>")
-      h.nmap("<Leader>fg", "<CMD>Telescope live_grep<CR>")
+      h.nmap("<Leader>fg", "<CMD>lua require('telescope').extensions.live_grep_args.live_grep_args()<CR>")
       h.nmap("<Leader>fk", "<CMD>Telescope keymaps<CR>")
       h.nmap("<Leader>fh", "<CMD>Telescope help_tags<CR>")
       h.nmap("<Leader>fc", "<CMD>Telescope git_commits<CR>")
@@ -24,6 +25,8 @@ return {
     end,
     config = function()
       local telescope = require("telescope")
+      local telescope_actions = require("telescope.actions")
+      local lga_actions = require("telescope-live-grep-args.actions")
 
       telescope.setup({
         defaults = {
@@ -34,9 +37,11 @@ return {
                   ["<C-n>"] = "cycle_history_next",
                   ["<C-p>"] = "cycle_history_prev",
                   ["<C-q>"] = "close",
+                  ["<C-d>"] = telescope_actions.delete_buffer,
             },
             n = {
                   ["q"] = "close",
+                  ["<C-d>"] = telescope_actions.delete_buffer,
             },
           },
           prompt_prefix = " ",
@@ -69,11 +74,21 @@ return {
             hidden = true,
             respect_gitignore = false,
           },
+          live_grep_args = {
+            auto_quoting = true,
+            mappings = {
+              i = {
+                ["<C-k>"] = lga_actions.quote_prompt(),
+                ["<C-i>"] = lga_actions.quote_prompt({ postfix = " --iglob " }),
+              },
+            },
+          }
         }
       })
 
       telescope.load_extension("ui-select")
       telescope.load_extension("file_browser")
+      telescope.load_extension("live_grep_args")
     end
   }
 }

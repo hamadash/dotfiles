@@ -7,3 +7,9 @@ vim.api.nvim_create_autocmd({ "TermOpen" }, {
   pattern = { "term://*" },
   command = "startinsert",
 })
+
+-- Neovimの操作以外でファイルが変更されたときに自動で再読み込みする
+vim.api.nvim_create_autocmd({ "WinEnter", "FocusGained", "BufEnter" }, {
+  pattern = "*",
+  command = "checktime",
+})

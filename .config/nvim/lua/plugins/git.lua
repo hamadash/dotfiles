@@ -18,8 +18,6 @@ return {
           browse = "<Leader>go",
           -- Open pull request of the current branch
           open_pull_request = "<Leader>gp",
-          -- Create a pull request with the target branch is set in the `target_branch` option
-          create_pull_request = "<Leader>gn",
           -- Opens a new diff that compares against the current index
           diff = "<Leader>gd",
           -- Close git diff

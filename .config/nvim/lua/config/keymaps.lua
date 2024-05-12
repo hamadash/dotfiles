@@ -37,9 +37,6 @@ h.tmap("<ESC><ESC>", [[<C-\><C-n>]], opts_with("Exit terminal mode"))
 -- ノーマルモードに変更
 h.imap("jj", "<ESC>", opts_with("Switch to normal mode"))
 
--- ウィンドウ操作
-h.nmap("<C-q>", ":q<CR>", opts_with("Close window"))
-
 -- カーソル移動
 h.nmap("ss", "^", opts_with("Move to beginning of the line"))
 h.nmap("''", "$", opts_with("Move to end of the line"))
@@ -53,3 +50,6 @@ h.nmap("<M-j>", "<Cmd>move .+1<CR>==", opts_with(""))
 h.nmap("<M-k>", "<Cmd>move .-2<CR>==", opts_with(""))
 -- vim.keymap.set("x", "<M-j>", ":move '>+1<CR>gv=gv")
 -- vim.keymap.set("x", "<M-k>", ":move '<-2<CR>gv=gv")
+
+-- 現在のファイルの相対パスをコピー
+h.nmap("<Leader>cfp", "<Cmd>let @*=expand('%')<CR>", opts_with("Copy current file relative path"))
