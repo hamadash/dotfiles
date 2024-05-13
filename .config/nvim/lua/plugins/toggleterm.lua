@@ -1,13 +1,10 @@
-local h = require("util.helper")
-
 return {
   "kinsho/toggleterm.nvim",
-  version = "*",
-  init = function ()
-    h.nmap("<C-t>", "<Cmd>ToggleTerm<CR>", { silent = true, noremap = true })
-    h.tmap("<C-t>", "<C-\\><C-n><Cmd>ToggleTerm<CR>", { silent = true, noremap = true })
-  end,
   opts = {
     size = 20,
+  },
+  keys = {
+    { "<C-t>", [["<CMD>ToggleTerm<CR>"]], mode = "n", expr = true, replace_keycodes = false },
+    { "<C-t>", [["<C-\\><C-n><Cmd>ToggleTerm<CR>"]], mode = "t", expr = true, replace_keycodes = false },
   },
 }
