@@ -1,5 +1,3 @@
-local h = require("util.helper")
-
 return {
   "akinsho/bufferline.nvim",
   version = "*",
