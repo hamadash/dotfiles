@@ -82,3 +82,6 @@ export TMUX_TMPDIR=/tmp
 
 # lazygit
 alias lg="lazygit"
+
+# autosuggestions
+source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh

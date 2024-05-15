@@ -25,6 +25,7 @@ brew "tmux"
 brew "typos-cli"
 brew "wget"
 brew "zoxide"
+brew "zsh-autosuggestions"
 
 cask "alt-tab"
 cask "brave-browser"
