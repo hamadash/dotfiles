@@ -1,5 +1,5 @@
 return {
-  "kinsho/toggleterm.nvim",
+  "akinsho/toggleterm.nvim",
   opts = {
     size = 20,
   },
