@@ -11,7 +11,7 @@ return {
     },
   },
   keys = {
-    { "<C-q>", [["<CMD>bdelete<CR>"]], mode = "n", expr = true, replace_keycodes = false },
+    { "<C-q>", [["<CMD>bdelete<CR>"]], mode = "n", expr = true, remap = false, replace_keycodes = false },
     { "<S-h>", [["<CMD>BufferLineCyclePrev<CR>"]], mode = "n", expr = true, replace_keycodes = false },
     { "<S-l>", [["<CMD>BufferLineCycleNext<CR>"]], mode = "n", expr = true, replace_keycodes = false },
     { "[t", [["<CMD>BufferLineMovePrev<CR>"]], mode = "n", expr = true, replace_keycodes = false },
