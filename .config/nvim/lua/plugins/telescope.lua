@@ -36,7 +36,6 @@ return {
                   ["<C-k>"] = "move_selection_previous",
                   ["<C-n>"] = "cycle_history_next",
                   ["<C-p>"] = "cycle_history_prev",
-                  ["<C-q>"] = "close",
                   ["<C-d>"] = telescope_actions.delete_buffer,
             },
             n = {
