@@ -22,13 +22,13 @@ eval "$(rbenv init -)"
 export PATH="/usr/local/opt/mysql@5.7/bin:$PATH"
 
 # peco
-function peco-history-selection() {  
-    BUFFER=`history -n 1 | tail -r  | awk '!a[$0]++' | peco`  
-    CURSOR=$#BUFFER  
-    zle reset-prompt  
-}  
-zle -N peco-history-selection  
-bindkey '^R' peco-history-selection  
+function peco-history-selection() {
+    BUFFER=`history -n 1 | tail -r  | awk '!a[$0]++' | peco`
+    CURSOR=$#BUFFER
+    zle reset-prompt
+}
+zle -N peco-history-selection
+bindkey '^R' peco-history-selection
 
 # promptの表示設定
 # ref. https://qiita.com/mikan3rd/items/d41a8ca26523f950ea9d
@@ -75,7 +75,7 @@ vf() {
 }
 
 # zoxide
-eval "$(zoxide init zsh)" 
+eval "$(zoxide init zsh)"
 
 # tmux
 export TMUX_TMPDIR=/tmp
