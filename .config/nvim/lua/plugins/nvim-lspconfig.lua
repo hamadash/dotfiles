@@ -6,34 +6,39 @@ return {
     { "neovim/nvim-lspconfig" },
     { "hrsh7th/nvim-cmp" },
     { "hrsh7th/cmp-nvim-lsp" },
+    { "hrsh7th/cmp-buffer" },
     { "saadparwaiz1/cmp_luasnip" },
     { "L3MON4D3/LuaSnip" },
   },
   config = function()
-    local servers = {
-      "bashls",
-      "cssls",
-      "dockerls",
-      "docker_compose_language_service",
-      "graphql",
-      "html",
-      "lua_ls",
-      "markdown_oxide",
-      "ruby_lsp",
-      "rubocop",
-      "solargraph",
-      "sqlls",
-      "tsserver",
-      "typos-lsp",
-    }
+    -- ref. https://github.com/neovim/nvim-lspconfig/wiki/Snippets
 
     require("mason").setup()
     require("mason-lspconfig").setup {
-      ensure_installed = servers,
+      automatic_installation = true,
     }
 
     local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
+    local servers = {
+      "bashls",
+      "cssls",
+      "docker_compose_language_service",
+      "dockerls",
+      "eslint",
+      "graphql",
+      "html",
+      "jsonls",
+      "lua_ls",
+      "marksman",
+      "rubocop",
+      "ruby_lsp",
+      "solargraph",
+      "sqlls",
+      "tsserver",
+      "volar",
+      "yamlls",
+    }
     local lspconfig = require("lspconfig")
     for _, lsp in ipairs(servers) do
       lspconfig[lsp].setup {
@@ -81,6 +86,7 @@ return {
       sources = cmp.config.sources({
         { name = "nvim_lsp" },
         { name = "luasnip" },
+        { name = "buffer" },
       }),
     }
   end,
