@@ -53,3 +53,7 @@ h.nmap("<M-k>", "<Cmd>move .-2<CR>==", opts_with(""))
 
 -- 現在のファイルの相対パスをコピー
 h.nmap("<Leader>cfp", "<Cmd>let @*=expand('%')<CR>", opts_with("Copy current file relative path"))
+
+-- quickfix
+h.nmap("[q", "<CMD>cprevious<CR>", opts_with("Move previous quickfix."))
+h.nmap("]q", "<CMD>cnext<CR>", opts_with("Move next quickfix."))
