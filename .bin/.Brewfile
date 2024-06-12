@@ -6,6 +6,7 @@ tap "homebrew/core"
 
 brew "act"
 brew "fzf"
+brew "gh"
 brew "git"
 brew "git-delta"
 brew "git-secrets"
