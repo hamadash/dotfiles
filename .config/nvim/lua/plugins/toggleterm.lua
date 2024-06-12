@@ -5,7 +5,7 @@ return {
     direction = "float",
   },
   keys = {
-    { "<C-t>", [["<CMD>ToggleTerm<CR>"]], mode = "n", expr = true, replace_keycodes = false },
-    { "<C-t>", [["<CMD>ToggleTerm<CR>"]], mode = "t", expr = true, replace_keycodes = false },
+    { "<C-t>", "<CMD>ToggleTerm<CR>", mode = "n" },
+    { "<C-t>", "<CMD>ToggleTerm<CR>", mode = "t" },
   },
 }

@@ -1,9 +1,9 @@
 return {
   "pechorin/any-jump.vim",
-  init = function ()
+  init = function()
     vim.g.any_jump_disable_default_keybindings = 1
   end,
   keys = {
-    { "<Leader>aj", [["<CMD>AnyJump<CR>"]], mode = "n", expr = true, replace_keycodes = false },
+    { "<Leader>aj", "<CMD>AnyJump<CR>", mode = "n" },
   },
 }

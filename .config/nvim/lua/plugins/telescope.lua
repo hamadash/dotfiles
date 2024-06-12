@@ -1,5 +1,3 @@
-local h = require("util.helper")
-
 return {
   {
     "nvim-telescope/telescope.nvim",
@@ -12,17 +10,24 @@ return {
       "nvim-telescope/telescope-live-grep-args.nvim",
     },
     cmd = "Telescope",
-    init = function()
-      h.nmap("<Leader>ff", "<CMD>Telescope find_files<CR>")
-      h.nmap("<Leader>fg", "<CMD>lua require('telescope').extensions.live_grep_args.live_grep_args()<CR>")
-      h.nmap("<Leader>fk", "<CMD>Telescope keymaps<CR>")
-      h.nmap("<Leader>fh", "<CMD>Telescope help_tags<CR>")
-      h.nmap("<Leader>fc", "<CMD>Telescope git_commits<CR>")
-      h.nmap("<Leader>fb", "<CMD>Telescope buffers<CR>")
-      h.nmap("<Leader>fbb", function()
-        return "<CMD>Telescope file_browser cwd=" .. vim.fn.expand("%:p:h") .. "<CR>"
-      end, { silent = true, expr = true })
-    end,
+    keys = {
+      { "<Leader>ff", "<CMD>Telescope find_files<CR>",                                                mode = "n", desc = "Find files" },
+      { "<Leader>fg", "<CMD>lua require('telescope').extensions.live_grep_args.live_grep_args()<CR>", mode = "n", desc = "Live grep" },
+      { "<Leader>fk", "<CMD>Telescope keymaps<CR>",                                                   mode = "n", desc = "Show keymaps" },
+      { "<Leader>fh", "<CMD>Telescope help_tags<CR>",                                                 mode = "n", desc = "Show help tags" },
+      { "<Leader>fc", "<CMD>Telescope git_commits<CR>",                                               mode = "n", desc = "Show git commits" },
+      { "<Leader>fb", "<CMD>Telescope buffers<CR>",                                                   mode = "n", desc = "Show buffers" },
+      {
+        "<Leader>fbb",
+        function()
+          return "<CMD>Telescope file_browser cwd=" .. vim.fn.expand("%:p:h") .. "<CR>"
+        end,
+        mode = "n",
+        expr = true,
+        silent = true,
+        desc = "File browser in current directory"
+      },
+    },
     config = function()
       local telescope = require("telescope")
       local telescope_actions = require("telescope.actions")
@@ -32,15 +37,15 @@ return {
         defaults = {
           mappings = {
             i = {
-                  ["<C-j>"] = "move_selection_next",
-                  ["<C-k>"] = "move_selection_previous",
-                  ["<C-n>"] = "cycle_history_next",
-                  ["<C-p>"] = "cycle_history_prev",
-                  ["<C-d>"] = telescope_actions.delete_buffer,
+              ["<C-j>"] = "move_selection_next",
+              ["<C-k>"] = "move_selection_previous",
+              ["<C-n>"] = "cycle_history_next",
+              ["<C-p>"] = "cycle_history_prev",
+              ["<C-d>"] = telescope_actions.delete_buffer,
             },
             n = {
-                  ["q"] = "close",
-                  ["<C-d>"] = telescope_actions.delete_buffer,
+              ["q"] = "close",
+              ["<C-d>"] = telescope_actions.delete_buffer,
             },
           },
           prompt_prefix = " ",

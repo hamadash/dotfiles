@@ -1,5 +1,3 @@
-local h = require("util.helper")
-
 -- keymap reference
 --[[
 "" (an empty string)	mapmode-nvo	Normal, Visual, Select, Operator-pending
@@ -15,45 +13,39 @@ local h = require("util.helper")
 "t" Terminal
 --]]
 
-local function opts_with(desc)
-  return { desc = desc, noremap = true }
+local function set_keymap(mode, key, command, desc, expr)
+  vim.api.nvim_set_keymap(mode, key, command, { desc = desc, noremap = true, silent = true, expr = expr })
 end
 
 -- リーダーキー
 vim.g.mapleader = " "
 
--- タブ
--- h.nmap("]t", "<CMD>tabnext<CR>", opts_with("Switch to next tab"))
--- h.nmap("[t", "<CMD>tabprevious<CR>", opts_with("Switch to previous tab"))
--- h.nmap("<Leader>tn", "<CMD>tabnew<CR>", opts_with("Create new tab"))
--- h.nmap("<Leader>tw", "<CMD>tabclose<CR>", opts_with("Close tab"))
-
 -- ハイライト検索
-h.nmap("<Esc>", "<cmd>nohlsearch<CR>", opts_with("Unhilight"))
+set_keymap("n", "<Esc>", "<CMD>nohlsearch<CR>", "Unhighlight")
 
 -- ターミナル
-h.tmap("<ESC><ESC>", [[<C-\><C-n>]], opts_with("Exit terminal mode"))
+set_keymap("t", "<ESC><ESC>", [[<C-\><C-n>]], "Exit terminal mode")
 
 -- ノーマルモードに変更
-h.imap("jj", "<ESC>", opts_with("Switch to normal mode"))
+set_keymap("i", "jj", "<ESC>", "Switch to normal mode")
 
 -- カーソル移動
-h.nmap("ss", "^", opts_with("Move to beginning of the line"))
-h.nmap("''", "$", opts_with("Move to end of the line"))
+set_keymap("n", "ss", "^", "Move to beginning of the line")
+set_keymap("n", "''", "$", "Move to end of the line")
 
 -- 行移動
-h.nmap("j", "gj", opts_with(""))
-h.nmap("k", "gk", opts_with(""))
-h.nmap("gj", "j", opts_with(""))
-h.nmap("gk", "k", opts_with(""))
-h.nmap("<M-j>", "<Cmd>move .+1<CR>==", opts_with(""))
-h.nmap("<M-k>", "<Cmd>move .-2<CR>==", opts_with(""))
--- vim.keymap.set("x", "<M-j>", ":move '>+1<CR>gv=gv")
--- vim.keymap.set("x", "<M-k>", ":move '<-2<CR>gv=gv")
+set_keymap("n", "j", "gj", "")
+set_keymap("n", "k", "gk", "")
+set_keymap("n", "gj", "j", "")
+set_keymap("n", "gk", "k", "")
+set_keymap("n", "<M-j>", "<Cmd>move .+1<CR>==", "")
+set_keymap("n", "<M-k>", "<Cmd>move .-2<CR>==", "")
+set_keymap("x", "<M-j>", ":move '>+1<CR>gv=gv", "")
+set_keymap("x", "<M-k>", ":move '<-2<CR>gv=gv", "")
 
 -- 現在のファイルの相対パスをコピー
-h.nmap("<Leader>cfp", "<Cmd>let @*=expand('%')<CR>", opts_with("Copy current file relative path"))
+set_keymap("n", "<Leader>cfp", "<Cmd>let @*=expand('%')<CR>", "Copy current file relative path")
 
 -- quickfix
-h.nmap("[q", "<CMD>cprevious<CR>", opts_with("Move previous quickfix."))
-h.nmap("]q", "<CMD>cnext<CR>", opts_with("Move next quickfix."))
+set_keymap("n", "[q", "<CMD>cprevious<CR>", "Move previous quickfix")
+set_keymap("n", "]q", "<CMD>cnext<CR>", "Move next quickfix")

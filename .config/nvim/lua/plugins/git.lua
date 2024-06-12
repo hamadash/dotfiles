@@ -1,5 +1,3 @@
-local h = require("util.helper")
-
 return {
   {
     "dinhhuy258/git.nvim",
@@ -34,17 +32,13 @@ return {
     "lewis6991/gitsigns.nvim",
     event = "BufReadPost",
     dependencies = { "nvim-lua/plenary.nvim" },
-    init = function()
-      h.nmap("<Leader>hp", "<CMD>Gitsigns preview_hunk<CR>", { desc = "Show preview the hunk" })
-
-      for _, mode in pairs({ "n", "v" }) do
-        local key = mode .. "map"
-        h[key]("<Leader>hs", "<CMD>Gitsigns stage_hunk<CR>", { desc = "Stage the hunk" })
-        h[key]("<Leader>hu", "<CMD>Gitsigns undo_stage_hunk<CR>", { desc = "Undo the last call of stage hunk" })
-        h[key]("<Leader>hr", "<CMD>Gitsigns reset_hunk<CR>", { desc = "Reset the lines of the hunk" })
-        h[key]("<Leader>hb", "<CMD>Gitsigns blame_line<CR>", { desc = "Blame line" })
-      end
-    end,
+    keys = {
+      { "<Leader>hp", "<CMD>Gitsigns preview_hunk<CR>",    mode = "n",          desc = "Show preview the hunk" },
+      { "<Leader>hs", "<CMD>Gitsigns stage_hunk<CR>",      mode = { "n", "v" }, desc = "Stage the hunk" },
+      { "<Leader>hu", "<CMD>Gitsigns undo_stage_hunk<CR>", mode = { "n", "v" }, desc = "Undo the last call of stage hunk" },
+      { "<Leader>hr", "<CMD>Gitsigns reset_hunk<CR>",      mode = { "n", "v" }, desc = "Reset the lines of the hunk" },
+      { "<Leader>hb", "<CMD>Gitsigns blame_line<CR>",      mode = { "n", "v" }, desc = "Blame line" },
+    },
     config = function()
       require("gitsigns").setup({
         signs = {
@@ -65,8 +59,10 @@ return {
     "rhysd/git-messenger.vim",
     cmd = "GitMessenger",
     init = function()
-      h.nmap("<C-k>", "<CMD>GitMessenger<CR>", { desc = "Show git blame on the current line" })
       vim.g.git_messenger_floating_win_opts = { border = "single" }
     end,
+    keys = {
+      { "<C-k>", "<CMD>GitMessenger<CR>", mode = "n", desc = "Show git blame on the current line" },
+    },
   },
 }
