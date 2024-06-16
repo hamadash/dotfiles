@@ -1,5 +1,3 @@
-local h = require("util.helper")
-
 return {
   "stevearc/aerial.nvim",
   opts = {
@@ -11,7 +9,8 @@ return {
     "nvim-treesitter/nvim-treesitter",
     "nvim-tree/nvim-web-devicons"
   },
-  init = function ()
-    h.nmap("<Leader>a", "<CMD>AerialToggle!<CR>")
+  -- FIXME: keys で設定したいが、エラーが出てしまう。
+  init = function()
+    vim.api.nvim_set_keymap('n', '<Leader>a', '<CMD>AerialToggle<CR>', { noremap = true, silent = true })
   end
 }

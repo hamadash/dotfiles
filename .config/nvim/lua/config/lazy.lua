@@ -17,7 +17,7 @@ require("lazy").setup({
     {
       "LazyVim/LazyVim",
       opts = {
-        colorscheme = "everforest",
+        colorscheme = "tokyonight",
       },
     },
   },

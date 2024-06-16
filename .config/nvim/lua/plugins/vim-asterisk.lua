@@ -1,10 +1,9 @@
-local h = require("util.helper")
-
 return {
   "haya14busa/vim-asterisk",
-  init = function()
-    h.nmap("*", "<Plug>(asterisk-z*)")
-    h.vmap("*", "<Plug>(asterisk-z*)")
-    h.nmap("<Leader>*", "*cgn")
-  end
+  keys = {
+    { "*",         "<Plug>(asterisk-z*)",    mode = "n" },
+    { "*",         "<Plug>(asterisk-z*)",    mode = "v" },
+    { "<Leader>*", "<Plug>(asterisk-z*)cgn", mode = "n" },
+    { "<Leader>*", "<Plug>(asterisk-z*)cgn", mode = "v" },
+  },
 }
