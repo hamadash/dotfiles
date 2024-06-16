@@ -1,6 +1,6 @@
 return {
   "tyru/open-browser.vim",
   keys = {
-    { "gx", "<Plug>(openbrowser-smart-search)", mode = "n" },
+    { "gx", "<Plug>(openbrowser-smart-search)", mode = { "n", "v" } },
   },
 }
