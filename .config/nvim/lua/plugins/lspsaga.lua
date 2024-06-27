@@ -15,6 +15,9 @@ return {
       lightbulb = {
         enable = false,
       },
+      rename = {
+        in_select = false,
+      },
     })
   end,
   keys = {

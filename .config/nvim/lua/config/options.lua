@@ -40,3 +40,8 @@ vim.opt.hlsearch = true
 
 -- 補完入力
 vim.opt.completeopt = "menuone,noinsert"
+
+-- タブ等の可視化
+vim.opt.list = true
+vim.opt.listchars:append("tab:»-")
+vim.opt.listchars:append("eol:↲")

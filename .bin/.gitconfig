@@ -1,12 +1,12 @@
 [user]
-	name = hamadash
-	email = 60833258+hamadash@users.noreply.github.com
+  name = hamadash
+  email = 60833258+hamadash@users.noreply.github.com
 [alias]
   c = checkout
   b = branch
   st = status
   ss = stash
 [init]
-	defaultBranch = main
+  defaultBranch = main
 [delta]
   side-by-side = true

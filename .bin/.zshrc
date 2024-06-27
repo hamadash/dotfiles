@@ -41,6 +41,9 @@ fpath=(~/dotfiles/.zsh $fpath)
 zstyle ':completion:*:*:git:*' script ~/dotfiles/.zsh/git-completion.bash
 autoload -Uz compinit && compinit
 
+# GitHub CLIの補完
+eval "$(gh completion -s zsh)"
+
 # プロンプトのオプション表示設定
 GIT_PS1_SHOWDIRTYSTATE=true
 GIT_PS1_SHOWUNTRACKEDFILES=true
