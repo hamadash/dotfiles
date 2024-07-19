@@ -21,9 +21,9 @@ return {
   keys = {
     {
       "<C-n>", "<cmd>NvimTreeToggle<CR>", {
-        silent = true,
-        desc = "NvimTreeToggle"
-      }
+      silent = true,
+      desc = "NvimTreeToggle"
+    }
     },
   },
   opts = {
@@ -32,7 +32,7 @@ return {
       width = 35
     },
     filters = {
-      git_ignored = true,
+      git_ignored = false,
       dotfiles = false,
       custom = { "^.git$", "node_modules" },
     },

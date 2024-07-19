@@ -14,6 +14,8 @@ cp "${BASE_JSON_DIR}/karabiner.json" "${CONFIG_KARABINER_DIR}/karabiner.json"
 # Link complex_modifications json
 mkdir -p "${KARABINER_COMPLEX_MODIFICATIONS_DIR}"
 
+rm -rf "${KARABINER_COMPLEX_MODIFICATIONS_DIR}/"{,.[!.],..?}*
+
 for json_file in "${COMPLEX_MODIFICATIONS_JSONS_DIR}"/*.json; do
   ln -fnsv "${json_file}" "${KARABINER_COMPLEX_MODIFICATIONS_DIR}/$(basename "${json_file}")"
 done

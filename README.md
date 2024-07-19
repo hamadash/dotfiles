@@ -18,7 +18,7 @@ git clone https://github.com/hamadash/dotfiles.git
 cd dotfiles && make
 ```
 
-## Manually Setup
+## Manual Setup
 
 手動でセットアップが必要なもの。
 
