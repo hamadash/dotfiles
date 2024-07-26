@@ -32,6 +32,7 @@ return {
       width = 35
     },
     filters = {
+      -- TODO: tree に表示はするが、色を薄くするなどして目立たないようにしたい。
       git_ignored = false,
       dotfiles = false,
       custom = { "^.git$", "node_modules" },
