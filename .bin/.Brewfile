@@ -5,6 +5,7 @@ tap "homebrew/cask"
 tap "homebrew/core"
 
 brew "act"
+brew "asdf"
 brew "fzf"
 brew "gh"
 brew "git"

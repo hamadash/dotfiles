@@ -88,3 +88,7 @@ alias lg="lazygit"
 
 # autosuggestions
 source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+
+# asdf
+# ref. https://asdf-vm.com/guide/getting-started.html
+. /opt/homebrew/opt/asdf/libexec/asdf.sh
