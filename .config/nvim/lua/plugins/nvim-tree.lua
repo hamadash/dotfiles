@@ -20,10 +20,12 @@ return {
   },
   keys = {
     {
-      "<C-n>", "<cmd>NvimTreeToggle<CR>", {
-      silent = true,
-      desc = "NvimTreeToggle"
-    }
+      "<C-n>",
+      "<cmd>NvimTreeToggle<CR>",
+      {
+        silent = true,
+        desc = "NvimTreeToggle"
+      }
     },
   },
   opts = {
