@@ -28,6 +28,7 @@ brew "zsh-autosuggestions"
 
 cask "alt-tab"
 cask "brave-browser"
+cask "cursor"
 cask "deepl"
 cask "docker"
 cask "font-hack-nerd-font"
