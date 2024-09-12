@@ -14,7 +14,7 @@
 --]]
 
 local function set_keymap(mode, key, command, desc, expr)
-  vim.api.nvim_set_keymap(mode, key, command, { desc = desc, noremap = true, silent = true, expr = expr })
+	vim.api.nvim_set_keymap(mode, key, command, { desc = desc, noremap = true, silent = true, expr = expr })
 end
 
 -- リーダーキー
@@ -34,10 +34,6 @@ set_keymap("n", "ss", "^", "Move to beginning of the line")
 set_keymap("n", "''", "$", "Move to end of the line")
 
 -- 行移動
-set_keymap("n", "j", "gj", "")
-set_keymap("n", "k", "gk", "")
-set_keymap("n", "gj", "j", "")
-set_keymap("n", "gk", "k", "")
 set_keymap("n", "<M-j>", "<Cmd>move .+1<CR>==", "")
 set_keymap("n", "<M-k>", "<Cmd>move .-2<CR>==", "")
 set_keymap("x", "<M-j>", ":move '>+1<CR>gv=gv", "")
