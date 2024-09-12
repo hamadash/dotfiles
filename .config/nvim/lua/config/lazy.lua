@@ -36,8 +36,8 @@ else
 	require("lazy").setup({
 		spec = {
 			-- TODO: 後で整理する
+			-- そもそも LazyVim をやめたい
 			-- 一旦 LazyVim のデフォルトでインストールされるプラグインを全部無効化する
-			-- https://www.lazyvim.org/configuration/plugins だと disabled.lua に書けばできそうだが、うまくいかなかったので、とりあえずここに直接書いている。
 			{ "folke/trouble.nvim", enabled = false },
 			{ "folke/flash.nvim", enabled = false },
 			{ "folke/lazydev.nvim", enabled = false },
