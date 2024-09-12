@@ -16,9 +16,6 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 if vim.g.vscode then
-	require("config.options")
-	require("config.keymaps")
-	require("config.autocmds")
 	require("lazy").setup({
 		spec = {
 			{ import = "plugins.any-jump" },
