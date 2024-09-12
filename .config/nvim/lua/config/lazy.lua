@@ -1,4 +1,4 @@
--- see: https://lazy.folke.io/installation
+-- see: https://www.lazyvim.org/configuration/lazy.nvim
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not (vim.uv or vim.loop).fs_stat(lazypath) then
 	local lazyrepo = "https://github.com/folke/lazy.nvim.git"
@@ -16,6 +16,9 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 if vim.g.vscode then
+	require("config.options")
+	require("config.keymaps")
+	require("config.autocmds")
 	require("lazy").setup({
 		spec = {
 			{ import = "plugins.any-jump" },
@@ -26,40 +29,70 @@ if vim.g.vscode then
 			{ import = "plugins.hop" },
 			{ import = "plugins.nvim-anywise-reg" },
 			{ import = "plugins.open-browser" },
-			{ import = "plugins.scrollbar" },
 			{ import = "plugins.surround" },
 			{ import = "plugins.vim-asterisk" },
 			{ import = "plugins.vim-bracketed-paste" },
 			{ import = "plugins.vim-translator" },
-			{
-				"LazyVim/LazyVim",
-			},
 		},
 	})
 else
 	require("lazy").setup({
 		spec = {
+			-- TODO: 後で整理する
+			-- 一旦 LazyVim のデフォルトでインストールされるプラグインを全部無効化する
+			-- https://www.lazyvim.org/configuration/plugins だと disabled.lua に書けばできそうだが、うまくいかなかったので、とりあえずここに直接書いている。
+			{ "folke/trouble.nvim", enabled = false },
+			{ "folke/flash.nvim", enabled = false },
+			{ "folke/lazydev.nvim", enabled = false },
+			{ "folke/noice.nvim", enabled = false },
+			{ "catppuccin/nvim", enabled = false },
+			{ "hrsh7th/cmp-path", enabled = false },
+			{ "rcarriga/nvim-notify", enabled = false },
+			{ "stevearc/dressing.nvim", enabled = false },
+			{ "rafamadriz/friendly-snippets", enabled = false },
+			{ "Abstract-IDE/grug-far.nvim", enabled = false },
+			{ "luvit/luvit-meta", enabled = false },
+			{ "echasnovski/mini.ai", enabled = false },
+			{ "echasnovski/mini.icons", enabled = false },
+			{ "echasnovski/mini.pairs", enabled = false },
+			{ "nvim-neo-tree/neo-tree.nvim", enabled = false },
+			{ "MunifTanjim/nui.nvim", enabled = false },
+			{ "norcalli/nvim-snippets", enabled = false },
+			{ "folke/persistence.nvim", enabled = false },
+			{ "nvim-telescope/telescope-fzf-native.nvim", enabled = false },
+			{ "folke/todo-comments.nvim", enabled = false },
+			{ "JoosepAlviste/nvim-ts-context-commentstring", enabled = false },
+			-- add LazyVim and import its plugins
+			{ "LazyVim/LazyVim", import = "lazyvim.plugins" },
+			-- import/override with your plugins
 			{ import = "plugins" },
-			{
-				"LazyVim/LazyVim",
-				opts = {
-					colorscheme = "tokyonight",
+		},
+		defaults = {
+			-- By default, only LazyVim plugins will be lazy-loaded. Your custom plugins will load during startup.
+			-- If you know what you're doing, you can set this to `true` to have all your custom plugins lazy-loaded by default.
+			lazy = false,
+			-- It's recommended to leave version=false for now, since a lot the plugin that support versioning,
+			-- have outdated releases, which may break your Neovim install.
+			version = false, -- always use the latest git commit
+			-- version = "*", -- try installing the latest stable version for plugins that support semver
+		},
+		install = { colorscheme = { "tokyonight", "habamax" } },
+		checker = {
+			enabled = true,
+		},
+		performance = {
+			rtp = {
+				disabled_plugins = {
+					"gzip",
+					"tarPlugin",
+					"tohtml",
+					"tutor",
+					"zipPlugin",
 				},
 			},
 		},
-		-- TODO: なぜ書いたのか忘れてしまったため、一旦コメントアウトしているが、しばらくして不要そうなら消す
-		-- performance = {
-		--   rtp = {
-		--     disabled_plugins = {
-		--       "netrw",
-		--       "netrwPlugin",
-		--     },
-		--   },
-		-- },
 		ui = {
 			border = "single",
 		},
-		-- automatically check for plugin updates
-		checker = { enabled = true },
 	})
 end
