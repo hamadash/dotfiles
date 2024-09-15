@@ -1,4 +1,4 @@
--- see: https://www.lazyvim.org/configuration/lazy.nvim
+-- see: https://lazy.folke.io/installation
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not (vim.uv or vim.loop).fs_stat(lazypath) then
 	local lazyrepo = "https://github.com/folke/lazy.nvim.git"
@@ -36,8 +36,8 @@ else
 	require("lazy").setup({
 		spec = {
 			-- TODO: 後で整理する
-			-- そもそも LazyVim をやめたい
-			-- 一旦 LazyVim のデフォルトでインストールされるプラグインを全部無効化する
+			-- LazyVim をやめたいが、 lazygit の設定が便利なのでとりあえず入れている
+			-- ただ、 LazyVim のデフォルトでインストールされるプラグインは不要なことが多いので、一旦は全部無効化する
 			{ "folke/trouble.nvim", enabled = false },
 			{ "folke/flash.nvim", enabled = false },
 			{ "folke/lazydev.nvim", enabled = false },
@@ -64,20 +64,8 @@ else
 			-- import/override with your plugins
 			{ import = "plugins" },
 		},
-		install = { colorscheme = { "tokyonight", "habamax" } },
 		checker = {
 			enabled = true,
-		},
-		performance = {
-			rtp = {
-				disabled_plugins = {
-					"gzip",
-					"tarPlugin",
-					"tohtml",
-					"tutor",
-					"zipPlugin",
-				},
-			},
 		},
 		ui = {
 			border = "single",
