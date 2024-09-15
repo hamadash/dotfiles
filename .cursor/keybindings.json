@@ -66,4 +66,20 @@
     "command": "-extension.insertLogStatement",
     "when": "editorTextFocus"
   },
+  {
+    "key": "ctrl+s",
+    "command": "-vscode-neovim.send",
+    "when": "editorTextFocus && neovim.ctrlKeysNormal.s && neovim.init && neovim.mode != 'insert' && editorLangId not in 'neovim.editorLangIdExclusions'"
+  },
+  {
+    "key": "ctrl+s",
+    "command": "-vscode-neovim.send",
+    "when": "editorTextFocus && neovim.ctrlKeysInsert.s && neovim.init && neovim.mode == 'insert' && editorLangId not in 'neovim.editorLangIdExclusions'"
+  },
+  {
+    "key": "ctrl+s",
+    "command": "vscode-neovim.send",
+    "args": "<Esc>:w<CR>",
+    "when": "editorTextFocus && neovim.mode != ''"
+  }
 ]
