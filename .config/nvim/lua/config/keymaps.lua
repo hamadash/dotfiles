@@ -57,6 +57,9 @@ set_keymap("n", "Y", "y$", { desc = "Copy from current position to end of line" 
 -- 括弧の始点、終点の移動
 set_keymap("n", "M", "%", { desc = "Jump bracket" })
 
+-- x で削除してもレジスタに入れない
+set_keymap("n", "x", '"_x', { desc = "Delete without yanking" })
+
 -- LazyVim setteings start --
 -- LazyVim のキーマップが便利なので流用
 -- https://www.lazyvim.org/configuration/general#keymaps
