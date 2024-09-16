@@ -54,6 +54,7 @@ set_keymap("n", "]q", "<CMD>cnext<CR>", { desc = "Move next quickfix" })
 -- コピー
 set_keymap("n", "Y", "y$", { desc = "Copy from current position to end of line" })
 
+-- 括弧の始点、終点の移動
 set_keymap("n", "M", "%", { desc = "Jump bracket" })
 
 -- LazyVim setteings start --
