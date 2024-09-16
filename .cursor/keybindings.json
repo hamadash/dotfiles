@@ -107,5 +107,16 @@
     "command": "-vscode-neovim.send-cmdline",
     "when": "neovim.init && neovim.mode == 'cmdline'"
   },
+  {
+    "key": "j",
+    "command": "vscode-neovim.send",
+    "args": "gj",
+    "when": "editorTextFocus && neovim.mode == 'normal'"
+  },
+  {
+    "key": "k",
+    "command": "vscode-neovim.send",
+    "args": "gk",
+    "when": "editorTextFocus && neovim.mode == 'normal'"
   }
 ]
