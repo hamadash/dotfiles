@@ -118,5 +118,10 @@
     "command": "vscode-neovim.send",
     "args": "gk",
     "when": "editorTextFocus && neovim.mode == 'normal'"
+  },
+  {
+    "key": "shift+cmd+k",
+    "command": "-aipopup.action.modal.generate",
+    "when": "editorFocus && !composerBarIsVisible && !composerControlPanelIsVisible"
   }
 ]
