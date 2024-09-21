@@ -3,6 +3,7 @@ setopt no_beep
 setopt auto_pushd
 setopt pushd_ignore_dups
 setopt hist_ignore_dups
+setopt hist_ignore_space # コマンドの先頭に半角スペースがある場合に履歴に残さない
 setopt inc_append_history
 
 # nvim
