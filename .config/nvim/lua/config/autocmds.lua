@@ -26,3 +26,11 @@ vim.api.nvim_create_autocmd({ "ColorScheme" }, {
 	pattern = { "*" },
 	command = [[highlight default ExtraWhitespace ctermbg=202 ctermfg=202 guibg=salmon]],
 })
+
+-- LazyVim のデフォルト値を上書き
+-- options.lua だと読み込み順的に上書きできないため、ここで指定する
+vim.api.nvim_create_autocmd("VimEnter", {
+	callback = function()
+		vim.opt.relativenumber = false
+	end,
+})
