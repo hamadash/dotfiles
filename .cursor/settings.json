@@ -67,7 +67,7 @@
   "vscode-neovim.neovimExecutablePaths.darwin": "/opt/homebrew/bin/nvim",
   "vscode-neovim.neovimInitVimPaths.darwin": "/Users/shohamada/.config/nvim/init.lua",
   "rubocop.mode": "enableUnconditionally",
-  "rubocop.commandPath": "./api/bin/rubocop",
+  "rubocop.commandPath": "rubocop",
   "ruby.rubocop.executePath": "/Users/shohamada/.rbenv/shims/",
   "rubyLsp.formatter": "auto",
   "ruby.rubocop.configFilePath": "api/.rubocop.yml",
