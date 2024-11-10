@@ -69,13 +69,15 @@
   "rubocop.mode": "enableUnconditionally",
   "rubocop.commandPath": "rubocop",
   "ruby.rubocop.executePath": "/Users/shohamada/.rbenv/shims/",
-  "rubyLsp.formatter": "auto",
-  "ruby.rubocop.configFilePath": "api/.rubocop.yml",
+  "rubyLsp.formatter": "none",
   "editor.defaultFormatter": "Shopify.ruby-lsp",
   "workbench.activityBar.orientation": "vertical",
   "vscode-neovim.compositeKeys": {
     "jj": {
       "command": "vscode-neovim.escape"
     },
+  },
+  "[ruby]": {
+    "editor.defaultFormatter": "rubocop.vscode-rubocop"
   },
 }
