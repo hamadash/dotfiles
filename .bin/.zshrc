@@ -6,8 +6,14 @@ setopt hist_ignore_dups
 setopt hist_ignore_space # コマンドの先頭に半角スペースがある場合に履歴に残さない
 setopt inc_append_history
 
+# Docker
+alias d='docker'
+alias dcom='docker-compose'
+
+# git
+alias g='git'
+
 # nvim
-alias vi="nvim"
 alias vim="nvim"
 alias view="nvim -R"
 
