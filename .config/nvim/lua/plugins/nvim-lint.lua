@@ -3,6 +3,13 @@ return {
 	config = function()
 		local lint = require("lint")
 
+		lint.linters.textlint = {
+			cmd = "textlint",
+			stdin = true,
+			stream = "both",
+			ignore_exitcode = true,
+		}
+
 		lint.linters_by_ft = {
 			javascript = { "eslint_d" },
 			typescript = { "eslint_d" },
