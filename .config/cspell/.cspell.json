@@ -1,7 +1,8 @@
 {
     "version": "0.2",
     "language": "en",
-    "ignoreWords": [
+    "ignoreWords": [],
+    "words": [
+        "rubocop"
     ]
 }
-

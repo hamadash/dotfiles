@@ -80,4 +80,7 @@
   "[ruby]": {
     "editor.defaultFormatter": "rubocop.vscode-rubocop"
   },
+  "cSpell.userWords": [
+    "rubocop"
+  ],
 }
