@@ -73,11 +73,9 @@ export PATH=~/dotfiles/custom_commands:$PATH
 export FZF_DEFAULT_COMMAND='rg --files --hidden --glob "!.git"'
 export FZF_DEFAULT_OPTS='--height 40% --reverse --border'
 
-fd() {
-  local dir
-  dir=$(find ${1:-.} -path '*/\.*' -prune \
-                  -o -type d -print 2> /dev/null | fzf +m) &&
-  cd "$dir"
+fcd() {
+    local dir
+    dir=$(find . -type d -name '.*' -o -type d | fzf) && cd "$dir"
 }
 
 vf() {
