@@ -8,7 +8,7 @@ setopt inc_append_history
 
 # Docker
 alias d='docker'
-alias dcom='docker-compose'
+alias dcom='docker compose'
 
 # git
 alias g='git'
