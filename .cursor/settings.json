@@ -83,4 +83,19 @@
   "cSpell.userWords": [
     "rubocop"
   ],
+  "gitlens.views.tags.files.layout": "list",
+  "gitlens.views.tags.files.icon": "status",
+  "gitlens.views.stashes.files.compact": false,
+  "gitlens.views.scm.grouped.views": {
+    "commits": true,
+    "branches": true,
+    "remotes": true,
+    "stashes": false,
+    "tags": true,
+    "worktrees": true,
+    "contributors": true,
+    "repositories": false,
+    "searchAndCompare": false,
+    "launchpad": false
+  },
 }
