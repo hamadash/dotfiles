@@ -98,4 +98,5 @@
     "searchAndCompare": false,
     "launchpad": false
   },
+  "solargraph.diagnostics": true,
 }
