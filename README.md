@@ -71,6 +71,22 @@ sh karabiner_elements/sync.sh
 
 その後、新端末で rayconfig ファイルを手動でインポートする。
 
+### VSCode
+
+旧端末で以下を実行し、出力結果を `.vscode/extensions` に貼り付けておく。
+
+```sh
+code --list-extensions | pbcopy
+```
+
+### Cursor
+
+旧端末で以下を実行し、出力結果を `.cursor/extensions` に貼り付けておく。
+
+```sh
+cursor --list-extensions | pbcopy
+```
+
 ### dotfile とは関係ないが新端末でやっておくとよいこと
 
 - Guest 用のログインアカウントを作成する

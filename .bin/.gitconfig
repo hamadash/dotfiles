@@ -6,6 +6,7 @@
   b = branch
   st = status
   ss = stash
+  fcb = "!f() { git fetch && git checkout -b \"$1\" \"origin/$1\"; }; f"
 [init]
   defaultBranch = main
 [delta]

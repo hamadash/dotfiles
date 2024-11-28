@@ -3,10 +3,17 @@ setopt no_beep
 setopt auto_pushd
 setopt pushd_ignore_dups
 setopt hist_ignore_dups
+setopt hist_ignore_space # コマンドの先頭に半角スペースがある場合に履歴に残さない
 setopt inc_append_history
 
+# Docker
+alias d='docker'
+alias dcom='docker compose'
+
+# git
+alias g='git'
+
 # nvim
-alias vi="nvim"
 alias vim="nvim"
 alias view="nvim -R"
 
@@ -66,11 +73,9 @@ export PATH=~/dotfiles/custom_commands:$PATH
 export FZF_DEFAULT_COMMAND='rg --files --hidden --glob "!.git"'
 export FZF_DEFAULT_OPTS='--height 40% --reverse --border'
 
-fd() {
-  local dir
-  dir=$(find ${1:-.} -path '*/\.*' -prune \
-                  -o -type d -print 2> /dev/null | fzf +m) &&
-  cd "$dir"
+fcd() {
+    local dir
+    dir=$(find . -type d -name '.*' -o -type d | fzf) && cd "$dir"
 }
 
 vf() {
@@ -88,3 +93,7 @@ alias lg="lazygit"
 
 # autosuggestions
 source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+
+# asdf
+# ref. https://asdf-vm.com/guide/getting-started.html
+. /opt/homebrew/opt/asdf/libexec/asdf.sh

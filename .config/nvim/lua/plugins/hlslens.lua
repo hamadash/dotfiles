@@ -1,3 +1,3 @@
 return {
-  "kevinhwang91/nvim-hlslens",
+	"kevinhwang91/nvim-hlslens",
 }
