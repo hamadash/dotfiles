@@ -1,4 +1,3 @@
-FaroSystemAppender constructor
 alefragnani.project-manager
 apollographql.vscode-apollo
 asvetliakov.vscode-neovim
@@ -6,11 +5,13 @@ ban.spellright
 bung87.rails
 bung87.vscode-gemfile
 cardinal90.multi-cursor-case-preserve
+castwide.solargraph
 chakrounanas.turbo-console-log
 chrisdias.vscode-opennewinstance
 christian-kohler.npm-intellisense
 christian-kohler.path-intellisense
 corschenzi.mermaid-graphical-editor
+davidanson.vscode-markdownlint
 dbaeumer.vscode-eslint
 donjayamanne.githistory
 dracula-theme.theme-dracula
@@ -35,6 +36,8 @@ kaiwood.endwise
 labnol.google-apps-script
 mariusalchimavicius.json-to-ts
 marp-team.marp-vscode
+mechatroner.rainbow-csv
+meezilla.json
 meowtec.schema-language
 mhutchie.git-graph
 mikestead.dotenv
@@ -48,12 +51,14 @@ ms-vscode-remote.remote-containers
 ms-vscode.live-server
 ms-vscode.makefile-tools
 ms-vscode.remote-repositories
+ms-vscode.vscode-typescript-next
 msjsdiag.vscode-react-native
 natqe.reload
 nhoizey.gremlins
 oderwat.indent-rainbow
 oouo-diogo-perdigao.docthis
 pkief.material-icon-theme
+postman.postman-for-vscode
 pulkitgangwar.nextjs-snippets
 redhat.vscode-xml
 ritwickdey.liveserver
@@ -63,7 +68,9 @@ shopify.ruby-lsp
 sianglim.slim
 streetsidesoftware.code-spell-checker
 stylelint.vscode-stylelint
+timonwong.shellcheck
 tomoki1207.pdf
+usernamehw.errorlens
 usernamehw.remove-empty-lines
 vscode-icons-team.vscode-icons
 vue.volar
