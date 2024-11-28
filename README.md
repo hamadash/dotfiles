@@ -81,7 +81,7 @@ code --list-extensions | pbcopy
 
 ### Cursor
 
-旧端末で以下を実行し、出力結果を `.vscode/extensions` に貼り付けておく。
+旧端末で以下を実行し、出力結果を `.cursor/extensions` に貼り付けておく。
 
 ```sh
 cursor --list-extensions | pbcopy
