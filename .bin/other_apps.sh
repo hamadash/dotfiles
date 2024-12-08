@@ -33,7 +33,6 @@ function app_dl_curl {
   fi
 }
 
-app_dl_curl "Clipy" https://github.com/Clipy/Clipy/releases/download/1.2.1/Clipy_1.2.1.dmg
 app_dl_curl "Logi Options+" https://download01.logi.com/web/ftp/pub/techsupport/optionsplus/logioptionsplus_installer.zip
 app_dl_curl "Obsidian" https://github.com/obsidianmd/obsidian-releases/releases/download/v1.5.8/Obsidian-1.5.8-universal.dmg
 app_dl_curl "Rectangle" https://github.com/rxhanson/Rectangle/releases/download/v0.76/Rectangle0.76.dmg
