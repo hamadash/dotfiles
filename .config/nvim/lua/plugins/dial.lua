@@ -71,8 +71,7 @@ return {
 				augend.constant.alias.ja_weekday_full, -- 月曜日, 火曜日, ..., 日曜日
 				augend.date.alias["%Y/%m/%d"], -- date (2022/02/19, etc.)
 				augend.date.alias["%Y-%m-%d"], -- date (2022-02-19, etc.)
-				augend.date.alias["%Y年%m月%d日"], -- date (2022年02月19日, etc.)
-				augend.integer.alias.hex, -- nonnegative hex number  (0x01, 0x1a1f, etc.)
+				augend.date.alias["%Y年%-m月%-d日"], -- date (2022年02月19日, etc.)
 				augend.constant.new({
 					elements = { "&&", "||" },
 					word = false,
