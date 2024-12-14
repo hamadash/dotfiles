@@ -19,6 +19,7 @@ if vim.g.vscode then
 	require("lazy").setup({
 		spec = {
 			{ import = "plugins.any-jump" },
+			{ import = "plugins.clever-f" },
 			{ import = "plugins.colorizer" },
 			{ import = "plugins.comment" },
 			{ import = "plugins.dial" },
