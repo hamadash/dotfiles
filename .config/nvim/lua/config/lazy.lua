@@ -28,6 +28,7 @@ if vim.g.vscode then
 			{ import = "plugins.hop" },
 			{ import = "plugins.nvim-anywise-reg" },
 			{ import = "plugins.open-browser" },
+			{ import = "plugins.quick-scope" },
 			{ import = "plugins.surround" },
 			{ import = "plugins.vim-asterisk" },
 			{ import = "plugins.vim-bracketed-paste" },
