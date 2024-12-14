@@ -21,6 +21,7 @@ if vim.g.vscode then
 			{ import = "plugins.any-jump" },
 			{ import = "plugins.colorizer" },
 			{ import = "plugins.comment" },
+			{ import = "plugins.dial" },
 			{ import = "plugins.git" },
 			{ import = "plugins.hlslens" },
 			{ import = "plugins.hop" },
