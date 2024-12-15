@@ -40,13 +40,6 @@ ls -l ${HOME}/Library/Application\ Support/Google/Chrome/Default/Extensions | aw
 ls -l ${HOME}/Library/Application\ Support/BraveSoftware/Brave-Browser/Default/Extensions | awk '{print $9}' | sed 's/^/https:\/\/chrome.google.com\/webstore\/detail\//g' | sed -e '1,2d' > ~/dotfiles/brave/extensions
 ```
 
-### Clipy
-
-旧端末で `Edit Snippets` の `Export` で、 clipy ディレクトリに snippets.xml をエクスポートする。
-
-その後、新端末で snippets.xml を手動でインポートする。
-
-
 ### Karabiner-Elements
 
 旧端末で以下のコマンドを実行し、 karabiner_elements ディレクトリに各種設定ファイルをエクスポートする。

@@ -71,11 +71,28 @@
   },
   "editor.accessibilitySupport": "off",
   "vscode-neovim.neovimExecutablePaths.darwin": "/opt/homebrew/bin/nvim",
-  "vscode-neovim.neovimInitVimPaths.darwin": "/Users/shohamada/.config/nvim/init.vim",
+  "vscode-neovim.neovimInitVimPaths.darwin": "/Users/shohamada/.config/nvim/init.lua",
   "rubocop.mode": "enableUnconditionally",
-  "rubocop.commandPath": "./api/bin/rubocop",
+  "rubocop.commandPath": "bin/rubocop",
   "ruby.rubocop.executePath": "/Users/shohamada/.rbenv/shims/",
   "rubyLsp.formatter": "auto",
-  "ruby.rubocop.configFilePath": "api/.rubocop.yml",
+  "ruby.rubocop.configFilePath": ".rubocop.yml",
   "editor.defaultFormatter": "Shopify.ruby-lsp",
+  "gitlens.views.scm.grouped.views": {
+    "commits": true,
+    "branches": true,
+    "remotes": true,
+    "stashes": false,
+    "tags": true,
+    "worktrees": true,
+    "contributors": true,
+    "repositories": false,
+    "searchAndCompare": false,
+    "launchpad": false
+  },
+  "vscode-neovim.compositeKeys": {
+    "jj": {
+      "command": "vscode-neovim.escape"
+    },
+  },
 }

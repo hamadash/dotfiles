@@ -74,7 +74,6 @@ return {
 							["<C-d>"] = telescope_actions.delete_buffer,
 						},
 						n = {
-							["q"] = "close",
 							["<C-d>"] = telescope_actions.delete_buffer,
 						},
 					},

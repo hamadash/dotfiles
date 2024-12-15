@@ -26,7 +26,7 @@ export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
 
 # mysql
-export PATH="/usr/local/opt/mysql@5.7/bin:$PATH"
+export PATH="/usr/local/opt/mysql@8.0/bin:$PATH"
 
 # peco
 function peco-history-selection() {
