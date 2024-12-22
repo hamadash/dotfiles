@@ -99,4 +99,5 @@
     "launchpad": false
   },
   "solargraph.diagnostics": true,
+  "clock.dateFormat": "hh:MM:ss TT",
 }
