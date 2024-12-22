@@ -60,6 +60,9 @@ set_keymap("n", "M", "%", { desc = "Jump bracket" })
 -- x で削除してもレジスタに入れない
 set_keymap("n", "x", '"_x', { desc = "Delete without yanking" })
 
+-- カーソルを移動せずにファイル全体をヤンク
+set_keymap("n", "<Leader>ay", "<CMD>:%y<CR>", { desc = "Yank all in this file" })
+
 -- LazyVim setteings start --
 -- LazyVim のキーマップが便利なので流用
 -- https://www.lazyvim.org/configuration/general#keymaps
