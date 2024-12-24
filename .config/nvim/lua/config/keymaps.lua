@@ -61,7 +61,7 @@ set_keymap("n", "M", "%", { desc = "Jump bracket" })
 set_keymap("n", "x", '"_x', { desc = "Delete without yanking" })
 
 -- カーソルを移動せずにファイル全体をヤンク
-set_keymap("n", "<Leader>ay", "<CMD>:%y<CR>", { desc = "Yank all in this file" })
+set_keymap("n", "<Leader>ya", "<CMD>:%y<CR>", { desc = "Yank all in this file" })
 
 -- LazyVim setteings start --
 -- LazyVim のキーマップが便利なので流用
