@@ -184,5 +184,9 @@
   {
     "key": "cmd+k cmd+\\",
     "command": "-workbench.action.splitEditorDown"
+  },
+  {
+    "key": "ctrl+q",
+    "command": "-workbench.action.quickOpenView"
   }
 ]
