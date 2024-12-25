@@ -77,6 +77,11 @@ return {
 					word = true,
 					cyclic = true,
 				}),
+				augend.constant.new({
+					elements = { "if", "unless" },
+					word = true,
+					cyclic = true,
+				}),
 			},
 		})
 	end,
