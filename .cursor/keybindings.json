@@ -179,7 +179,7 @@
     "key": "cmd+k cmd+p",
     "command": "workbench.action.terminal.sendSequence",
     "args": {
-      "text": "gh pr view -w $(gh pr list -s all -S $(git blame -L ${lineNumber},${lineNumber} ${relativeFile} | awk '{print $1}') | awk '{print $1}')\n"
+      "text": "for pr in $(gh pr list -s all -S $(git blame -L ${lineNumber},${lineNumber} ${relativeFile} | awk '{print $1}') | awk '{print $1}'); do gh pr view -w \"$pr\"; done\n"
     }
   }
 ]
