@@ -181,5 +181,9 @@
     "args": {
       "text": "for pr in $(gh pr list -s all -S $(git blame -L ${lineNumber},${lineNumber} ${relativeFile} | awk '{print $1}') | awk '{print $1}'); do gh pr view -w \"$pr\"; done\n"
     }
+  },
+  {
+    "key": "shift+cmd+k",
+    "command": "-composer.openAsBar"
   }
 ]
