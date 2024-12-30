@@ -100,4 +100,6 @@
   },
   "solargraph.diagnostics": true,
   "clock.dateFormat": "hh:MM:ss TT",
+  "gitHistory.sideBySide": true,
+  "diffEditor.renderSideBySideInlineBreakpoint": 0,
 }
