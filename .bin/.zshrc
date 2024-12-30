@@ -60,11 +60,6 @@ GIT_PS1_SHOWUPSTREAM=auto
 # プロンプトの表示設定
 setopt PROMPT_SUBST ; PS1='[%n %c$(__git_ps1 "(%s)")]\$'
 
-# コマンド履歴を重複して登録しない
-setopt hist_ignore_dups
-# スペースで始まるコマンド行はヒストリリストから削除
-setopt hist_ignore_space
-
 # カスタムコマンド
 export PATH=~/dotfiles/custom_commands:$PATH
 
