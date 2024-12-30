@@ -38,6 +38,7 @@ zle -N peco-history-selection
 bindkey '^R' peco-history-selection
 
 # promptの表示設定
+# -- start --
 # ref. https://qiita.com/mikan3rd/items/d41a8ca26523f950ea9d
 
 # git-promptの読み込み
@@ -59,6 +60,7 @@ GIT_PS1_SHOWUPSTREAM=auto
 
 # プロンプトの表示設定
 setopt PROMPT_SUBST ; PS1='[%n %c$(__git_ps1 "(%s)")]\$'
+# -- end --
 
 # カスタムコマンド
 export PATH=~/dotfiles/custom_commands:$PATH
