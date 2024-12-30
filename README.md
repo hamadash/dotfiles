@@ -60,7 +60,7 @@ sh karabiner_elements/sync.sh
 
 ### Raycast
 
-旧端末で `Export Settings & Data` で、 raycast ディレクトリに rayconfig ファイルをエクスポートする。
+旧端末で `Export Settings & Data` から rayconfig ファイルをエクスポートする。
 
 その後、新端末で rayconfig ファイルを手動でインポートする。
 

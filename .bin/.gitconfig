@@ -7,6 +7,8 @@
   st = status
   ss = stash
   fcb = "!f() { git fetch && git checkout -b \"$1\" \"origin/$1\"; }; f"
+  searchpr = "!f(){ git log --oneline --merges --reverse --ancestry-path $1..HEAD | grep \"Merge pull request\" | head -n 1 | cut -d\" \" -f 5;};f"
+  openpr = "!f(){ git searchpr $1 | xargs -I ISSUE_NUMBER gh pr view ISSUE_NUMBER --web;};f"
 [init]
   defaultBranch = main
 [delta]
