@@ -32,6 +32,7 @@ if vim.g.vscode then
 			{ import = "plugins.surround" },
 			{ import = "plugins.vim-asterisk" },
 			{ import = "plugins.vim-bracketed-paste" },
+			{ import = "plugins.vim-maketable" },
 			{ import = "plugins.vim-translator" },
 		},
 	})
