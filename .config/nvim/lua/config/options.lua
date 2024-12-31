@@ -45,3 +45,6 @@ vim.opt.completeopt = "menuone,noinsert"
 vim.opt.list = true
 -- vim.opt.listchars:append("tab:»-")
 vim.opt.listchars:append("eol:↲")
+
+-- 矩形選択でテキストがないところも選択可能にする
+vim.opt.virtualedit = "block"
