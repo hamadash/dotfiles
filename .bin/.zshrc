@@ -90,6 +90,8 @@ alias lg="lazygit"
 
 # autosuggestions
 source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+# highlighting
+source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # asdf
 # ref. https://asdf-vm.com/guide/getting-started.html
