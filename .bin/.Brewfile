@@ -28,6 +28,7 @@ brew "typos-cli"
 brew "wget"
 brew "zoxide"
 brew "zsh-autosuggestions"
+brew "zsh-syntax-highlighting"
 
 cask "alt-tab"
 cask "brave-browser"
