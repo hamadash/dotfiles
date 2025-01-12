@@ -56,7 +56,7 @@
   "[json]": {
     "editor.defaultFormatter": "vscode.json-language-features"
   },
-  "rubyLsp.bundleGemfile": "../ruby-lsp/Gemfile",
+  "rubyLsp.bundleGemfile": "../.ruby-lsp/Gemfile",
   "chatgpt.lang": "en",
   "window.zoomLevel": 1,
   "vscodeGoogleTranslate.preferredLanguage": "Japanese",
@@ -102,4 +102,5 @@
   "clock.dateFormat": "hh:MM:ss TT",
   "gitHistory.sideBySide": true,
   "diffEditor.renderSideBySideInlineBreakpoint": 0,
+  "ruby.rubocop.configFilePath": ".rubocop.yml",
 }
