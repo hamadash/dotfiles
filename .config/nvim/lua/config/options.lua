@@ -48,3 +48,6 @@ vim.opt.listchars:append("eol:↲")
 
 -- 矩形選択でテキストがないところも選択可能にする
 vim.opt.virtualedit = "block"
+
+-- 外部で変更されたファイルを自動で読み込む
+vim.opt.autoread = true
