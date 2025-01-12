@@ -6,6 +6,8 @@ local config = wezterm.config_builder()
 
 config.font_size = 14.0
 config.window_background_opacity = 0.80
+-- TODO: 効いていない?
+config.window_close_confirmation = "AlwaysPrompt"
 config.window_decorations = "RESIZE"
 
 -- 起動時のウィンドウサイズ TODO: window:maximize() が使える？
