@@ -92,5 +92,5 @@
       "command": "vscode-neovim.escape"
     },
   },
-  "clock.dateFormat": "HH:MM:ss",
+  "clock.dateFormat": "yyyy/mm/dd(ddd) HH:MM:ss",
 }
