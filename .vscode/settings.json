@@ -62,7 +62,6 @@
   "[json]": {
     "editor.defaultFormatter": "vscode.json-language-features"
   },
-  "rubyLsp.bundleGemfile": "../ruby-lsp/Gemfile",
   "chatgpt.lang": "en",
   "window.zoomLevel": 1,
   "vscodeGoogleTranslate.preferredLanguage": "Japanese",
@@ -74,9 +73,7 @@
   "vscode-neovim.neovimInitVimPaths.darwin": "${HOME}/.config/nvim/init.lua",
   "rubocop.mode": "enableUnconditionally",
   "rubocop.commandPath": "bin/rubocop",
-  "ruby.rubocop.executePath": "~/.rbenv/shims/",
   "rubyLsp.formatter": "auto",
-  "ruby.rubocop.configFilePath": ".rubocop.yml",
   "editor.defaultFormatter": "Shopify.ruby-lsp",
   "gitlens.views.scm.grouped.views": {
     "commits": true,
