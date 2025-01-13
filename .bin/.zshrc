@@ -98,6 +98,9 @@ precmd() {
   print -Pn "\e]0;%~\a"
 }
 
+# libpg
+export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
+
 # asdf
 # ref. https://asdf-vm.com/guide/getting-started.html
 . /opt/homebrew/opt/asdf/libexec/asdf.sh
