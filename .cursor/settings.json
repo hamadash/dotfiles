@@ -101,6 +101,4 @@
   "clock.dateFormat": "hh:MM:ss TT",
   "gitHistory.sideBySide": true,
   "diffEditor.renderSideBySideInlineBreakpoint": 0,
-  "ruby.rubocop.configFilePath": ".rubocop.yml",
-  "ruby.rubocop.executePath": "~/.rbenv/shims/",
 }
