@@ -74,7 +74,7 @@
   "vscode-neovim.neovimInitVimPaths.darwin": "${HOME}/.config/nvim/init.lua",
   "rubocop.mode": "enableUnconditionally",
   "rubocop.commandPath": "bin/rubocop",
-  "ruby.rubocop.executePath": "${HOME}/.rbenv/shims/",
+  "ruby.rubocop.executePath": "~/.rbenv/shims/",
   "rubyLsp.formatter": "auto",
   "ruby.rubocop.configFilePath": ".rubocop.yml",
   "editor.defaultFormatter": "Shopify.ruby-lsp",

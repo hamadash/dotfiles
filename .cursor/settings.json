@@ -68,7 +68,6 @@
   "vscode-neovim.neovimInitVimPaths.darwin": "${HOME}/.config/nvim/init.lua",
   "rubocop.mode": "enableUnconditionally",
   "rubocop.commandPath": "rubocop",
-  "ruby.rubocop.executePath": "${HOME}/.rbenv/shims/",
   "rubyLsp.formatter": "none",
   "editor.defaultFormatter": "Shopify.ruby-lsp",
   "workbench.activityBar.orientation": "vertical",
@@ -103,4 +102,5 @@
   "gitHistory.sideBySide": true,
   "diffEditor.renderSideBySideInlineBreakpoint": 0,
   "ruby.rubocop.configFilePath": ".rubocop.yml",
+  "ruby.rubocop.executePath": "~/.rbenv/shims/",
 }
