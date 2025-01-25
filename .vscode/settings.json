@@ -85,8 +85,7 @@
   "errorLens.codeLensEnabled": true,
   "errorLens.codeLensOnClick": "none",
   "[ruby]": {
-    // "editor.defaultFormatter": "Shopify.ruby-lsp"
-    "editor.defaultFormatter": "rubocop.vscode-rubocop"
+    "editor.defaultFormatter": "Shopify.ruby-lsp"
   },
   "rdbg.rubyVersionManager": "rbenv",
 }
