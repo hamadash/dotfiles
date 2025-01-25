@@ -7,7 +7,6 @@ biomejs.biome
 bung87.rails
 bung87.vscode-gemfile
 cardinal90.multi-cursor-case-preserve
-castwide.solargraph
 chakrounanas.turbo-console-log
 chrisdias.vscode-opennewinstance
 christian-kohler.npm-intellisense
@@ -29,7 +28,6 @@ george-alisson.html-preview-vscode
 github.copilot
 github.copilot-chat
 github.remotehub
-github.vscode-github-actions
 graphql.vscode-graphql
 graphql.vscode-graphql-syntax
 herrmannplatz.npm-dependency-links
@@ -68,11 +66,9 @@ oderwat.indent-rainbow
 onlyno2.rspec-runner
 oouo-diogo-perdigao.docthis
 pkief.material-icon-theme
-postman.postman-for-vscode
 pulkitgangwar.nextjs-snippets
 redhat.vscode-xml
 ritwickdey.liveserver
-rubocop.vscode-rubocop
 scaffdog.scaffdog-vscode
 shardulm94.trailing-spaces
 shenyq.gs-lang
@@ -87,6 +83,7 @@ usernamehw.errorlens
 usernamehw.remove-empty-lines
 vitest.explorer
 vscode-icons-team.vscode-icons
+vscodevim.vim
 vue.volar
 wayou.vscode-todo-highlight
 wix.vscode-import-cost
