@@ -3,7 +3,6 @@
   "git.autofetch": true,
   "workbench.list.openMode": "doubleClick",
   "workbench.tree.expandMode": "doubleClick",
-  "html.format.endWithNewline": true,
   "files.insertFinalNewline": true,
   "editor.renderWhitespace": "boundary",
   "cSpell.enabledLanguageIds": [
@@ -51,13 +50,10 @@
   "editor.wordWrap": "on",
   "vsicons.dontShowNewVersionMessage": true,
   "terminal.integrated.enableMultiLinePasteWarning": false,
-  "workbench.startupEditor": "none",
   "editor.detectIndentation": false,
   "[json]": {
     "editor.defaultFormatter": "vscode.json-language-features"
   },
-  "rubyLsp.bundleGemfile": "../.ruby-lsp/Gemfile",
-  "chatgpt.lang": "en",
   "window.zoomLevel": 1,
   "vscodeGoogleTranslate.preferredLanguage": "Japanese",
   "extensions.experimental.affinity": {
@@ -66,10 +62,6 @@
   "editor.accessibilitySupport": "off",
   "vscode-neovim.neovimExecutablePaths.darwin": "/opt/homebrew/bin/nvim",
   "vscode-neovim.neovimInitVimPaths.darwin": "${HOME}/.config/nvim/init.lua",
-  "rubocop.mode": "enableUnconditionally",
-  "rubocop.commandPath": "rubocop",
-  "rubyLsp.formatter": "none",
-  "editor.defaultFormatter": "Shopify.ruby-lsp",
   "workbench.activityBar.orientation": "vertical",
   "vscode-neovim.compositeKeys": {
     "jj": {
@@ -77,8 +69,9 @@
     },
   },
   "[ruby]": {
-    "editor.defaultFormatter": "rubocop.vscode-rubocop"
+    "editor.defaultFormatter": "Shopify.ruby-lsp"
   },
+  "rdbg.rubyVersionManager": "rbenv",
   "cSpell.userWords": [
     "rubocop"
   ],
@@ -97,8 +90,8 @@
     "searchAndCompare": false,
     "launchpad": false
   },
-  "solargraph.diagnostics": true,
   "clock.dateFormat": "hh:MM:ss TT",
   "gitHistory.sideBySide": true,
   "diffEditor.renderSideBySideInlineBreakpoint": 0,
+  "cursor.preferNotificationsSameAsChat": true,
 }
