@@ -4,6 +4,7 @@ return {
 		vim.g.translator_target_lang = "ja"
 	end,
 	keys = {
-		{ "<leader>tl", "<cmd>Translate<cr>", desc = "Translate" },
+		{ "<leader>tl", "<cmd>Translate<cr>", desc = "Translate", mode = "n" },
+		{ "<leader>tl", ":'<,'>Translate<cr>", desc = "Translate", mode = "v" },
 	},
 }
