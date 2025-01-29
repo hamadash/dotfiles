@@ -88,4 +88,5 @@
     "editor.defaultFormatter": "Shopify.ruby-lsp"
   },
   "rdbg.rubyVersionManager": "rbenv",
+  "vim.neovimConfigPath": "${HOME}/.config/nvim/init.lua",
 }
