@@ -89,4 +89,8 @@
   },
   "rdbg.rubyVersionManager": "rbenv",
   "vim.neovimConfigPath": "${HOME}/.config/nvim/init.lua",
+  "files.watcherExclude": {
+    "**/node_modules/**": true,
+    "**/vendor/**": true
+  },
 }
