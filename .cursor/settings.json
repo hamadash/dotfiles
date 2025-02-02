@@ -94,4 +94,7 @@
   "gitHistory.sideBySide": true,
   "diffEditor.renderSideBySideInlineBreakpoint": 0,
   "cursor.preferNotificationsSameAsChat": true,
+  "[markdown]": {
+    "editor.defaultFormatter": "DavidAnson.vscode-markdownlint"
+  },
 }
