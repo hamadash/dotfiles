@@ -93,4 +93,7 @@
     "**/node_modules/**": true,
     "**/vendor/**": true
   },
+  "search.exclude": {
+    "**/vendor": true
+  },
 }
