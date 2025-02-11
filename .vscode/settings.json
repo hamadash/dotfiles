@@ -97,4 +97,9 @@
     "**/vendor": true
   },
   "terminal.integrated.scrollback": 5000,
+  "github.copilot.enable": {
+    "plaintext": false,
+    "markdown": false,
+    "scminput": false
+  },
 }
