@@ -26,10 +26,10 @@ for lua_file in "${SCRIPT_DIR}"/lua/plugins/*.lua; do
     ln -fnsv "${lua_file}" "${LUA_PLUGINS_DIR}/${file_name}"
 done
 
-LUA_UTIL_DIR="${LUA_DIR}/util"
-mkdir -p "${LUA_UTIL_DIR}"
-for lua_file in "${SCRIPT_DIR}"/lua/util/*.lua; do
+LUA_UTILS_DIR="${LUA_DIR}/utils"
+mkdir -p "${LUA_UTILS_DIR}"
+for lua_file in "${SCRIPT_DIR}"/lua/utils/*.lua; do
     file_name=$(basename "${lua_file}")
-    ln -fnsv "${lua_file}" "${LUA_UTIL_DIR}/${file_name}"
+    ln -fnsv "${lua_file}" "${LUA_UTILS_DIR}/${file_name}"
 done
 

@@ -10,6 +10,28 @@ return {
 		{ "saadparwaiz1/cmp_luasnip" },
 		{ "L3MON4D3/LuaSnip" },
 	},
+	init = function()
+		-- エラーが出ている箇所の行の背景色を変える
+		local colors = require("utils.colors")
+		local palette = colors.palette
+
+		vim.api.nvim_set_hl(0, "DiagnosticErrorLine", { bg = colors.opacity(palette.red, palette.base, 0.15) })
+		vim.api.nvim_set_hl(0, "DiagnosticWarnLine", { bg = colors.opacity(palette.peach, palette.base, 0.15) })
+		vim.api.nvim_set_hl(0, "DiagnosticHintLine", { bg = colors.opacity(palette.green, palette.base, 0.15) })
+		vim.api.nvim_set_hl(0, "DiagnosticInfoLine", { bg = colors.opacity(palette.blue, palette.base, 0.15) })
+
+		vim.diagnostic.config({
+			signs = {
+				text = {},
+				linehl = {
+					[vim.diagnostic.severity.ERROR] = "DiagnosticErrorLine",
+					[vim.diagnostic.severity.WARN] = "DiagnosticWarnLine",
+					[vim.diagnostic.severity.HINT] = "DiagnosticHintLine",
+					[vim.diagnostic.severity.INFO] = "DiagnosticInfoLine",
+				},
+			},
+		})
+	end,
 	config = function()
 		-- ref. https://github.com/neovim/nvim-lspconfig/wiki/Snippets
 
