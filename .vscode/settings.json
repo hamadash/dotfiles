@@ -82,8 +82,6 @@
   },
   "rspec-runner.executePath": "dcom exec web bundle exec rspec",
   "clock.dateFormat": "yyyy/mm/dd(ddd) HH:MM:ss",
-  "errorLens.codeLensEnabled": true,
-  "errorLens.codeLensOnClick": "none",
   "[ruby]": {
     "editor.defaultFormatter": "Shopify.ruby-lsp"
   },
@@ -102,4 +100,8 @@
     "markdown": false,
     "scminput": false
   },
+  "errorLens.margin": "2ch",
+  "errorLens.fontWeight": "800",
+  "errorLens.codeLensTemplate": "[$count] $severity $message $source($code)",
+  "errorLens.codeLensEnabled": true,
 }
