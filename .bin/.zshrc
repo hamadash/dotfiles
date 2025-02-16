@@ -103,4 +103,4 @@ export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
 
 # asdf
 # ref. https://asdf-vm.com/guide/getting-started.html
-. /opt/homebrew/opt/asdf/libexec/asdf.sh
+export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"
