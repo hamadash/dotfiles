@@ -70,6 +70,9 @@ set_keymap(
 	{ desc = "Yank all in this file" }
 )
 
+-- 直近で閉じたバッファを開く
+set_keymap("n", "<Leader>ro", "<C-^>", { desc = "Reopen recent closed buffer." })
+
 -- LazyVim setteings start --
 -- LazyVim のキーマップが便利なので流用
 -- https://www.lazyvim.org/configuration/general#keymaps
