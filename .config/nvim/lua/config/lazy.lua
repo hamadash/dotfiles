@@ -31,6 +31,7 @@ if vim.g.vscode then
 			{ import = "plugins.open-browser" },
 			{ import = "plugins.quick-scope" },
 			{ import = "plugins.surround" },
+			{ import = "plugins.text-case" },
 			{ import = "plugins.vim-asterisk" },
 			{ import = "plugins.vim-bracketed-paste" },
 			{ import = "plugins.vim-maketable" },
