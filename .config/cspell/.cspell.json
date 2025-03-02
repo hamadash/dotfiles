@@ -1,8 +1,12 @@
 {
-    "version": "0.2",
-    "language": "en",
-    "ignoreWords": [],
-    "words": [
-        "rubocop"
-    ]
+  "version": "0.2",
+  "language": "en",
+  "ignoreWords": [],
+  "words": [
+    "rubocop",
+    "nvim",
+    "keymap",
+    "substitude",
+    "textcase"
+  ]
 }
