@@ -30,6 +30,7 @@ if vim.g.vscode then
 			{ import = "plugins.nvim-anywise-reg" },
 			{ import = "plugins.open-browser" },
 			{ import = "plugins.quick-scope" },
+			{ import = "plugins.ruby-fqn" },
 			{ import = "plugins.surround" },
 			{ import = "plugins.text-case" },
 			{ import = "plugins.vim-asterisk" },
