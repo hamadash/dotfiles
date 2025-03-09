@@ -97,4 +97,5 @@
   "[markdown]": {
     "editor.defaultFormatter": "DavidAnson.vscode-markdownlint"
   },
+  "errorLens.scrollbarHackEnabled": true,
 }
