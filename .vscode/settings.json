@@ -96,9 +96,19 @@
   },
   "terminal.integrated.scrollback": 5000,
   "github.copilot.enable": {
-    "plaintext": false,
-    "markdown": false,
-    "scminput": false
+    "*": false,
+    "slim": true,
+    "ruby": true,
+    "html": true,
+    "javascript": true,
+    "javascriptreact": true,
+    "json": true,
+    "lua": true,
+    "scss": true,
+    "typescript": true,
+    "typescriptreact": true,
+    "xml": true,
+    "yaml": true
   },
   "errorLens.margin": "2ch",
   "errorLens.fontWeight": "800",
