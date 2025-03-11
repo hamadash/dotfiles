@@ -4,7 +4,6 @@ apollographql.vscode-apollo
 asvetliakov.vscode-neovim
 ban.spellright
 biomejs.biome
-bung87.rails
 bung87.vscode-gemfile
 cardinal90.multi-cursor-case-preserve
 chakrounanas.turbo-console-log
@@ -77,6 +76,7 @@ sianglim.slim
 sporto.rails-go-to-spec
 streetsidesoftware.code-spell-checker
 stylelint.vscode-stylelint
+syler.sass-indented
 timonwong.shellcheck
 tomoki1207.pdf
 usernamehw.errorlens
