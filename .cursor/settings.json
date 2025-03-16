@@ -98,4 +98,10 @@
     "editor.defaultFormatter": "DavidAnson.vscode-markdownlint"
   },
   "errorLens.scrollbarHackEnabled": true,
+  "workbench.colorTheme": "Visual Studio Dark - C++",
+  "workbench.editor.wrapTabs": true,
+  "terminal.integrated.stickyScroll.enabled": true,
+  "editor.linkedEditing": true,
+  "files.trimTrailingWhitespace": true,
+  "editor.guides.bracketPairs": true,
 }
