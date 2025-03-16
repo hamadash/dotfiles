@@ -18,6 +18,7 @@ vim.opt.rtp:prepend(lazypath)
 if vim.g.vscode then
 	require("lazy").setup({
 		spec = {
+			{ import = "plugins.accelerated-jk" },
 			{ import = "plugins.aerial" },
 			{ import = "plugins.any-jump" },
 			{ import = "plugins.clever-f" },
