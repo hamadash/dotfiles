@@ -213,5 +213,15 @@
   {
     "key": "cmd+\\",
     "command": "-workbench.action.splitEditor"
+  },
+  {
+    "key": "cmd+;",
+    "command": "aipopup.action.modal.generate",
+    "when": "editorFocus && !composerBarIsVisible"
+  },
+  {
+    "key": "cmd+k",
+    "command": "-aipopup.action.modal.generate",
+    "when": "editorFocus && !composerBarIsVisible"
   }
 ]
