@@ -19,6 +19,8 @@ config.keys = require("keybinds").keys
 config.key_tables = require("keybinds").key_tables
 config.disable_default_key_bindings = true
 
+config.color_scheme = "Tokyo Night"
+
 config.leader = { key = "h", mods = "CTRL", timeout_milliseconds = 1000 }
 
 return config
