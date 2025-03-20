@@ -97,7 +97,6 @@
   "[markdown]": {
     "editor.defaultFormatter": "DavidAnson.vscode-markdownlint"
   },
-  "errorLens.scrollbarHackEnabled": true,
   "terminal.integrated.stickyScroll.enabled": true,
   "editor.linkedEditing": true,
   "files.trimTrailingWhitespace": true,
