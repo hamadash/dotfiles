@@ -102,4 +102,5 @@
   "files.trimTrailingWhitespace": true,
   "editor.guides.bracketPairs": true,
   "workbench.colorTheme": "Default Dark Modern",
+  "terminal.integrated.scrollback": 10000,
 }
