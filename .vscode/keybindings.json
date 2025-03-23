@@ -188,5 +188,35 @@
   {
     "key": "ctrl+q",
     "command": "-workbench.action.quickOpenView"
+  },
+  {
+    "key": "ctrl+j",
+    "command": "editor.action.revealDefinition",
+    "when": "editorHasDefinitionProvider && editorTextFocus"
+  },
+  {
+    "key": "f12",
+    "command": "-editor.action.revealDefinition",
+    "when": "editorHasDefinitionProvider && editorTextFocus"
+  },
+  {
+    "key": "alt+cmd+j",
+    "command": "-liveshare.join",
+    "when": "liveshare:state != 'Joined' && liveshare:state != 'Shared'"
+  },
+  {
+    "key": "alt+cmd+f",
+    "command": "-liveshare.follow",
+    "when": "liveshare:hasCollaborators && !liveshare:isFollowing"
+  },
+  {
+    "key": "alt+cmd+/",
+    "command": "-liveshare.followToTheSide",
+    "when": "liveshare:hasCollaborators"
+  },
+  {
+    "key": "alt+cmd+f",
+    "command": "-liveshare.unfollow",
+    "when": "liveshare:hasCollaborators && liveshare:isFollowing"
   }
 ]

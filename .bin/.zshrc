@@ -26,7 +26,7 @@ export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
 
 # mysql
-export PATH="/usr/local/opt/mysql@8.0/bin:$PATH"
+export PATH="/opt/homebrew/opt/mysql@8.0/bin:$PATH"
 
 # peco
 function peco-history-selection() {
@@ -98,6 +98,9 @@ precmd() {
   print -Pn "\e]0;%~\a"
 }
 
+# libpg
+export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
+
 # asdf
 # ref. https://asdf-vm.com/guide/getting-started.html
-. /opt/homebrew/opt/asdf/libexec/asdf.sh
+export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"

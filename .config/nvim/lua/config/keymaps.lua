@@ -42,7 +42,9 @@ set_keymap("i", "jj", "<ESC>", { desc = "Switch to normal mode" })
 
 -- カーソル移動
 set_keymap("n", "ss", "^", { desc = "Move to beginning of the line" })
+set_keymap("v", "ss", "^", { desc = "Move to beginning of the line" })
 set_keymap("n", "''", "$", { desc = "Move to end of the line" })
+set_keymap("v", "''", "$", { desc = "Move to end of the line" })
 
 -- 現在のファイルの相対パスをコピー
 set_keymap("n", "<Leader>cfp", "<Cmd>let @*=expand('%')<CR>", { desc = "Copy current file relative path" })
@@ -67,6 +69,9 @@ set_keymap(
 	[[:%y | let @" = substitute(@", '\n\s*$', '', '')<CR>]],
 	{ desc = "Yank all in this file" }
 )
+
+-- 直近で閉じたバッファを開く
+set_keymap("n", "<Leader>ro", "<C-^>", { desc = "Reopen recent closed buffer." })
 
 -- LazyVim setteings start --
 -- LazyVim のキーマップが便利なので流用

@@ -77,8 +77,14 @@ return {
 					word = true,
 					cyclic = true,
 				}),
+				-- Ruby, Rails 用
 				augend.constant.new({
 					elements = { "if", "unless" },
+					word = true,
+					cyclic = true,
+				}),
+				augend.constant.new({
+					elements = { "present?", "blank?" },
 					word = true,
 					cyclic = true,
 				}),
