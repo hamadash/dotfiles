@@ -3,7 +3,6 @@
   "git.autofetch": true,
   "workbench.list.openMode": "doubleClick",
   "workbench.tree.expandMode": "doubleClick",
-  "html.format.endWithNewline": true,
   "files.insertFinalNewline": true,
   "editor.renderWhitespace": "boundary",
   "cSpell.enabledLanguageIds": [
@@ -52,18 +51,10 @@
   "vsicons.dontShowNewVersionMessage": true,
   "terminal.integrated.enableMultiLinePasteWarning": false,
   "workbench.startupEditor": "none",
-  "vim.insertModeKeyBindings": [
-      {
-          "before": ["j", "j"],
-          "after": ["<Esc>"]
-      }
-  ],
   "editor.detectIndentation": false,
   "[json]": {
     "editor.defaultFormatter": "vscode.json-language-features"
   },
-  "rubyLsp.bundleGemfile": "../ruby-lsp/Gemfile",
-  "chatgpt.lang": "en",
   "window.zoomLevel": 1,
   "vscodeGoogleTranslate.preferredLanguage": "Japanese",
   "extensions.experimental.affinity": {
@@ -72,12 +63,6 @@
   "editor.accessibilitySupport": "off",
   "vscode-neovim.neovimExecutablePaths.darwin": "/opt/homebrew/bin/nvim",
   "vscode-neovim.neovimInitVimPaths.darwin": "${HOME}/.config/nvim/init.lua",
-  "rubocop.mode": "enableUnconditionally",
-  "rubocop.commandPath": "bin/rubocop",
-  "ruby.rubocop.executePath": "${HOME}/.rbenv/shims/",
-  "rubyLsp.formatter": "auto",
-  "ruby.rubocop.configFilePath": ".rubocop.yml",
-  "editor.defaultFormatter": "Shopify.ruby-lsp",
   "gitlens.views.scm.grouped.views": {
     "commits": true,
     "branches": true,
@@ -95,4 +80,38 @@
       "command": "vscode-neovim.escape"
     },
   },
+  "rspec-runner.executePath": "dcom exec web bundle exec rspec",
+  "clock.dateFormat": "yyyy/mm/dd(ddd) HH:MM:ss",
+  "[ruby]": {
+    "editor.defaultFormatter": "Shopify.ruby-lsp"
+  },
+  "rdbg.rubyVersionManager": "rbenv",
+  "vim.neovimConfigPath": "${HOME}/.config/nvim/init.lua",
+  "files.watcherExclude": {
+    "**/node_modules/**": true,
+    "**/vendor/**": true
+  },
+  "search.exclude": {
+    "**/vendor": true
+  },
+  "terminal.integrated.scrollback": 5000,
+  "github.copilot.enable": {
+    "*": false,
+    "slim": true,
+    "ruby": true,
+    "html": true,
+    "javascript": true,
+    "javascriptreact": true,
+    "json": true,
+    "lua": true,
+    "scss": true,
+    "typescript": true,
+    "typescriptreact": true,
+    "xml": true,
+    "yaml": true
+  },
+  "errorLens.margin": "2ch",
+  "errorLens.fontWeight": "800",
+  "errorLens.codeLensTemplate": "[$count] $severity $message $source($code)",
+  "errorLens.codeLensEnabled": true,
 }

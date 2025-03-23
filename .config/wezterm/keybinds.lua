@@ -19,6 +19,8 @@ return {
 		{ key = "f", mods = "SUPER", action = act.Search("CurrentSelectionOrEmptyString") },
 		{ key = "c", mods = "SHIFT|CTRL", action = act.CopyTo("Clipboard") },
 		{ key = "c", mods = "SUPER", action = act.CopyTo("Clipboard") },
+		{ key = "v", mods = "SHIFT|CTRL", action = act.PasteFrom("Clipboard") },
+		{ key = "v", mods = "SUPER", action = act.PasteFrom("Clipboard") },
 	},
 	key_tables = {
 		copy_mode = {
