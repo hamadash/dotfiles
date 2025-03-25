@@ -114,4 +114,5 @@
   "errorLens.fontWeight": "800",
   "errorLens.codeLensTemplate": "[$count] $severity $message $source($code)",
   "errorLens.codeLensEnabled": true,
+  "github.copilot.nextEditSuggestions.enabled": true,
 }
