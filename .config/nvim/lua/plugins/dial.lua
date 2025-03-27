@@ -88,6 +88,11 @@ return {
 					word = true,
 					cyclic = true,
 				}),
+				augend.constant.new({
+					elements = { "select", "reject" },
+					word = true,
+					cyclic = true,
+				}),
 			},
 		})
 	end,
