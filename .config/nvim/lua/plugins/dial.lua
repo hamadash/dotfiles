@@ -73,6 +73,11 @@ return {
 				augend.date.alias["%Y-%m-%d"], -- date (2022-02-19, etc.)
 				augend.date.alias["%Y年%-m月%-d日"], -- date (2022年02月19日, etc.)
 				augend.constant.new({
+					elements = { "on", "off" },
+					word = true,
+					cyclic = true,
+				}),
+				augend.constant.new({
 					elements = { "&&", "||" },
 					word = true,
 					cyclic = true,
