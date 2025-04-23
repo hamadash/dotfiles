@@ -11,5 +11,18 @@ return {
 		--   `nvim-notify` is only needed, if you want to use the notification view.
 		--   If not available, we use `mini` as the fallback
 		"rcarriga/nvim-notify",
+		"nvim-lualine/lualine.nvim",
 	},
+	config = function()
+		require("lualine").setup({
+			sections = {
+				lualine_x = {
+					{
+						require("noice").api.statusline.mode.get,
+						cond = require("noice").api.statusline.mode.has,
+					},
+				},
+			},
+		})
+	end,
 }
