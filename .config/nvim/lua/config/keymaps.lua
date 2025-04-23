@@ -62,6 +62,9 @@ set_keymap("n", "M", "%", { desc = "Jump bracket" })
 -- x で削除してもレジスタに入れない
 set_keymap("n", "x", '"_x', { desc = "Delete without yanking" })
 
+-- U で redo
+set_keymap("n", "U", "<C-r>", { desc = "Redo" })
+
 -- カーソルを移動せずにファイル全体をヤンク, P でペーストしたときに余計な空白行が入らないようにヤンクしている
 set_keymap(
 	"n",
