@@ -65,6 +65,9 @@ set_keymap("n", "x", '"_x', { desc = "Delete without yanking" })
 -- U で redo
 set_keymap("n", "U", "<C-r>", { desc = "Redo" })
 
+-- Visual コピー時にカーソル位置を維持する。
+set_keymap("x", "y", "mzy`z", { desc = "Keep cursor position when visual copied." })
+
 -- カーソルを移動せずにファイル全体をヤンク, P でペーストしたときに余計な空白行が入らないようにヤンクしている
 set_keymap(
 	"n",
