@@ -28,6 +28,11 @@ eval "$(rbenv init -)"
 # mysql
 export PATH="/opt/homebrew/opt/mysql@8.0/bin:$PATH"
 
+# history
+HISTFILE=~/.zsh_history
+HISTSIZE=1000000
+SAVEHIST=1000000
+
 # peco
 function peco-history-selection() {
     BUFFER=`history -n 1 | tail -r  | awk '!a[$0]++' | peco`
