@@ -23,4 +23,9 @@ config.color_scheme = "Tokyo Night"
 
 config.leader = { key = "h", mods = "CTRL", timeout_milliseconds = 1000 }
 
+-- tab
+config.show_new_tab_button_in_tab_bar = false
+-- nightly 版だけ
+-- config.show_close_tab_button_in_tabs = false
+
 return config
