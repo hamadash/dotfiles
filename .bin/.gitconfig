@@ -3,7 +3,9 @@
   email = 60833258+hamadash@users.noreply.github.com
 [alias]
   c = checkout
+  ca = "commit --amend"
   b = branch
+  lg = "log --oneline --graph --all"
   st = status
   ss = stash
   fcb = "!f() { git fetch && git checkout -b \"$1\" \"origin/$1\"; }; f"
@@ -13,3 +15,5 @@
   defaultBranch = main
 [delta]
   side-by-side = true
+[color]
+  ui = true
