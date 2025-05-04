@@ -1,22 +1,24 @@
-# zsh
+##########
+# 基本設定
+##########
+# ビープ音を無効化
 setopt no_beep
+# ディレクトリ名だけで cd する
+setopt auto_cd
+# pushd/popd の設定
 setopt auto_pushd
 setopt pushd_ignore_dups
+# コマンド履歴
 setopt hist_ignore_dups
-setopt hist_ignore_space # コマンドの先頭に半角スペースがある場合に履歴に残さない
+setopt hist_ignore_space # 先頭に半角スペースがあるコマンドは履歴に残さない
 setopt inc_append_history
+HISTFILE=~/.zsh_history
+HISTSIZE=1000000
+SAVEHIST=1000000
 
-# Docker
-alias d='docker'
-alias dcom='docker compose'
-
-# git
-alias g='git'
-
-# nvim
-alias vim="nvim"
-alias view="nvim -R"
-
+##########
+# パスの設定
+##########
 # nodenv
 export PATH="$HOME/.nodenv/bin:$PATH"
 eval "$(nodenv init -)"
@@ -25,39 +27,52 @@ eval "$(nodenv init -)"
 export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
 
-# mysql
+# MySQL
 export PATH="/opt/homebrew/opt/mysql@8.0/bin:$PATH"
 
-# history
-HISTFILE=~/.zsh_history
-HISTSIZE=1000000
-SAVEHIST=1000000
+# PostgreSQL
+export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
 
-# peco
-function peco-history-selection() {
-    BUFFER=`history -n 1 | tail -r  | awk '!a[$0]++' | peco`
-    CURSOR=$#BUFFER
-    zle reset-prompt
-}
-zle -N peco-history-selection
-bindkey '^R' peco-history-selection
+# custom_commands
+export PATH=~/dotfiles/custom_commands:$PATH
 
-# ディレクトリ名だけでcdする
-setopt auto_cd
+# asdf
+export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"
 
-# promptの表示設定
-# -- start --
-# ref. https://qiita.com/mikan3rd/items/d41a8ca26523f950ea9d
+# tmux
+export TMUX_TMPDIR=/tmp
 
-# git-promptの読み込み
+##########
+# エイリアス
+##########
+# Docker
+alias d='docker'
+alias dcom='docker compose'
+
+# Git
+alias g='git'
+
+# Neovim
+alias vim="nvim"
+alias view="nvim -R"
+
+# lazygit
+alias lg="lazygit"
+
+##########
+# プロンプト設定
+##########
+setopt PROMPT_SUBST ; PS1='[%n %c$(__git_ps1 "(%s)")]\$'
+
+# git-prompt の読み込み
 source ~/dotfiles/.zsh/git-prompt.sh
 
-# git-completionの読み込み
+# git-completion の読み込み
 fpath=(~/dotfiles/.zsh $fpath)
-zstyle ':completion:*:*:git:*' script ~/dotfiles/.zsh/git-completion.bash
 autoload -Uz compinit && compinit
+zstyle ':completion:*:*:git:*' script ~/dotfiles/.zsh/git-completion.bash
 
-# GitHub CLIの補完
+# GitHub CLI 補完
 eval "$(gh completion -s zsh)"
 
 # プロンプトのオプション表示設定
@@ -66,49 +81,49 @@ GIT_PS1_SHOWUNTRACKEDFILES=true
 GIT_PS1_SHOWSTASHSTATE=true
 GIT_PS1_SHOWUPSTREAM=auto
 
-# プロンプトの表示設定
-setopt PROMPT_SUBST ; PS1='[%n %c$(__git_ps1 "(%s)")]\$'
-# -- end --
-
-# カスタムコマンド
-export PATH=~/dotfiles/custom_commands:$PATH
-
-# fzf
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-export FZF_DEFAULT_COMMAND='rg --files --hidden --glob "!.git"'
-export FZF_DEFAULT_OPTS='--height 40% --reverse --border'
-
-fcd() {
-    local dir
-    dir=$(find . -type d -name '.*' -o -type d | fzf) && cd "$dir"
-}
-
-vf() {
-  nvim "$(fzf)"
-}
-
-# zoxide
-eval "$(zoxide init zsh)"
-
-# tmux
-export TMUX_TMPDIR=/tmp
-
-# lazygit
-alias lg="lazygit"
-
-# autosuggestions
-source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-# highlighting
-source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-
 # カレントディレクトリをタブに表示する
 precmd() {
   print -Pn "\e]0;%~\a"
 }
 
-# libpg
-export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
+##########
+# 補完・サジェスト・ハイライト
+##########
+# fzf
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+export FZF_DEFAULT_COMMAND='rg --files --hidden --glob "!.git"'
+export FZF_DEFAULT_OPTS='--height 40% --reverse --border'
 
-# asdf
-# ref. https://asdf-vm.com/guide/getting-started.html
-export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"
+# zsh-autosuggestions
+source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+
+# zsh-syntax-highlighting
+source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+# zoxide
+eval "$(zoxide init zsh)"
+
+##########
+# peco
+##########
+function peco-history-selection() {
+    BUFFER=`history -n 1 | tail -r | awk '!a[$0]++' | peco`
+    CURSOR=$#BUFFER
+    zle reset-prompt
+}
+zle -N peco-history-selection
+bindkey '^R' peco-history-selection
+
+##########
+# カスタム関数
+##########
+# fzf でディレクトリを選んで cd
+fcd() {
+    local dir
+    dir=$(find . -type d -name '.*' -o -type d | fzf) && cd "$dir"
+}
+
+# fzf でファイルを選んで nvim で開く
+vf() {
+    nvim "$(fzf)"
+}
