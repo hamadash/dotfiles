@@ -59,6 +59,13 @@ alias view="nvim -R"
 # lazygit
 alias lg="lazygit"
 
+# 細かいの
+alias la='ls -a'
+alias ll='ls -l'
+alias mkdir='mkdir -p'
+alias ..='cd ../'
+alias ...='cd ../../'
+
 ##########
 # プロンプト設定
 ##########
