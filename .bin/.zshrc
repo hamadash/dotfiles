@@ -42,6 +42,9 @@ function peco-history-selection() {
 zle -N peco-history-selection
 bindkey '^R' peco-history-selection
 
+# ディレクトリ名だけでcdする
+setopt auto_cd
+
 # promptの表示設定
 # -- start --
 # ref. https://qiita.com/mikan3rd/items/d41a8ca26523f950ea9d
