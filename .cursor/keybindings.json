@@ -231,5 +231,9 @@
   {
     "key": "cmd+i",
     "command": "composerMode.agent"
+  },
+  {
+    "key": "cmd+k cmd+f",
+    "command": "gitlens.openFileOnRemoteFrom"
   }
 ]
