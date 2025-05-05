@@ -79,6 +79,9 @@ set_keymap(
 -- 直近で閉じたバッファを開く
 set_keymap("n", "<Leader>ro", "<C-^>", { desc = "Reopen recent closed buffer." })
 
+-- Cursor で開く
+set_keymap("n", "<Leader>oc", "<CMD>Cursor<CR>", { desc = "Open current file in Cursor." })
+
 -- LazyVim setteings start --
 -- LazyVim のキーマップが便利なので流用
 -- https://www.lazyvim.org/configuration/general#keymaps
