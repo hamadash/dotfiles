@@ -63,6 +63,7 @@
   "quick-scope": { "branch": "master", "commit": "f2b6043e04d9ef05205c8953e389304a4c1946f2" },
   "registers": { "branch": "main", "commit": "c217f8f369e0886776cda6c94eab839b30a8940d" },
   "ruby-fqn.nvim": { "branch": "main", "commit": "bd6507680497fd216b831578f361e31dab0f67dc" },
+  "snacks.nvim": { "branch": "main", "commit": "bc0630e43be5699bb94dadc302c0d21615421d93" },
   "telescope-file-browser.nvim": { "branch": "master", "commit": "626998e5c1b71c130d8bc6cf7abb6709b98287bb" },
   "telescope-fzf-native.nvim": { "branch": "main", "commit": "1f08ed60cafc8f6168b72b80be2b2ea149813e55" },
   "telescope-live-grep-args.nvim": { "branch": "master", "commit": "b80ec2c70ec4f32571478b501218c8979fab5201" },
