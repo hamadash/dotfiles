@@ -15,10 +15,26 @@ return {
 		local colors = require("utils.colors")
 		local palette = colors.palette
 
-		vim.api.nvim_set_hl(0, "DiagnosticErrorLine", { bg = colors.opacity(palette.red, palette.base, 0.15) })
-		vim.api.nvim_set_hl(0, "DiagnosticWarnLine", { bg = colors.opacity(palette.peach, palette.base, 0.15) })
-		vim.api.nvim_set_hl(0, "DiagnosticHintLine", { bg = colors.opacity(palette.green, palette.base, 0.15) })
-		vim.api.nvim_set_hl(0, "DiagnosticInfoLine", { bg = colors.opacity(palette.blue, palette.base, 0.15) })
+		vim.api.nvim_set_hl(
+			0,
+			"DiagnosticErrorLine",
+			{ bg = colors.blend_with_opacity(palette.red, palette.base, 0.15) }
+		)
+		vim.api.nvim_set_hl(
+			0,
+			"DiagnosticWarnLine",
+			{ bg = colors.blend_with_opacity(palette.peach, palette.base, 0.15) }
+		)
+		vim.api.nvim_set_hl(
+			0,
+			"DiagnosticHintLine",
+			{ bg = colors.blend_with_opacity(palette.green, palette.base, 0.15) }
+		)
+		vim.api.nvim_set_hl(
+			0,
+			"DiagnosticInfoLine",
+			{ bg = colors.blend_with_opacity(palette.blue, palette.base, 0.15) }
+		)
 
 		vim.diagnostic.config({
 			signs = {
