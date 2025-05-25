@@ -33,6 +33,7 @@ if vim.g.vscode then
 			{ import = "plugins.ruby-fqn" },
 			{ import = "plugins.surround" },
 			{ import = "plugins.text-case" },
+			{ import = "plugins.undo-glow" },
 			{ import = "plugins.vim-asterisk" },
 			{ import = "plugins.vim-bracketed-paste" },
 			{ import = "plugins.vim-maketable" },
