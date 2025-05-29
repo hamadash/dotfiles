@@ -56,6 +56,9 @@ set_keymap("n", "]q", "<CMD>cnext<CR>", { desc = "Move next quickfix" })
 -- コピー
 set_keymap("n", "Y", "y$", { desc = "Copy from current position to end of line" })
 
+-- Visual モードでペーストしたときにレジスタを上書きせず、連続でペーストできるようにする。
+set_keymap("x", "p", '"_dP')
+
 -- 括弧の始点、終点の移動
 set_keymap("n", "M", "%", { desc = "Jump bracket" })
 
