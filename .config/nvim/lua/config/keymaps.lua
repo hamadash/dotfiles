@@ -56,6 +56,10 @@ set_keymap("n", "]q", "<CMD>cnext<CR>", { desc = "Move next quickfix" })
 -- コピー
 set_keymap("n", "Y", "y$", { desc = "Copy from current position to end of line" })
 
+-- インデント時に選択範囲を解除しない。
+set_keymap("x", ">", ">gv", { desc = "Indent and keep selection." })
+set_keymap("x", "<", "<gv", { desc = "Unindent and keep selection." })
+
 -- Visual モードでペーストしたときにレジスタを上書きせず、連続でペーストできるようにする。
 set_keymap("x", "p", '"_dP')
 
