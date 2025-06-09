@@ -67,7 +67,6 @@ return {
 			"solargraph",
 			"sqlls",
 			"ts_ls",
-			"volar",
 			"yamlls",
 		}
 
