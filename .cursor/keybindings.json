@@ -239,5 +239,14 @@
   {
     "key": "cmd+g cmd+p",
     "command": "git.stashPop"
+  },
+  {
+    "key": "shift+cmd+b",
+    "command": "-workbench.action.tasks.build",
+    "when": "taskCommandsRegistered"
+  },
+  {
+    "key": "shift+cmd+b",
+    "command": "workbench.action.tasks.runTask"
   }
 ]
