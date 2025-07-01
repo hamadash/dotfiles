@@ -110,4 +110,5 @@
     "untitled"
   ],
   "gitHistory.showFileHistorySplit": false,
+  "diffEditor.ignoreTrimWhitespace": false,
 }
