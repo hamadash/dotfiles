@@ -6,9 +6,18 @@
 # Rails Guidelines
 
 - 基本的には Rails Way に則ること。
+- graphql-ruby を使っている場合、Controller と Mutation は似た役割を持つこと。
 - Service クラスは基本的に使わないこと。ただし、以下の場合は使用してよい。
-  - Controller や Model で表現すると不自然なユースケース。 (DDD でいうアプリケーションサービス)
+  - Controller (Mutation) や Model で表現するには不自然なユースケース。 (DDD でいうアプリケーションサービス)
   - 複数の Model に跨るような処理。 (DDD でいうドメインサービス)
+- Fat Model になりそうなら、クラスの分割を考えること。以下などの手法を用いること。
+  - PORO
+  - Value Object
+  - Custom Validator
+- Fat Controller (Query, Mutation) になりそうなら、該当処理を別のレイヤーに移行するのを検討すること。無理に移行しなくてよい。
+  - Query (GraphQL ではない Query Object)
+  - Repository
+  - Service (ただし、上述のとおりアプリケーション、ドメインサービスの用途のみ)
 
 # Development Flow
 
