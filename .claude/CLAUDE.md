@@ -7,8 +7,8 @@
 
 - 基本的には Rails Way に則ること。
 - Service クラスは基本的に使わないこと。ただし、以下の場合は使用してよい。
-  - Controller や Model で表現すると不自然なユースケース。
-  - 複数の Model に跨るような処理。
+  - Controller や Model で表現すると不自然なユースケース。 (DDD でいうアプリケーションサービス)
+  - 複数の Model に跨るような処理。 (DDD でいうドメインサービス)
 
 # Development Flow
 
