@@ -17,7 +17,8 @@
 - Fat Controller (Query, Mutation) になりそうなら、該当処理を別のレイヤーに移行するのを検討すること。無理に移行しなくてよい。
   - Query (GraphQL ではない Query Object)
   - Repository
-  - Service (ただし、上述のとおりアプリケーション、ドメインサービスの用途のみ)
+  - Model (PORO を使ってイベントモデルを作成)
+  - Service (ただし、極力用いずに上述のとおりアプリケーション、ドメインサービスの用途のみ)
 
 # Development Flow
 
