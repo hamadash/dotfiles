@@ -25,6 +25,10 @@ return {
 		{ key = "c", mods = "SUPER", action = act.CopyTo("Clipboard") },
 		{ key = "v", mods = "SHIFT|CTRL", action = act.PasteFrom("Clipboard") },
 		{ key = "v", mods = "SUPER", action = act.PasteFrom("Clipboard") },
+
+		-- Custom
+		{ key = "n", mods = "CMD", action = act.SpawnCommandInNewWindow({ cwd = wezterm.home_dir }) },
+		{ key = "n", mods = "SHIFT|CMD", action = act.SpawnWindow },
 	},
 	key_tables = {
 		copy_mode = {
