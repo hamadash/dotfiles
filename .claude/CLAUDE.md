@@ -6,7 +6,7 @@
 # Rails Guidelines
 
 - 基本的には Rails Way に則ること。
-- graphql-ruby を使っている場合、Controller と Mutation は似た役割を持つこと。
+- graphql-ruby を使っている場合、Controller#action と Mutation は似た役割を持つこと。
 - Service クラスは基本的に使わないこと。ただし、以下の場合は使用してよい。
   - Controller (Mutation) や Model で表現するには不自然なユースケース。 (DDD でいうアプリケーションサービス)
   - 複数の Model に跨るような処理。 (DDD でいうドメインサービス)
