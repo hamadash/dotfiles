@@ -66,6 +66,11 @@ alias mkdir='mkdir -p'
 alias ..='cd ../'
 alias ...='cd ../../'
 
+# Claude Code
+alias cl='claude'
+alias clc='claude --continue'
+alias clr='claude --resume'
+
 ##########
 # プロンプト設定
 ##########
