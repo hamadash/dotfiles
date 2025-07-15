@@ -29,6 +29,7 @@ if vim.g.vscode then
 			{ import = "plugins.hlslens" },
 			{ import = "plugins.nvim-anywise-reg" },
 			{ import = "plugins.open-browser" },
+			{ import = "plugins.operator-hint" },
 			{ import = "plugins.pounce" },
 			{ import = "plugins.quick-scope" },
 			{ import = "plugins.ruby-fqn" },
