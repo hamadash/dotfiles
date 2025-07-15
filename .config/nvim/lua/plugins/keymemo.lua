@@ -1,13 +1,13 @@
 return {
-	"hamadash/operator-hint.nvim",
-	-- dir = vim.fn.expand("~/development/operator-hint.nvim"),
+	"hamadash/keymemo.nvim",
+	-- dir = vim.fn.expand("~/development/keymemo.nvim"),
 	event = "VeryLazy",
 	keys = {
-		{ "<leader>?", "<cmd>OperatorHint<cr>", desc = "Show operator hints" },
+		{ "<leader>?", "<cmd>KeyMemo<cr>", desc = "Show keys memo" },
 	},
 	config = function()
-		require("operator-hint").setup({
-			operators = {
+		require("keymemo").setup({
+			keys = {
 				movement = {
 					name = "移動",
 					mappings = {
