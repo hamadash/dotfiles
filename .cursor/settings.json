@@ -111,4 +111,5 @@
   ],
   "gitHistory.showFileHistorySplit": false,
   "diffEditor.ignoreTrimWhitespace": false,
+  "biome.suggestInstallingGlobally": false,
 }

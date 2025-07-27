@@ -183,6 +183,13 @@
     }
   },
   {
+    "key": "cmd+k cmd+v",
+    "command": "workbench.action.tasks.runTask",
+    "args": {
+      "task": "open_in_vim (iTerm)"
+    }
+  },
+  {
     "key": "shift+cmd+k",
     "command": "-composer.openAsBar"
   },

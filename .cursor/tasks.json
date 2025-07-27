@@ -1,0 +1,10 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "open_in_vim (iTerm)",
+      "type": "shell",
+      "command": "${HOME}/dotfiles/.cursor/scripts/open_in_vim.sh ${workspaceFolder} ${file} ${lineNumber}"
+    }
+  ]
+}
