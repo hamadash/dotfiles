@@ -32,6 +32,7 @@ if vim.g.vscode then
 			{ import = "plugins.open-browser" },
 			{ import = "plugins.pounce" },
 			{ import = "plugins.quick-scope" },
+			{ import = "plugins.rails-schema" },
 			{ import = "plugins.ruby-fqn" },
 			{ import = "plugins.surround" },
 			{ import = "plugins.text-case" },

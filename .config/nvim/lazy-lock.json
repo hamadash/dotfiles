@@ -63,6 +63,7 @@
   "pounce.nvim": { "branch": "master", "commit": "2e36399ac09b517770c459f1a123e6b4b4c1c171" },
   "promise-async": { "branch": "main", "commit": "119e8961014c9bfaf1487bf3c2a393d254f337e2" },
   "quick-scope": { "branch": "master", "commit": "6cee1d9e0b9ac0fbffeb538d4a5ba9f5628fabbc" },
+  "rails-schema.nvim": { "branch": "main", "commit": "aaf5deae57180f43e2254aa4742dee4fdba55f85" },
   "registers": { "branch": "main", "commit": "c217f8f369e0886776cda6c94eab839b30a8940d" },
   "ruby-fqn.nvim": { "branch": "main", "commit": "bd6507680497fd216b831578f361e31dab0f67dc" },
   "snacks.nvim": { "branch": "main", "commit": "bc0630e43be5699bb94dadc302c0d21615421d93" },
