@@ -29,6 +29,50 @@ return {
 		-- Custom
 		{ key = "n", mods = "CMD", action = act.SpawnCommandInNewWindow({ cwd = wezterm.home_dir }) },
 		{ key = "n", mods = "SHIFT|CMD", action = act.SpawnWindow },
+		-- Pane
+		{ key = "H", mods = "LEADER", action = act.AdjustPaneSize({ "Left", 10 }) },
+		{ key = "L", mods = "LEADER", action = act.AdjustPaneSize({ "Right", 10 }) },
+		{ key = "K", mods = "LEADER", action = act.AdjustPaneSize({ "Up", 5 }) },
+		{ key = "J", mods = "LEADER", action = act.AdjustPaneSize({ "Down", 5 }) },
+		-- Workspace (Tmux のキーと揃える)
+		{
+			key = "c",
+			mods = "LEADER",
+			action = act.ShowLauncherArgs({ flags = "WORKSPACES", title = "Select workspace" }),
+		},
+		{
+			-- Create new workspace
+			mods = "LEADER|SHIFT",
+			key = "C",
+			action = act.PromptInputLine({
+				description = "(wezterm) Create new workspace:",
+				action = wezterm.action_callback(function(window, pane, line)
+					if line then
+						window:perform_action(
+							act.SwitchToWorkspace({
+								name = line,
+							}),
+							pane
+						)
+					end
+				end),
+			}),
+		},
+		{
+			-- Rename workspace
+			mods = "LEADER",
+			key = "$",
+			action = act.PromptInputLine({
+				description = "(wezterm) Set workspace title:",
+				action = wezterm.action_callback(function(win, pane, line)
+					if line then
+						wezterm.mux.rename_workspace(wezterm.mux.get_active_workspace(), line)
+					end
+				end),
+			}),
+		},
+		{ key = "n", mods = "LEADER", action = act.SwitchWorkspaceRelative(1) },
+		{ key = "p", mods = "LEADER", action = act.SwitchWorkspaceRelative(-1) },
 	},
 	key_tables = {
 		copy_mode = {
