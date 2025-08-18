@@ -112,4 +112,5 @@
   "gitHistory.showFileHistorySplit": false,
   "diffEditor.ignoreTrimWhitespace": false,
   "biome.suggestInstallingGlobally": false,
+  "redhat.telemetry.enabled": true,
 }
