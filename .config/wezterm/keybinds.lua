@@ -29,6 +29,19 @@ return {
 		-- Custom
 		{ key = "n", mods = "CMD", action = act.SpawnCommandInNewWindow({ cwd = wezterm.home_dir }) },
 		{ key = "n", mods = "SHIFT|CMD", action = act.SpawnWindow },
+		{
+			key = "LeftArrow",
+			mods = "OPT",
+			action = act.SendKey({
+				key = "b",
+				mods = "ALT",
+			}),
+		},
+		{
+			key = "RightArrow",
+			mods = "OPT",
+			action = act.SendKey({ key = "f", mods = "ALT" }),
+		},
 		-- Pane
 		{ key = "H", mods = "LEADER", action = act.AdjustPaneSize({ "Left", 10 }) },
 		{ key = "L", mods = "LEADER", action = act.AdjustPaneSize({ "Right", 10 }) },
