@@ -3,7 +3,6 @@ return {
 	dependencies = {
 		{ "williamboman/mason.nvim" },
 		{ "williamboman/mason-lspconfig.nvim" },
-		{ "neovim/nvim-lspconfig" },
 		{ "hrsh7th/nvim-cmp" },
 		{ "hrsh7th/cmp-nvim-lsp" },
 		{ "hrsh7th/cmp-buffer" },
@@ -77,13 +76,9 @@ return {
 		})
 
 		local capabilities = require("cmp_nvim_lsp").default_capabilities()
-
-		local lspconfig = require("lspconfig")
-		for _, lsp in ipairs(servers) do
-			lspconfig[lsp].setup({
-				capabilities = capabilities,
-			})
-		end
+		vim.lsp.config("*", {
+			capabilities = capabilities,
+		})
 
 		local luasnip = require("luasnip")
 
