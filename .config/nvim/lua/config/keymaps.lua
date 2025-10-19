@@ -99,7 +99,7 @@ set_keymap(
 )
 set_keymap("n", "<sid>(q)q", "qq", { desc = "Start macro recording when not using q as prefix." })
 
--- LazyVim setteings start --
+-- LazyVim settings start --
 -- LazyVim のキーマップが便利なので流用
 -- https://www.lazyvim.org/configuration/general#keymaps
 
