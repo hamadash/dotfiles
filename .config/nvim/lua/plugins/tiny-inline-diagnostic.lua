@@ -5,8 +5,7 @@ return {
 	config = function()
 		require("tiny-inline-diagnostic").setup()
 		vim.diagnostic.config({
-			-- virtual_text = { pos = "right_align" },
-			virtual_text = false,
+			virtual_text = { pos = "right_align" },
 		})
 	end,
 }

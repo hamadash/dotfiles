@@ -183,6 +183,13 @@
     }
   },
   {
+    "key": "cmd+k cmd+v",
+    "command": "workbench.action.tasks.runTask",
+    "args": {
+      "task": "open_in_vim (iTerm)"
+    }
+  },
+  {
     "key": "shift+cmd+k",
     "command": "-composer.openAsBar"
   },
@@ -223,5 +230,30 @@
     "key": "cmd+k",
     "command": "-aipopup.action.modal.generate",
     "when": "editorFocus && !composerBarIsVisible"
+  },
+  {
+    "key": "ctrl+q",
+    "command": "-workbench.action.quickOpenView"
+  },
+  {
+    "key": "cmd+i",
+    "command": "composerMode.agent"
+  },
+  {
+    "key": "cmd+k cmd+f",
+    "command": "gitlens.openFileOnRemoteFrom"
+  },
+  {
+    "key": "cmd+g cmd+p",
+    "command": "git.stashPop"
+  },
+  {
+    "key": "shift+cmd+b",
+    "command": "-workbench.action.tasks.build",
+    "when": "taskCommandsRegistered"
+  },
+  {
+    "key": "shift+cmd+b",
+    "command": "workbench.action.tasks.runTask"
   }
 ]

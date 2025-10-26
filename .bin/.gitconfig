@@ -3,7 +3,9 @@
   email = 60833258+hamadash@users.noreply.github.com
 [alias]
   c = checkout
+  ca = "commit --amend"
   b = branch
+  lg = "log --oneline --graph --all"
   st = status
   ss = stash
   fcb = "!f() { git fetch && git checkout -b \"$1\" \"origin/$1\"; }; f"
@@ -11,5 +13,9 @@
   openpr = "!f(){ git searchpr $1 | xargs -I ISSUE_NUMBER gh pr view ISSUE_NUMBER --web;};f"
 [init]
   defaultBranch = main
+[color]
+  ui = true
+[core]
+  editor = nvim
 [delta]
   side-by-side = true

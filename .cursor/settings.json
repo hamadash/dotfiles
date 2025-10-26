@@ -103,4 +103,14 @@
   "editor.guides.bracketPairs": true,
   "workbench.colorTheme": "Default Dark Modern",
   "terminal.integrated.scrollback": 10000,
+  "rspec-runner.executePath": "docker compose exec web bundle exec rspec",
+  "cursor.cpp.disabledLanguages": [
+    "markdown",
+    "plaintext",
+    "untitled"
+  ],
+  "gitHistory.showFileHistorySplit": false,
+  "diffEditor.ignoreTrimWhitespace": false,
+  "biome.suggestInstallingGlobally": false,
+  "redhat.telemetry.enabled": true,
 }
