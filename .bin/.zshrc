@@ -70,8 +70,6 @@ alias cl='clear'
 ##########
 # プロンプト設定
 ##########
-setopt PROMPT_SUBST ; PS1='[%n %c$(__git_ps1 "(%s)")]\$'
-
 # git-prompt の読み込み
 source ~/dotfiles/.zsh/git-prompt.sh
 
@@ -93,6 +91,9 @@ GIT_PS1_SHOWUPSTREAM=auto
 precmd() {
   print -Pn "\e]0;%~\a"
 }
+
+# starship
+eval "$(starship init zsh)"
 
 ##########
 # 補完・サジェスト・ハイライト
