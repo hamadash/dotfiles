@@ -18,6 +18,9 @@ $username\
 $time
 """
 
+[character]
+format = '\$'
+
 [cmd_duration]
 min_time = 1
 format = '[$duration](bold yellow)'
