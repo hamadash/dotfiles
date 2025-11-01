@@ -6,9 +6,8 @@ add_newline = true
 
 format = """
 $directory\
-$custom\
-[> ](fg:#88C0D0)\
-\n$character
+$custom \
+$character
 """
 
 right_format = """
@@ -19,7 +18,7 @@ $time
 """
 
 [character]
-format = '\$'
+format = '\$(fg:#88C0D0)'
 
 [cmd_duration]
 min_time = 1
