@@ -87,6 +87,7 @@ set_keymap(
 set_keymap("n", "<Leader>ro", "<C-^>", { desc = "Reopen recent closed buffer." })
 
 -- Cursor で開く
+-- see: .config/nvim/lua/utils/cursor.lua
 set_keymap("n", "<Leader>oc", "<CMD>Cursor<CR>", { desc = "Open current file in Cursor." })
 
 -- q をプレフィックスキーにする
