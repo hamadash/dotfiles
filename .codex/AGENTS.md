@@ -1,13 +1,17 @@
-# Common Rules
+# Rules
+
+## Common Rules
 
 - 日本語で簡潔かつ丁寧に回答すること。
+- 必ずセキュリティ的な観点を取り入れること。
+- パフォーマンス観点も重要だが、可読性を優先すること。
 
-# Code Style
+## Code Style
 
 - プロジェクト固有のルール、命名、設計手法を基準にすること。ただし、それが一般的な原則から外れている場合はコメントで補足すること。
 - 認知負荷の高いコードには、適宜コメントで補足すること。
 
-# Rails Guidelines
+## Rails Guidelines
 
 - 基本的には Rails Way に則ること。
 - graphql-ruby を使っている場合、Controller#action と Mutation は似た役割を持つこと。
@@ -25,7 +29,7 @@
   - Model (PORO を使ってイベントモデルを作成)
   - Service (ただし、極力用いずに上述のとおりアプリケーションの用途のみ)
 
-# Development Flow
+## Development Flow
 
 - 基本的に Test-Driven Development (TDD) を用いること。
 
