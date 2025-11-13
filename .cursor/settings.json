@@ -113,4 +113,9 @@
   "diffEditor.ignoreTrimWhitespace": false,
   "biome.suggestInstallingGlobally": false,
   "redhat.telemetry.enabled": true,
+  "files.watcherExclude": {
+    "**/.cache/**": true,
+    "**/node_modules/*/**": true,
+    "**/tmp/**": true
+  },
 }
