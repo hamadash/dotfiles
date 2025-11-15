@@ -255,5 +255,40 @@
   {
     "key": "shift+cmd+b",
     "command": "workbench.action.tasks.runTask"
+  },
+  {
+    "key": "cmd+l cmd+c",
+    "command": "aichat.newchataction"
+  },
+  {
+    "key": "cmd+l",
+    "command": "-aichat.newchataction"
+  },
+  {
+    "key": "cmd+l cmd+c",
+    "command": "-extension.liveServer.goOffline",
+    "when": "editorTextFocus"
+  },
+  {
+    "key": "cmd+l cmd+c",
+    "command": "composer.sendToAgent",
+    "when": "editorHasPromptBar && editorPromptBarFocused"
+  },
+  {
+    "key": "cmd+l",
+    "command": "-composer.sendToAgent",
+    "when": "editorHasPromptBar && editorPromptBarFocused"
+  },
+  {
+    "key": "cmd+l cmd+x",
+    "command": "chatgpt.addToThread"
+  },
+  {
+    "key": "cmd+l cmd+x",
+    "command": "chatgpt.sidebarView.focus"
+  },
+  {
+    "key": "shift+cmd+l",
+    "command": "-composer.newAgentChat"
   }
 ]
