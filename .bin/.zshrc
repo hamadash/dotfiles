@@ -70,6 +70,9 @@ alias cl='clear'
 # bat
 alias cat='bat'
 
+# eza
+alias ls='eza --icons auto -F always --hyperlink -h'
+
 ##########
 # プロンプト設定
 ##########
