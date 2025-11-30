@@ -16,7 +16,12 @@
 local function set_keymap(modes, key, command, opts)
 	opts = opts or {}
 
-	local options = { noremap = true, silent = true, expr = opts.expr or false, desc = opts.desc }
+	local options = {
+		noremap = true,
+		silent = true,
+		expr = opts.expr or false,
+		desc = opts.desc,
+	}
 
 	-- modesが文字列の場合、リストに変換
 	if type(modes) == "string" then
@@ -24,7 +29,8 @@ local function set_keymap(modes, key, command, opts)
 	end
 
 	for _, mode in ipairs(modes) do
-		vim.api.nvim_set_keymap(mode, key, command, options)
+		-- command に関数も渡せるように vim.keymap.set を使う
+		vim.keymap.set(mode, key, command, options)
 	end
 end
 
@@ -99,6 +105,21 @@ set_keymap(
 	{ desc = "Use as prefix unless recording macro." }
 )
 set_keymap("n", "<sid>(q)q", "qq", { desc = "Start macro recording when not using q as prefix." })
+
+-- 行頭のインデントを除いた内容をヤンクする
+local function yank_trimmed_line()
+	local line = vim.api.nvim_get_current_line()
+
+	-- 先頭の空白を削る
+	local trimmed = line:gsub("^%s+", "")
+
+	-- 無名レジスタ (") に linewise でセット
+	vim.fn.setreg('"', trimmed, "l")
+	-- システムクリップボード側にも同じ内容をセット
+	vim.fn.setreg("+", trimmed, "l")
+end
+
+set_keymap("n", "gy", yank_trimmed_line, { desc = "Yank line without indent." })
 
 -- LazyVim settings start --
 -- LazyVim のキーマップが便利なので流用
