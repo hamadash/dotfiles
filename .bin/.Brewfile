@@ -5,6 +5,7 @@ tap "FelixKratz/formulae"
 
 brew "act"
 brew "asdf"
+brew "bat"
 brew "borders"
 brew "cmatrix"
 brew "fd"

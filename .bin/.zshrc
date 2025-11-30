@@ -67,6 +67,9 @@ alias ..='cd ../'
 alias ...='cd ../../'
 alias cl='clear'
 
+# bat
+alias cat='bat'
+
 ##########
 # プロンプト設定
 ##########
