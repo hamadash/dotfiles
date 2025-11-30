@@ -29,11 +29,6 @@ return {
 			"DiagnosticHintLine",
 			{ bg = colors.blend_with_opacity(palette.green, palette.base, 0.15) }
 		)
-		vim.api.nvim_set_hl(
-			0,
-			"DiagnosticInfoLine",
-			{ bg = colors.blend_with_opacity(palette.blue, palette.base, 0.15) }
-		)
 
 		vim.diagnostic.config({
 			signs = {
@@ -42,7 +37,6 @@ return {
 					[vim.diagnostic.severity.ERROR] = "DiagnosticErrorLine",
 					[vim.diagnostic.severity.WARN] = "DiagnosticWarnLine",
 					[vim.diagnostic.severity.HINT] = "DiagnosticHintLine",
-					[vim.diagnostic.severity.INFO] = "DiagnosticInfoLine",
 				},
 			},
 		})
