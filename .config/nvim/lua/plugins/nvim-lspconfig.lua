@@ -41,6 +41,12 @@ return {
 			},
 		})
 	end,
+	opts = {
+		servers = {
+			-- stylua を LSP サーバーとして起動する設定がどこかにあるらしくエラーを吐くようになったので無効化
+			stylua = false,
+		},
+	},
 	config = function()
 		-- ref. https://github.com/neovim/nvim-lspconfig/wiki/Snippets
 
