@@ -19,6 +19,16 @@ config.macos_window_background_blur = 8
 -- タイトルバーを非表示
 config.window_decorations = "RESIZE"
 
+-- 現在の workspace 名を表示
+wezterm.on("update-right-status", function(window, pane)
+	local active_workspace_name = wezterm.mux.get_active_workspace()
+
+	window:set_right_status(wezterm.format({
+		-- 後ろに半角スペース2個程度空けておかないと右端に詰まって表示される
+		{ Text = "workspace: " .. active_workspace_name .. "  " },
+	}))
+end)
+
 -- タブバーの色を背景と同じにする
 config.window_background_gradient = {
 	colors = { "#000000" },
