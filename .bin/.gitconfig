@@ -22,3 +22,5 @@
   editor = nvim
 [delta]
   side-by-side = true
+[ghq]
+	root = ~/ghq
