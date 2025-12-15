@@ -51,6 +51,7 @@ alias dcom='docker compose'
 
 # Git
 alias g='git'
+alias gtop=`cd $(git rev-parse --show-toplevel)`
 
 # Neovim
 alias vim="nvim"
