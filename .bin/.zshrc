@@ -88,11 +88,14 @@ zstyle ':completion:*:*:git:*' script ~/dotfiles/.zsh/git-completion.bash
 # GitHub CLI 補完
 eval "$(gh completion -s zsh)"
 
+# NOTE: starship を使わない場合の設定
+# setopt PROMPT_SUBST ; PS1='[%n %c$(__git_ps1 "(%s)")]\$'
+#
 # プロンプトのオプション表示設定
-GIT_PS1_SHOWDIRTYSTATE=true
-GIT_PS1_SHOWUNTRACKEDFILES=true
-GIT_PS1_SHOWSTASHSTATE=true
-GIT_PS1_SHOWUPSTREAM=auto
+# GIT_PS1_SHOWDIRTYSTATE=true
+# GIT_PS1_SHOWUNTRACKEDFILES=true
+# GIT_PS1_SHOWSTASHSTATE=true
+# GIT_PS1_SHOWUPSTREAM=auto
 
 # カレントディレクトリをタブに表示する
 precmd() {
