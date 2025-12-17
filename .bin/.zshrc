@@ -51,7 +51,6 @@ alias dcom='docker compose'
 
 # Git
 alias g='git'
-alias gtop=`cd $(git rev-parse --show-toplevel)`
 
 # Neovim
 alias vim="nvim"
@@ -145,4 +144,9 @@ fcd() {
 # fzf でファイルを選んで nvim で開く
 vf() {
     nvim "$(fzf)"
+}
+
+# git 管理しているプロジェクトルートに戻る
+gcd() {
+  cd $(git rev-parse --show-toplevel)
 }
