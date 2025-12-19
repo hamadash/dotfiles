@@ -39,6 +39,9 @@ export PATH=~/dotfiles/custom_commands:$PATH
 # asdf
 export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"
 
+# .local/bin
+export PATH="$HOME/.local/bin:$PATH"
+
 # tmux
 export TMUX_TMPDIR=/tmp
 
