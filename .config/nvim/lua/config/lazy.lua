@@ -20,7 +20,6 @@ if vim.g.vscode then
 		spec = {
 			{ import = "plugins.aerial" },
 			{ import = "plugins.any-jump" },
-			{ import = "plugins.clever-f" },
 			{ import = "plugins.colorizer" },
 			{ import = "plugins.comment" },
 			{ import = "plugins.dial" },
