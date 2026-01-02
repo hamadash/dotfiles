@@ -45,6 +45,9 @@ export PATH="$HOME/.local/bin:$PATH"
 # tmux
 export TMUX_TMPDIR=/tmp
 
+# mise
+eval "$(~/.local/bin/mise activate zsh)"
+
 ##########
 # エイリアス
 ##########
