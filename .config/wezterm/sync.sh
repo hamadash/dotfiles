@@ -9,4 +9,4 @@ rm -rf "${WEZTERM_CONF_DIR}/"{,.[!.],..?}*
 
 ln -fnsv "${SCRIPT_DIR}/wezterm.lua" "${WEZTERM_CONF_DIR}/wezterm.lua"
 ln -fnsv "${SCRIPT_DIR}/keybinds.lua" "${WEZTERM_CONF_DIR}/keybinds.lua"
-
+ln -fnsv "${SCRIPT_DIR}/appearance.lua" "${WEZTERM_CONF_DIR}/appearance.lua"
