@@ -116,6 +116,17 @@ return {
 				)
 			end),
 		},
+		-- アクティブペインのズーム
+		{
+			key = "z",
+			mods = "CTRL",
+			action = wezterm.action_callback(function(window, pane)
+				local tab = pane:tab()
+				if #tab:panes() > 1 then
+					window:perform_action(act.TogglePaneZoomState, pane)
+				end
+			end),
+		},
 	},
 	key_tables = {
 		copy_mode = {
