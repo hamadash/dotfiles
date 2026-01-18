@@ -56,9 +56,6 @@
   },
   "window.zoomLevel": 1,
   "vscodeGoogleTranslate.preferredLanguage": "Japanese",
-  "extensions.experimental.affinity": {
-    "asvetliakov.vscode-neovim": 1
-  },
   "editor.accessibilitySupport": "off",
   "vscode-neovim.neovimExecutablePaths.darwin": "/opt/homebrew/bin/nvim",
   "vscode-neovim.neovimInitVimPaths.darwin": "${HOME}/.config/nvim/init.lua",
