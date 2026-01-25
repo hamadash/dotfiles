@@ -1,6 +1,5 @@
 return {
 	"hamadash/keymemo.nvim",
-	-- dir = vim.fn.expand("~/development/keymemo.nvim"),
 	event = "VeryLazy",
 	keys = {
 		{ "<leader>?", "<cmd>KeyMemo<cr>", desc = "Show keys memo" },
@@ -8,54 +7,54 @@ return {
 	config = function()
 		require("keymemo").setup({
 			keys = {
-				movement = {
+				{
 					name = "移動",
 					mappings = {
-						["{"] = "前の段落へ移動",
-						["}"] = "次の段落へ移動",
-						["[["] = "前のセクションへ移動",
-						["]]"] = "次のセクションへ移動",
-						["<C-o>"] = "ジャンプ履歴を戻る",
+						{ key = "{", desc = "前の段落へ移動" },
+						{ key = "}", desc = "次の段落へ移動" },
+						{ key = "[[", desc = "前のセクションへ移動" },
+						{ key = "]]", desc = "次のセクションへ移動" },
+						{ key = "<C-o>", desc = "ジャンプ履歴を戻る" },
 					},
 				},
-				replace = {
+				{
 					name = "置換",
 					mappings = {
-						[":%s/search/replace/g"] = "一括置換",
-						[":%s/search/replace/gc"] = "確認しながら置換",
+						{ key = ":%s/search/replace/g", desc = "一括置換" },
+						{ key = ":%s/search/replace/gc", desc = "確認しながら置換" },
 					},
 				},
-				edit = {
+				{
 					name = "編集",
 					mappings = {
-						J = "行を連結（空白あり）",
-						gJ = "行を連結（空白なし）",
-						["<Block> + I"] = "矩形選択 → 行頭に文字追加",
-						["<Block> + A"] = "矩形選択 → 行末に文字追加",
-						["gUw"] = "単語の大文字変換",
-						["va)"] = "括弧全体を選択",
-						["vit"] = "タグ内を選択",
-						["vat"] = "タグ全体を選択",
-						['vt"'] = '現在位置から"までを選択',
-						d0 = "カーソル位置から行頭までを削除",
-						["<C-u>"] = "insert モードで行頭までを削除",
+						{ key = "J", desc = "行を連結(空白あり)" },
+						{ key = "gJ", desc = "行を連結(空白なし)" },
+						{ key = "<Block> + I", desc = "矩形選択 → 行頭に文字追加" },
+						{ key = "<Block> + A", desc = "矩形選択 → 行末に文字追加" },
+						{ key = "gUw", desc = "単語の大文字変換" },
+						{ key = "va)", desc = "括弧全体を選択" },
+						{ key = "vit", desc = "タグ内を選択" },
+						{ key = "vat", desc = "タグ全体を選択" },
+						{ key = 'vt"', desc = '現在位置から"までを選択' },
+						{ key = "d0", desc = "カーソル位置から行頭までを削除" },
+						{ key = "<C-u>", desc = "insert モードで行頭までを削除" },
 					},
 				},
-				fold = {
+				{
 					name = "折りたたみ",
 					mappings = {
-						zf = "折りたたみ作成",
-						zm = "すべて折りたたみ",
-						zo = "展開",
-						z0 = "再帰的に展開",
-						zr = "少し展開",
-						zR = "すべて展開",
+						{ key = "zf", desc = "折りたたみ作成" },
+						{ key = "zm", desc = "すべて折りたたみ" },
+						{ key = "zo", desc = "展開" },
+						{ key = "z0", desc = "再帰的に展開" },
+						{ key = "zr", desc = "少し展開" },
+						{ key = "zR", desc = "すべて展開" },
 					},
 				},
-				file = {
+				{
 					name = "ファイル",
 					mappings = {
-						["<C-^>"] = "直前に開いていたファイルに戻る",
+						{ key = "<C-^>", desc = "直前に開いていたファイルに戻る" },
 					},
 				},
 			},
