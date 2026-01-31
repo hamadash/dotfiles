@@ -52,6 +52,9 @@ local appearance = {
 			{ Text = tab.active_pane.title },
 		}
 	end),
+
+	-- カーソルの点滅を無効化
+	cursor_blink_rate = 0,
 }
 
 function module.apply_to_config(config)
