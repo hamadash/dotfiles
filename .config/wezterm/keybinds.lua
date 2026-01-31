@@ -15,7 +15,7 @@ return {
 		{ key = "j", mods = "LEADER", action = act.ActivatePaneDirection("Down") },
 		{ key = "k", mods = "LEADER", action = act.ActivatePaneDirection("Up") },
 		{ key = "l", mods = "LEADER", action = act.ActivatePaneDirection("Right") },
-		{ key = "t", mods = "CTRL", action = wezterm.action.ShowTabNavigator },
+		{ key = "t", mods = "LEADER", action = wezterm.action.ShowTabNavigator },
 		{ key = "t", mods = "SUPER", action = act.SpawnTab("CurrentPaneDomain") },
 		{ key = "w", mods = "SHIFT|CTRL", action = act.CloseCurrentTab({ confirm = true }) },
 		{ key = "w", mods = "SUPER", action = act.CloseCurrentTab({ confirm = true }) },
