@@ -12,23 +12,29 @@ workspaces.json の記載例:
     "name": "workspace_name",
     "cwd": "~/path/to/directory",
     "setup": {
-      "panes": [
+      "tabs": [
         {
-          "commands": ["nvim"]
+          "name": "Editor",  // タブ名 (省略可能)
+          "panes": [
+            {
+              "commands": ["nvim"]
+            },
+            {
+              "split": {
+                "direction": "Right",  // "Right", "Left", "Top", "Bottom"
+                "size": 0.6            // 0.0 〜 1.0 の範囲で分割サイズを指定
+              },
+              "commands": ["git status", "ls"]
+            }
+          ]
         },
         {
-          "split": {
-            "direction": "Right",  // "Right", "Left", "Top", "Bottom"
-            "size": 0.6            // 0.0 〜 1.0 の範囲で分割サイズを指定
-          },
-          "commands": ["git status", "ls"]
-        },
-        {
-          "split": {
-            "direction": "Bottom",
-            "size": 0.3
-          }
-          // commands は省略可能
+          "name": "Terminal",
+          "panes": [
+            {
+              "commands": ["ls"]
+            }
+          ]
         }
       ]
     }
@@ -43,8 +49,10 @@ workspaces.json の記載例:
 注意:
 - "cwd" は ~ で始めることで home_dir に展開される。
 - "setup" フィールドは省略可能。
-- "panes" 配列の最初の要素は既存の pane を使用する。 (split なし)
-- 2番目以降の pane では "split" を指定して新しい pane を作成する。
+- "tabs" 配列の各要素は "name" と "panes" を持つ。
+- "panes" 配列の各要素は "split" と "commands" を指定できる。
+- "split" が指定されている場合は、前の pane から split して新しい pane を作成する。
+- 最初の要素で "split" が指定されていない場合のみ、既存の pane を使用する。
 - "commands" は各 pane で実行するコマンドの配列。 (省略可能)
 - "commands" で定義したコマンドは、対応する pane で順番に実行される。
 --]]
@@ -81,34 +89,64 @@ local function load_workspaces_from_json()
 	return workspaces_data
 end
 
+-- pane の設定を適用する共通関数
+local function setup_panes(initial_pane, panes_config)
+	if not panes_config then
+		return
+	end
+
+	local current_pane = initial_pane
+
+	for i, pane_config in ipairs(panes_config) do
+		-- split が指定されている場合は split を実行
+		if pane_config.split then
+			current_pane = current_pane:split({
+				direction = pane_config.split.direction,
+				size = pane_config.split.size,
+			})
+		elseif i == 1 then
+			-- 最初の要素で split が指定されていない場合は既存の pane を使用
+			current_pane = initial_pane
+		end
+
+		-- commands を実行
+		if pane_config.commands then
+			for _, command in ipairs(pane_config.commands) do
+				current_pane:send_text(command .. "\n")
+			end
+		end
+	end
+end
+
 -- setup 設定から関数を動的に生成
 local function create_setup_function(setup_config)
-	if not setup_config then
+	if not setup_config or not setup_config.tabs then
 		return nil
 	end
 
 	return function(window, pane)
-		if not setup_config.panes then
-			return
-		end
-
-		local current_pane = pane
-
-		for i, pane_config in ipairs(setup_config.panes) do
-			-- 最初の pane 以外は split を実行
-			if i > 1 and pane_config.split then
-				current_pane = current_pane:split({
-					direction = pane_config.split.direction,
-					size = pane_config.split.size,
-				})
-			end
-
-			-- commands を実行
-			if pane_config.commands then
-				for _, command in ipairs(pane_config.commands) do
-					current_pane:send_text(command .. "\n")
+		for i, tab_config in ipairs(setup_config.tabs) do
+			local tab_pane
+			-- 最初のタブは既存のタブを使用
+			if i == 1 then
+				tab_pane = pane
+				-- タブ名を設定
+				if tab_config.name then
+					local tab = pane:tab()
+					tab:set_title(tab_config.name)
+				end
+			else
+				-- 新しいタブを作成
+				local new_tab = window:spawn_tab({})
+				tab_pane = new_tab:active_pane()
+				-- タブ名を設定
+				if tab_config.name then
+					new_tab:set_title(tab_config.name)
 				end
 			end
+
+			-- 各タブに panes を設定
+			setup_panes(tab_pane, tab_config.panes)
 		end
 	end
 end
