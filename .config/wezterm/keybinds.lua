@@ -50,7 +50,7 @@ return {
 		-- アクティブペインのズーム
 		{
 			key = "z",
-			mods = "SUPER",
+			mods = "OPT",
 			action = wezterm.action_callback(function(window, pane)
 				local tab = pane:tab()
 				if #tab:panes() > 1 then
