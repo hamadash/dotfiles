@@ -34,5 +34,8 @@
       "mcp__supabase__execute_sql"
     ]
   },
-  "preferredNotifChannel": "terminal_bell"
+  "preferredNotifChannel": "terminal_bell",
+  "enabledPlugins": {
+    "lua-lsp@claude-plugins-official": true
+  }
 }
