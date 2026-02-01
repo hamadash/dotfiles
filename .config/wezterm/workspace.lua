@@ -4,15 +4,57 @@ local act = wezterm.action
 
 local M = {}
 
-local function decode_json(json_string)
-	local lua_string =
-		json_string:gsub("%[", "{"):gsub("%]", "}"):gsub("(%w+)%s*:", '["%1"]='):gsub('"(true|false)"', "%1")
+--[[
+workspaces.json を .config/wezterm に以下のように用意すると、workspace をプリセットできる。
+workspaces.json の記載例:
+{
+  "workspace_key": {
+    "name": "workspace_name",
+    "cwd": "~/path/to/directory",
+    "setup": {
+      "panes": [
+        {
+          "commands": ["nvim"]
+        },
+        {
+          "split": {
+            "direction": "Right",  // "Right", "Left", "Top", "Bottom"
+            "size": 0.6            // 0.0 〜 1.0 の範囲で分割サイズを指定
+          },
+          "commands": ["git status", "ls"]
+        },
+        {
+          "split": {
+            "direction": "Bottom",
+            "size": 0.3
+          }
+          // commands は省略可能
+        }
+      ]
+    }
+  },
+  "simple_workspace": {
+    "name": "simple",
+    "cwd": "~/projects/simple"
+    // setup は省略可能
+  }
+}
 
-	local func, err = load("return " .. lua_string)
-	if func then
-		return func()
+注意:
+- "cwd" は ~ で始めることで home_dir に展開される。
+- "setup" フィールドは省略可能。
+- "panes" 配列の最初の要素は既存の pane を使用する。 (split なし)
+- 2番目以降の pane では "split" を指定して新しい pane を作成する。
+- "commands" は各 pane で実行するコマンドの配列。 (省略可能)
+- "commands" で定義したコマンドは、対応する pane で順番に実行される。
+--]]
+
+local function decode_json(json_string)
+	local success, result = pcall(wezterm.json_parse, json_string)
+	if success then
+		return result
 	else
-		wezterm.log_error("JSON parse error: " .. tostring(err))
+		wezterm.log_error("JSON parse error: " .. tostring(result))
 		return nil
 	end
 end
@@ -46,20 +88,26 @@ local function create_setup_function(setup_config)
 	end
 
 	return function(window, pane)
-		-- splits を実行
-		if setup_config.splits then
-			for _, split_config in ipairs(setup_config.splits) do
-				pane:split({
-					direction = split_config.direction,
-					size = split_config.size,
-				})
-			end
+		if not setup_config.panes then
+			return
 		end
 
-		-- commands を実行
-		if setup_config.commands then
-			for _, command in ipairs(setup_config.commands) do
-				pane:send_text(command .. "\n")
+		local current_pane = pane
+
+		for i, pane_config in ipairs(setup_config.panes) do
+			-- 最初の pane 以外は split を実行
+			if i > 1 and pane_config.split then
+				current_pane = current_pane:split({
+					direction = pane_config.split.direction,
+					size = pane_config.split.size,
+				})
+			end
+
+			-- commands を実行
+			if pane_config.commands then
+				for _, command in ipairs(pane_config.commands) do
+					current_pane:send_text(command .. "\n")
+				end
 			end
 		end
 	end
