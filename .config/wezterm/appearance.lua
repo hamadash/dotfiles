@@ -17,10 +17,11 @@ local appearance = {
 	-- 現在の workspace 名を表示
 	wezterm.on("update-right-status", function(window, pane)
 		local active_workspace_name = window:active_workspace()
+		local date = wezterm.strftime("%Y/%m/%d %H:%M:%S")
 
 		window:set_right_status(wezterm.format({
 			-- 後ろに半角スペース2個程度空けておかないと右端に詰まって表示される
-			{ Text = "workspace: " .. active_workspace_name .. "  " },
+			{ Text = "workspace: " .. active_workspace_name .. " : " .. date .. "  " },
 		}))
 	end),
 
