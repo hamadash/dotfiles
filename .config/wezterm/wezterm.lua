@@ -15,4 +15,10 @@ config.disable_default_key_bindings = true
 
 require("appearance").apply_to_config(config)
 
+-- workspace
+local workspace = require("workspace")
+for _, key in ipairs(workspace.keys) do
+	table.insert(config.keys, key)
+end
+
 return config
