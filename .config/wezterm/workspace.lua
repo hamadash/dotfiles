@@ -259,7 +259,7 @@ M.keys = {
 	{ key = "p", mods = "LEADER", action = act.SwitchWorkspaceRelative(-1) },
 	-- Select workspace
 	{
-		mods = "LEADER",
+		mods = "SUPER",
 		key = "s",
 		action = wezterm.action_callback(function(win, pane)
 			local workspaces = {}
