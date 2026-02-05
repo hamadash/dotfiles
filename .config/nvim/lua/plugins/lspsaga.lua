@@ -23,7 +23,7 @@ return {
 	keys = {
 		{ mode = "n", "<Leader>lca", "<CMD>Lspsaga code_action<CR>", desc = "lspsaga code_action" },
 		{ mode = "n", "<C-j>", "<CMD>Lspsaga goto_definition<CR>", desc = "lspsaga goto_definition" },
-		{ mode = "n", "<C-->", "<CMD>Lspsaga peek_definition<CR>", desc = "lspsaga peek_definition" },
+		{ mode = "n", "<Leader>lpd", "<CMD>Lspsaga peek_definition<CR>", desc = "lspsaga peek_definition" },
 		{ mode = "n", "<Leader>lsd", "<CMD>Lspsaga show_line_diagnostics<CR>", desc = "lspsaga show_line_diagnostics" },
 		{ mode = "n", "<Leader>[l", "<CMD>Lspsaga diagnostic_jump_prev<CR>", desc = "lspsaga diagnostic_jump_prev" },
 		{ mode = "n", "<Leaaer>]l", "<CMD>Lspsaga diagnostic_jump_next<CR>", desc = "lspsaga diagnostic_jump_next" },
