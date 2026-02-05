@@ -121,6 +121,9 @@ end
 
 set_keymap("n", "gy", yank_trimmed_line, { desc = "Yank line without indent." })
 
+-- 補完表示
+set_keymap("i", "<C-o>", "<C-x><C-o>", { desc = "Trigger omnifunc." })
+
 -- LazyVim settings start --
 -- LazyVim のキーマップが便利なので流用
 -- https://www.lazyvim.org/configuration/general#keymaps
