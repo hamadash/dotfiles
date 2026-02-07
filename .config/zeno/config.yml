@@ -1,0 +1,33 @@
+snippets:
+  - name: "null"
+    keyword: "null"
+    snippet: ">/dev/null 2>&1"
+    context:
+      lbuffer: '.+\s'
+
+  - keyword: ll
+    snippet: ls -l
+
+  - keyword: la
+    snippet: ls -a
+
+completions:
+  - name: chdir
+    patterns:
+      - "^cd $"
+    sourceCommand: "find . -path '*/.git' -prune -o -maxdepth 5 -type d -print0"
+    options:
+      # Added --read0 if null termination is used in `sourceCommand` output.
+      --read0: true
+      --prompt: "'Chdir> '"
+      --preview: "cd {} && ls -a | sed '/^[.]*$/d'"
+    callback: "cut -z -c 3-"
+    callbackZero: true # null termination is used in `callback` I/O
+
+  - name: Makefile
+    patterns:
+      - "^make( .*)? $"
+    sourceCommand: 'make help | sed -E "s/\x1b\[([0-9]{1,3}((;[0-9]{1,3})*)?)?[mGK]//g"'
+    callback: "awk '{printf $2}'"
+    options:
+      --prompt: "'make> '"
