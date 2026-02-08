@@ -63,8 +63,6 @@ alias view="nvim -R"
 alias lg="lazygit"
 
 # Linux
-alias la='ls -a'
-alias ll='ls -l'
 alias mkdir='mkdir -p'
 alias ..='cd ../'
 alias ...='cd ../../'
