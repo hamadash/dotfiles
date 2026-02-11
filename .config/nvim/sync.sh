@@ -28,8 +28,13 @@ done
 
 LUA_UTILS_DIR="${LUA_DIR}/utils"
 mkdir -p "${LUA_UTILS_DIR}"
-for lua_file in "${SCRIPT_DIR}"/lua/utils/*.lua; do
-    file_name=$(basename "${lua_file}")
-    ln -fnsv "${lua_file}" "${LUA_UTILS_DIR}/${file_name}"
+find "${SCRIPT_DIR}/lua/utils" -type f -name "*.lua" | while read -r lua_file; do
+    relative_path="${lua_file#${SCRIPT_DIR}/lua/utils/}"
+    target_file="${LUA_UTILS_DIR}/${relative_path}"
+
+    target_dir=$(dirname "${target_file}")
+    mkdir -p "${target_dir}"
+
+    ln -fnsv "${lua_file}" "${target_file}"
 done
 
