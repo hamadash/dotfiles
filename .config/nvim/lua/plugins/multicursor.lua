@@ -22,18 +22,21 @@ return {
 		end)
 
 		-- Add or skip adding a new cursor by matching word/selection
-		set({ "n", "x" }, "<leader>n", function()
+		set({ "n", "x" }, "<M-d>", function()
 			mc.matchAddCursor(1)
 		end)
 		set({ "n", "x" }, "<leader>s", function()
 			mc.matchSkipCursor(1)
 		end)
-		set({ "n", "x" }, "<leader>N", function()
+		set({ "n", "x" }, "<M-D>", function()
 			mc.matchAddCursor(-1)
 		end)
-		set({ "n", "x" }, "<leader>S", function()
+		set({ "n", "x" }, "<M-u>", function()
 			mc.matchSkipCursor(-1)
 		end)
+
+		-- Add a cursor for all matches of cursor word/selection in the document.
+		set({ "n", "x" }, "<M-L>", mc.matchAllAddCursors)
 
 		-- Disable and enable cursors.
 		-- set({ "n", "x" }, "<c-q>", mc.toggleCursor)
