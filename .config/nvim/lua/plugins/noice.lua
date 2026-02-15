@@ -52,6 +52,11 @@ return {
 			top_down = false, -- 通知を右下に表示
 		})
 
+		-- 通知を削除するためのキーマッピング
+		vim.keymap.set("n", "<leader>dn", function()
+			require("notify").dismiss({ silent = true })
+		end, { desc = "Dismiss notifications" })
+
 		local lualine = require("lualine")
 		lualine.setup({
 			sections = {
