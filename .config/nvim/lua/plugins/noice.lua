@@ -48,6 +48,10 @@ return {
 			},
 		})
 
+		require("notify").setup({
+			top_down = false, -- 通知を右下に表示
+		})
+
 		local lualine = require("lualine")
 		lualine.setup({
 			sections = {
