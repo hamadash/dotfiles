@@ -57,9 +57,6 @@ ms-vscode.cmake-tools
 ms-vscode.cpptools
 ms-vscode.cpptools-extension-pack
 ms-vscode.cpptools-themes
-ms-vscode.live-server
-ms-vscode.makefile-tools
-ms-vscode.remote-repositories
 ms-vscode.vscode-typescript-next
 ms-vsliveshare.vsliveshare
 msjsdiag.vscode-react-native
