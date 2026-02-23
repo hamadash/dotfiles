@@ -25,7 +25,6 @@ if vim.g.vscode then
 			{ import = "plugins.dial" },
 			{ import = "plugins.flash" },
 			{ import = "plugins.git" },
-			{ import = "plugins.gitlinker" },
 			{ import = "plugins.hlslens" },
 			{ import = "plugins.keymemo" },
 			{ import = "plugins.nvim-anywise-reg" },
