@@ -10,13 +10,6 @@ $custom \
 $character
 """
 
-right_format = """
-$cmd_duration \
-$username\
-| \
-$time
-"""
-
 [character]
 format = '\$(fg:#88C0D0)'
 
