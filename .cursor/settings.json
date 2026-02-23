@@ -116,4 +116,7 @@
     "**/tmp/**": true
   },
   "claudeCode.preferredLocation": "panel",
+  "extensions.experimental.affinity": {
+    "asvetliakov.vscode-neovim": 1
+  },
 }
