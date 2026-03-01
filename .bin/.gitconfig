@@ -12,8 +12,10 @@
   searchpr = "!f(){ git log --oneline --merges --reverse --ancestry-path $1..HEAD | grep \"Merge pull request\" | head -n 1 | cut -d\" \" -f 5;};f"
   openpr = "!f(){ git searchpr $1 | xargs -I ISSUE_NUMBER gh pr view ISSUE_NUMBER --web;};f"
   w = worktree
-  wl = worktree list
+  wl = worktree list --verbose
   wa = worktree add -b
+  wr = worktree remove
+  wp = worktree prune
 [init]
   defaultBranch = main
 [color]
