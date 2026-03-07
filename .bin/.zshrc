@@ -75,13 +75,6 @@ alias cat='bat'
 alias ls='eza --icons auto -F always --hyperlink -h'
 
 ##########
-# プラグインマネージャー
-##########
-
-# sheldon
-eval "$(sheldon source)"
-
-##########
 # プロンプト設定
 ##########
 # git-prompt の読み込み
@@ -192,3 +185,11 @@ vf() {
 gcd() {
   cd $(git rev-parse --show-toplevel)
 }
+
+##########
+# プラグインマネージャー
+##########
+
+# sheldon
+eval "$(sheldon source)"
+
