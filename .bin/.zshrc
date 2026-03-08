@@ -190,6 +190,6 @@ if [[ -n $ZENO_LOADED ]]; then
   # bindkey '^r' zeno-smart-history-selection # smart history widget
 
   # fallback if completion not matched
-  # (default: fzf-completion if exists; otherwise expand-or-complete)
-  # export ZENO_COMPLETION_FALLBACK=expand-or-complete
+  # fzf-tab のウィジェットにフォールバックして、zeno になければ fzf-tab を使う
+  export ZENO_COMPLETION_FALLBACK=fzf-tab-complete
 fi
