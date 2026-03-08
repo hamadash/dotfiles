@@ -19,7 +19,6 @@ return {
 			tsx = { "eslint_d" },
 			html = { "htmlhint" },
 			json = { "jsonlint" },
-			markdown = { "markdownlint" },
 			ruby = { "ruby", "rubocop" },
 			sh = { "shellcheck" },
 			sql = { "sqlfluff" },
