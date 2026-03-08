@@ -79,7 +79,3 @@ code --list-extensions | pbcopy
 ```sh
 cursor --list-extensions | pbcopy
 ```
-
-### dotfile とは関係ないが新端末でやっておくとよいこと
-
-- Guest 用のログインアカウントを作成する
