@@ -11,6 +11,32 @@ snippets:
   - keyword: la
     snippet: ls -a
 
+  - keyword: d
+    snippet: docker
+
+  - keyword: dc
+    snippet: docker compose
+
+  - keyword: g
+    snippet: git
+
+  - keyword: vim
+    snippet: nvim
+
+  - keyword: view
+    snippet: nvim -R
+
+  - keyword: lg
+    snippet: lazygit
+
+  - keyword: mkdir
+    snippet: mkdir -p
+
+  - keyword: ..
+    snippet: cd ../
+
+  - keyword: cl
+    snippet: clear
 completions:
   - name: chdir
     patterns:

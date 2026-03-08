@@ -48,26 +48,6 @@ export TMUX_TMPDIR=/tmp
 ##########
 # エイリアス
 ##########
-# Docker
-alias d='docker'
-alias dcom='docker compose'
-
-# Git
-alias g='git'
-
-# Neovim
-alias vim="nvim"
-alias view="nvim -R"
-
-# lazygit
-alias lg="lazygit"
-
-# Linux
-alias mkdir='mkdir -p'
-alias ..='cd ../'
-alias ...='cd ../../'
-alias cl='clear'
-
 # bat
 alias cat='bat'
 
