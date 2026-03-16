@@ -1,15 +1,18 @@
 gui:
   nerdFontsVersion: "3"
   showFileIcons: true
+
 customCommands:
   - key: "u"
     context: "files"
     description: "stash include untracked"
-    command: 'git stash save --include-untracked "{{index .PromptResponses 0}}"'
+    command: |
+      git stash save --include-untracked "{{index .PromptResponses 0}}"
     prompts:
       - type: "input"
         title: "Stash Message"
         initialValue: "WIP"
+
   - key: "<c-c>"
     context: "files"
     description: "commit files with format"
@@ -70,14 +73,27 @@ customCommands:
       - type: "confirm"
         title: "Commit"
         body: "Commit with the message '{{.Form.Type}}: {{.Form.Message}}'. Is this okay?"
-    command: 'bash -c ''type="{{.Form.Type}}"; message="{{.Form.Message}}"; commit_message="$type${scope:+($scope)}: $message"; git commit -m "$commit_message"'''
+    command: |
+      git commit -m "{{.Form.Type}}: {{.Form.Message}}"
     loadingText: "Commiting..."
+
 git:
   pagers:
     - colorArg: always
       pager: delta --dark --paging=never
-  branchLogCmd: git log --graph --color=always --date=format:'%Y-%m-%d %H:%M' --pretty=format:'%C(#a0a0a0 reverse)%h%Creset %C(cyan)%ad%Creset %C(#dd4814)%ae%Creset %C(yellow reverse)%d%Creset %n%C(green bold)%s%Creset%n' {{branchName}} --
+
+  branchLogCmd: |
+    git log --graph --color=always \
+    --date=format:'%Y-%m-%d %H:%M' \
+    --pretty=format:'%C(#a0a0a0 reverse)%h%Creset %C(cyan)%ad%Creset %C(#dd4814)%ae%Creset %C(yellow reverse)%d%Creset %n%C(green bold)%s%Creset%n' \
+    {{branchName}} --
+
   allBranchesLogCmds:
-    - git log --graph --color=always --date=format:'%Y-%m-%d %H:%M' --pretty=format:'%C(#a0a0a0 reverse)%h%Creset %C(cyan)%ad%Creset %C(#dd4814)%ae%Creset %C(yellow reverse)%d%Creset %n%C(green bold)%s%Creset%n' --
+    - |
+      git log --graph --color=always \
+      --date=format:'%Y-%m-%d %H:%M' \
+      --pretty=format:'%C(#a0a0a0 reverse)%h%Creset %C(cyan)%ad%Creset %C(#dd4814)%ae%Creset %C(yellow reverse)%d%Creset %n%C(green bold)%s%Creset%n' \
+      --
+
 os:
   editPreset: "nvim"
