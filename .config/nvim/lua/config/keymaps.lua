@@ -75,6 +75,9 @@ set_keymap("n", "M", "%", { desc = "Jump bracket" })
 -- x で削除してもレジスタに入れない
 set_keymap("n", "x", '"_x', { desc = "Delete without yanking" })
 
+-- c でカットしてもレジスタに入れない
+set_keymap("n", "c", '"_c', { desc = "Cut without yanking" })
+
 -- U で redo
 set_keymap("n", "U", "<C-r>", { desc = "Redo" })
 

@@ -77,6 +77,16 @@ customCommands:
       git commit -m "{{.Form.Type}}: {{.Form.Message}}"
     loadingText: "Commiting..."
 
+  - key: "<c-g>"
+    context: "files"
+    description: "AI commit message"
+    output: "terminal"
+    command: >
+      bash -lc 'git diff --cached > /tmp/lazygit_diff &&
+      MSG=$(claude --no-session-persistence --print --model haiku
+      "Generate ONLY a one-line Git commit message in Japanese based on the git diff below. Format: type(scope): description." < /tmp/lazygit_diff) &&
+      git commit -e -m "$MSG"'
+
 git:
   pagers:
     - colorArg: always
