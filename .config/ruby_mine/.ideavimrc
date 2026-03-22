@@ -1,0 +1,68 @@
+" === Options ===
+
+" 文字コード
+set fileencoding=utf-8
+
+" 行番号
+set number
+
+" カーソルライン
+set cursorline
+
+" スクロール
+set scrolloff=5
+
+" 行の先頭・行末から前後の行にカーソルを移動
+set whichwrap=h,l,<,>,[,],~
+
+" クリップボード (ideaput で IDE のペースト動作を使用)
+set clipboard=unnamedplus,ideaput
+
+" 検索
+set ignorecase
+set smartcase
+set incsearch
+set hlsearch
+
+" ホワイトスペースの可視化
+set list
+
+" 矩形選択でテキストがないところも選択可能にする
+set virtualedit=block
+
+" === IdeaVim-specific Options ===
+
+" IDE のスマートジョインを使用 (J キー)
+set ideajoin
+
+" グローバルマークを IDE のブックマークにマップ
+set ideamarks
+
+set which-key
+
+" === Plugins ===
+
+" ヤンクしたテキストをハイライト
+Plug 'machakann/vim-highlightedyank'
+
+" コメントアウト (gcc, gc<motion>)
+Plug 'tpope/vim-commentary'
+
+Plug 'easymotion/vim-easymotion'
+
+" === Key Mappings ===
+
+" リーダーキー
+let mapleader = " "
+
+" ハイライト検索クリア
+nmap <Esc> :nohlsearch<CR>
+
+" ノーマルモードに変更
+imap jj <Esc>
+
+" カーソル移動
+nmap ss ^
+vmap ss ^
+nmap '' $
+vmap '' $
