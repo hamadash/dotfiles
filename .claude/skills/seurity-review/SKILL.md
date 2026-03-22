@@ -1,6 +1,6 @@
 ---
 name: seurity-review
-description: This skill should be used when the user asks to "セキュリティレビュー", "security review", "脆弱性チェック", "セキュリティ観点でコードを確認", "セキュリティ上の問題がないか確認", or wants to review code for security vulnerabilities, OWASP issues, authentication flaws, or sensitive data exposure.
+description: セキュリティ脆弱性の観点でコードをレビューするスキル。「セキュリティレビュー」「脆弱性チェック」「セキュリティ上の問題がないか確認して」などの依頼に対して使用する。OWASP Top 10・認証認可・機密情報漏洩などを確認する。
 version: 1.0.0
 ---
 
