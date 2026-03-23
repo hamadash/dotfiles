@@ -112,7 +112,10 @@ return {
 						mappings = {
 							i = {
 								["<C-k>"] = lga_actions.quote_prompt(),
-								["<C-i>"] = lga_actions.quote_prompt({ postfix = " --iglob " }),
+								-- 大文字小文字を区別しないで検索
+								["<C-i>"] = lga_actions.quote_prompt({ postfix = " --iglob *.{} --iglob !*.{}" }),
+								-- リテラル検索（固定文字列検索）に切り替え、特殊文字のエスケープをしなくてよくなる
+								["<C-f>"] = lga_actions.quote_prompt({ postfix = " --fixed-strings" }),
 							},
 						},
 					},
@@ -125,3 +128,4 @@ return {
 		end,
 	},
 }
+

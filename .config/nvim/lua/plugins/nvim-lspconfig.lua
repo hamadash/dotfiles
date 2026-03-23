@@ -3,7 +3,6 @@ return {
 	dependencies = {
 		{ "williamboman/mason.nvim" },
 		{ "williamboman/mason-lspconfig.nvim" },
-		{ "neovim/nvim-lspconfig" },
 		{ "hrsh7th/nvim-cmp" },
 		{ "hrsh7th/cmp-nvim-lsp" },
 		{ "hrsh7th/cmp-buffer" },
@@ -15,10 +14,16 @@ return {
 		local colors = require("utils.colors")
 		local palette = colors.palette
 
-		vim.api.nvim_set_hl(0, "DiagnosticErrorLine", { bg = colors.opacity(palette.red, palette.base, 0.15) })
-		vim.api.nvim_set_hl(0, "DiagnosticWarnLine", { bg = colors.opacity(palette.peach, palette.base, 0.15) })
-		vim.api.nvim_set_hl(0, "DiagnosticHintLine", { bg = colors.opacity(palette.green, palette.base, 0.15) })
-		vim.api.nvim_set_hl(0, "DiagnosticInfoLine", { bg = colors.opacity(palette.blue, palette.base, 0.15) })
+		vim.api.nvim_set_hl(
+			0,
+			"DiagnosticErrorLine",
+			{ bg = colors.blend_with_opacity(palette.red, palette.base, 0.15) }
+		)
+		vim.api.nvim_set_hl(
+			0,
+			"DiagnosticWarnLine",
+			{ bg = colors.blend_with_opacity(palette.peach, palette.base, 0.15) }
+		)
 
 		vim.diagnostic.config({
 			signs = {
@@ -26,8 +31,6 @@ return {
 				linehl = {
 					[vim.diagnostic.severity.ERROR] = "DiagnosticErrorLine",
 					[vim.diagnostic.severity.WARN] = "DiagnosticWarnLine",
-					[vim.diagnostic.severity.HINT] = "DiagnosticHintLine",
-					[vim.diagnostic.severity.INFO] = "DiagnosticInfoLine",
 				},
 			},
 		})
@@ -51,7 +54,6 @@ return {
 			"solargraph",
 			"sqlls",
 			"ts_ls",
-			"volar",
 			"yamlls",
 		}
 
@@ -62,13 +64,9 @@ return {
 		})
 
 		local capabilities = require("cmp_nvim_lsp").default_capabilities()
-
-		local lspconfig = require("lspconfig")
-		for _, lsp in ipairs(servers) do
-			lspconfig[lsp].setup({
-				capabilities = capabilities,
-			})
-		end
+		vim.lsp.config("*", {
+			capabilities = capabilities,
+		})
 
 		local luasnip = require("luasnip")
 

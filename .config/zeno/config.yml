@@ -1,0 +1,59 @@
+snippets:
+  - name: "null"
+    keyword: "null"
+    snippet: ">/dev/null 2>&1"
+    context:
+      lbuffer: '.+\s'
+
+  - keyword: ll
+    snippet: ls -l
+
+  - keyword: la
+    snippet: ls -a
+
+  - keyword: d
+    snippet: docker
+
+  - keyword: dc
+    snippet: docker compose
+
+  - keyword: g
+    snippet: git
+
+  - keyword: vim
+    snippet: nvim
+
+  - keyword: view
+    snippet: nvim -R
+
+  - keyword: lg
+    snippet: lazygit
+
+  - keyword: mkdir
+    snippet: mkdir -p
+
+  - keyword: ..
+    snippet: cd ../
+
+  - keyword: cl
+    snippet: clear
+completions:
+  - name: chdir
+    patterns:
+      - "^cd $"
+    sourceCommand: "find . -path '*/.git' -prune -o -maxdepth 5 -type d -print0"
+    options:
+      # Added --read0 if null termination is used in `sourceCommand` output.
+      --read0: true
+      --prompt: "'Chdir> '"
+      --preview: "cd {} && ls -a | sed '/^[.]*$/d'"
+    callback: "cut -z -c 3-"
+    callbackZero: true # null termination is used in `callback` I/O
+
+  - name: Makefile
+    patterns:
+      - "^make "
+    sourceCommand: "grep -E '^[a-zA-Z0-9_-]+:' Makefile"
+    callback: "cut -d: -f1"
+    options:
+      --prompt: "'make> '"

@@ -56,9 +56,6 @@
   },
   "window.zoomLevel": 1,
   "vscodeGoogleTranslate.preferredLanguage": "Japanese",
-  "extensions.experimental.affinity": {
-    "asvetliakov.vscode-neovim": 1
-  },
   "editor.accessibilitySupport": "off",
   "vscode-neovim.neovimExecutablePaths.darwin": "/opt/homebrew/bin/nvim",
   "vscode-neovim.neovimInitVimPaths.darwin": "${HOME}/.config/nvim/init.lua",
@@ -103,4 +100,23 @@
   "editor.guides.bracketPairs": true,
   "workbench.colorTheme": "Default Dark Modern",
   "terminal.integrated.scrollback": 10000,
+  "rspec-runner.executePath": "docker compose exec web bundle exec rspec",
+  "cursor.cpp.disabledLanguages": [
+    "markdown",
+    "plaintext",
+    "untitled"
+  ],
+  "gitHistory.showFileHistorySplit": false,
+  "diffEditor.ignoreTrimWhitespace": false,
+  "biome.suggestInstallingGlobally": false,
+  "redhat.telemetry.enabled": true,
+  "files.watcherExclude": {
+    "**/.cache/**": true,
+    "**/node_modules/*/**": true,
+    "**/tmp/**": true
+  },
+  "claudeCode.preferredLocation": "panel",
+  "extensions.experimental.affinity": {
+    "asvetliakov.vscode-neovim": 1
+  },
 }

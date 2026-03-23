@@ -9,6 +9,9 @@ ln -fnsv "${SCRIPT_DIR}/settings.json" "${VSCODE_SET_DIR}/settings.json"
 # Link keybindings.json
 ln -fnsv "${SCRIPT_DIR}/keybindings.json" "${VSCODE_SET_DIR}/keybindings.json"
 
+# Link tasks.json
+ln -fnsv "${SCRIPT_DIR}/tasks.json" "${VSCODE_SET_DIR}/tasks.json"
+
 # Install extensions using the code command
 if [ "$(which code)" != "" ]; then
   cat < "${SCRIPT_DIR}/extensions" | while read -r line

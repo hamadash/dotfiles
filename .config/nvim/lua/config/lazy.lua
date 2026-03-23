@@ -18,19 +18,18 @@ vim.opt.rtp:prepend(lazypath)
 if vim.g.vscode then
 	require("lazy").setup({
 		spec = {
-			{ import = "plugins.accelerated-jk" }, -- TODO: VSCode で効いてないかも
 			{ import = "plugins.aerial" },
 			{ import = "plugins.any-jump" },
-			{ import = "plugins.clever-f" },
 			{ import = "plugins.colorizer" },
 			{ import = "plugins.comment" },
 			{ import = "plugins.dial" },
+			{ import = "plugins.flash" },
 			{ import = "plugins.git" },
 			{ import = "plugins.hlslens" },
-			{ import = "plugins.hop" },
+			{ import = "plugins.keymemo" },
 			{ import = "plugins.nvim-anywise-reg" },
 			{ import = "plugins.open-browser" },
-			{ import = "plugins.quick-scope" },
+			{ import = "plugins.rails-schema" },
 			{ import = "plugins.ruby-fqn" },
 			{ import = "plugins.surround" },
 			{ import = "plugins.text-case" },

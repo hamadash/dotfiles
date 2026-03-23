@@ -183,6 +183,13 @@
     }
   },
   {
+    "key": "cmd+k cmd+v",
+    "command": "workbench.action.tasks.runTask",
+    "args": {
+      "task": "open_in_vim (iTerm)"
+    }
+  },
+  {
     "key": "shift+cmd+k",
     "command": "-composer.openAsBar"
   },
@@ -223,5 +230,65 @@
     "key": "cmd+k",
     "command": "-aipopup.action.modal.generate",
     "when": "editorFocus && !composerBarIsVisible"
+  },
+  {
+    "key": "ctrl+q",
+    "command": "-workbench.action.quickOpenView"
+  },
+  {
+    "key": "cmd+i",
+    "command": "composerMode.agent"
+  },
+  {
+    "key": "cmd+k cmd+f",
+    "command": "gitlens.openFileOnRemoteFrom"
+  },
+  {
+    "key": "cmd+g cmd+p",
+    "command": "git.stashPop"
+  },
+  {
+    "key": "shift+cmd+b",
+    "command": "-workbench.action.tasks.build",
+    "when": "taskCommandsRegistered"
+  },
+  {
+    "key": "shift+cmd+b",
+    "command": "workbench.action.tasks.runTask"
+  },
+  {
+    "key": "cmd+l cmd+c",
+    "command": "aichat.newchataction"
+  },
+  {
+    "key": "cmd+l",
+    "command": "-aichat.newchataction"
+  },
+  {
+    "key": "cmd+l cmd+c",
+    "command": "-extension.liveServer.goOffline",
+    "when": "editorTextFocus"
+  },
+  {
+    "key": "cmd+l cmd+c",
+    "command": "composer.sendToAgent",
+    "when": "editorHasPromptBar && editorPromptBarFocused"
+  },
+  {
+    "key": "cmd+l",
+    "command": "-composer.sendToAgent",
+    "when": "editorHasPromptBar && editorPromptBarFocused"
+  },
+  {
+    "key": "cmd+l cmd+x",
+    "command": "chatgpt.addToThread"
+  },
+  {
+    "key": "cmd+l cmd+x",
+    "command": "chatgpt.sidebarView.focus"
+  },
+  {
+    "key": "shift+cmd+l",
+    "command": "-composer.newAgentChat"
   }
 ]

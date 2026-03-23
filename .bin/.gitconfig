@@ -3,13 +3,27 @@
   email = 60833258+hamadash@users.noreply.github.com
 [alias]
   c = checkout
+  ca = "commit --amend"
   b = branch
+  lg = "log --oneline --graph --all"
   st = status
   ss = stash
   fcb = "!f() { git fetch && git checkout -b \"$1\" \"origin/$1\"; }; f"
   searchpr = "!f(){ git log --oneline --merges --reverse --ancestry-path $1..HEAD | grep \"Merge pull request\" | head -n 1 | cut -d\" \" -f 5;};f"
   openpr = "!f(){ git searchpr $1 | xargs -I ISSUE_NUMBER gh pr view ISSUE_NUMBER --web;};f"
+  w = worktree
+  wl = worktree list --verbose
+  wa = worktree add -b
+  wr = worktree remove
+  wp = worktree prune
+  aicommit = "!f() { COMMITMSG=$(claude --no-session-persistence --print 'Generate ONLY a one-line Git commit message in Japanese using imperative mood. The message should summarize what was changed and why, based strictly on the contents of `git diff --cached`. DO NOT add an explanation or a body. DO NOT wrap the message in backticks or any other characters. Output ONLY the raw commit summary line.'); git commit -m \"$COMMITMSG\" -e; }; f"
 [init]
   defaultBranch = main
+[color]
+  ui = true
+[core]
+  editor = nvim
 [delta]
   side-by-side = true
+[ghq]
+	root = ~/ghq
