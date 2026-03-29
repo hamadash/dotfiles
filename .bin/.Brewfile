@@ -65,6 +65,7 @@ cask "slack"
 cask "visual-studio-code"
 cask "warp"
 cask "wezterm"
+cask "zed"
 
 # GitHub Actions ではインストールできない
 # mas "CotEditor", id: 1024640650
