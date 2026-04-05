@@ -17,10 +17,11 @@
       "Bash(git rebase:*)",
       "Bash(brew install:*)",
       "Read(.env.*)",
+      "Read(**/secrets/**)",
       "Read(id_rsa)",
       "Read(id_ed25519)",
-      "Read(**/*token*)",
-      "Read(**/*key*)",
+      "Read(**/.key)",
+      "Read(**/.pem)",
       "Write(.env*)",
       "Write(**/secrets/**)",
       "Bash(curl:*)",
@@ -37,5 +38,9 @@
   "enabledPlugins": {
     "lua-lsp@claude-plugins-official": true
   },
-  "preferredNotifChannel": "terminal_bell"
+  "preferredNotifChannel": "terminal_bell",
+  "sandbox": {
+    "enabled": true,
+    "allowUnsandboxedCommands": true
+  }
 }
