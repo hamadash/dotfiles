@@ -9,6 +9,7 @@
     "substitude",
     "textcase",
     "wezterm",
-    "keybinds"
+    "keybinds",
+    "stdpath"
   ]
 }
