@@ -6,7 +6,10 @@ add_newline = true
 
 format = """
 $directory\
-$custom \
+$custom\
+$fill\
+$cmd_duration \
+$time
 $character
 """
 
@@ -15,12 +18,15 @@ format = '\$(fg:#88C0D0)'
 
 [cmd_duration]
 min_time = 1
-format = '[$duration](bold yellow)'
+format = '[$duration](bold yellow) | '
 
 [directory]
 truncate_to_repo = false
 truncation_symbol = "…/"
 format = '[ $path ]($style)[$read_only]($read_only_style)'
+
+[fill]
+symbol = '─'
 
 [git_branch]
 format = '[$symbol$branch(:$remote_branch)]($style) '
