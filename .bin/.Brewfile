@@ -5,6 +5,7 @@ tap "FelixKratz/formulae"
 
 brew "act"
 brew "asdf"
+brew "awscli"
 brew "bat"
 brew "cmatrix"
 brew "deno"
