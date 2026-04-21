@@ -80,7 +80,7 @@
       "command": "vscode-neovim.escape"
     },
   },
-  "rspec-runner.executePath": "dcom exec web bundle exec rspec",
+  "rspec-runner.executePath": "docker compose exec web bundle exec rspec",
   "clock.dateFormat": "yyyy/mm/dd(ddd) HH:MM:ss",
   "[ruby]": {
     "editor.defaultFormatter": "Shopify.ruby-lsp"
