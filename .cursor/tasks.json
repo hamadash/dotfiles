@@ -5,6 +5,16 @@
       "label": "open_in_vim (iTerm)",
       "type": "shell",
       "command": "${HOME}/dotfiles/.cursor/scripts/open_in_vim.sh ${workspaceFolder} ${file} ${lineNumber}"
+    },
+    {
+      "label": "rspec_run_current_file",
+      "type": "shell",
+      "command": "docker compose exec web bundle exec rspec ${relativeFile}"
+    },
+    {
+      "label": "rspec_run_current_line",
+      "type": "shell",
+      "command": "docker compose exec web bundle exec rspec ${relativeFile}:${lineNumber}"
     }
   ]
 }
