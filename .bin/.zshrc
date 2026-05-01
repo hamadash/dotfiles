@@ -45,6 +45,10 @@ export PATH="$HOME/.local/bin:$PATH"
 # tmux
 export TMUX_TMPDIR=/tmp
 
+# pyenv
+export PATH="$HOME/.pyenv/bin:$PATH"
+eval "$(pyenv init -)"
+
 ##########
 # エイリアス
 ##########
