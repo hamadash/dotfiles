@@ -9,12 +9,14 @@
     {
       "label": "rspec_run_current_file",
       "type": "shell",
-      "command": "docker compose exec web bundle exec rspec ${relativeFile}"
+      "command": "docker compose exec web bundle exec rspec ${relativeFile}",
+      "problemMatcher": []
     },
     {
       "label": "rspec_run_current_line",
       "type": "shell",
-      "command": "docker compose exec web bundle exec rspec ${relativeFile}:${lineNumber}"
+      "command": "docker compose exec web bundle exec rspec ${relativeFile}:${lineNumber}",
+      "problemMatcher": []
     }
   ]
 }
