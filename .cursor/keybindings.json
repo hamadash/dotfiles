@@ -190,6 +190,20 @@
     }
   },
   {
+    "key": "cmd+alt+f",
+    "command": "workbench.action.tasks.runTask",
+    "args": {
+      "task": "rspec_run_current_file"
+    }
+  },
+  {
+    "key": "cmd+alt+l",
+    "command": "workbench.action.tasks.runTask",
+    "args": {
+      "task": "rspec_run_current_line"
+    }
+  },
+  {
     "key": "shift+cmd+k",
     "command": "-composer.openAsBar"
   },
