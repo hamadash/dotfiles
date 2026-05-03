@@ -38,7 +38,7 @@ export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"
 # tmux
 export TMUX_TMPDIR=/tmp
 
-# --- 高速化のため遅延読み込み ---
+# --- 毎回読み込むと遅いため遅延読み込み ---
 function nodenv() {
   unset -f nodenv
   export PATH="$HOME/.nodenv/bin:$PATH"
