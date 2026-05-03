@@ -19,13 +19,6 @@ SAVEHIST=1000000
 ##########
 # パスの設定
 ##########
-# nodenv
-export PATH="$HOME/.nodenv/bin:$PATH"
-eval "$(nodenv init -)"
-
-# rbenv
-export PATH="$HOME/.rbenv/bin:$PATH"
-eval "$(rbenv init -)"
 
 # MySQL
 export PATH="/opt/homebrew/opt/mysql@8.0/bin:$PATH"
@@ -36,18 +29,36 @@ export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
 # custom_commands
 export PATH=~/dotfiles/custom_commands:$PATH
 
-# asdf
-export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"
-
 # .local/bin
 export PATH="$HOME/.local/bin:$PATH"
+
+# asdf
+export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"
 
 # tmux
 export TMUX_TMPDIR=/tmp
 
-# pyenv
-export PATH="$HOME/.pyenv/bin:$PATH"
-eval "$(pyenv init -)"
+# --- 高速化のため遅延読み込み ---
+function nodenv() {
+  unset -f nodenv
+  export PATH="$HOME/.nodenv/bin:$PATH"
+  eval "$(command nodenv init -)"
+  nodenv "$@"
+}
+
+function rbenv() {
+  unset -f rbenv
+  export PATH="$HOME/.rbenv/bin:$PATH"
+  eval "$(command rbenv init -)"
+  rbenv "$@"
+}
+
+function pyenv() {
+  unset -f pyenv
+  export PATH="$HOME/.pyenv/bin:$PATH"
+  eval "$(command pyenv init -)"
+  pyenv "$@"
+}
 
 ##########
 # エイリアス
@@ -66,28 +77,41 @@ source ~/dotfiles/.zsh/git-prompt.sh
 
 # git-completion の読み込み
 fpath=(~/dotfiles/.zsh $fpath)
-autoload -Uz compinit && compinit
+
+autoload -Uz compinit
+if [[ -n ${ZDOTDIR:-$HOME}/.zcompdump(#qN.m-1) ]]; then
+  compinit -C
+else
+  compinit
+fi
+
 zstyle ':completion:*:*:git:*' script ~/dotfiles/.zsh/git-completion.bash
 
 # GitHub CLI 補完
-eval "$(gh completion -s zsh)"
+GH_COMP_CACHE="$HOME/.zsh/cache/gh_completion"
+if [[ ! -f "$GH_COMP_CACHE" ]]; then
+  mkdir -p "$(dirname "$GH_COMP_CACHE")"
+  gh completion -s zsh > "$GH_COMP_CACHE" 2>/dev/null
+fi
+[[ -f "$GH_COMP_CACHE" ]] && source "$GH_COMP_CACHE"
 
-# NOTE: starship を使わない場合の設定
-# setopt PROMPT_SUBST ; PS1='[%n %c$(__git_ps1 "(%s)")]\$'
-#
+# starship
+eval "$(starship init zsh)"
+
+# starship を使わない場合の設定
+# setopt PROMPT_SUBST
+# PROMPT='$(__git_ps1 "(%s) ")'$PROMPT
+
 # プロンプトのオプション表示設定
-# GIT_PS1_SHOWDIRTYSTATE=true
-# GIT_PS1_SHOWUNTRACKEDFILES=true
-# GIT_PS1_SHOWSTASHSTATE=true
-# GIT_PS1_SHOWUPSTREAM=auto
+# GIT_PS1_SHOWDIRTYSTATE=false
+# GIT_PS1_SHOWUNTRACKEDFILES=false
+# GIT_PS1_SHOWSTASHSTATE=false
+# GIT_PS1_SHOWUPSTREAM=none
 
 # カレントディレクトリをタブに表示する
 precmd() {
   print -Pn "\e]0;%~\a"
 }
-
-# starship
-eval "$(starship init zsh)"
 
 ##########
 # 補完・サジェスト・ハイライト
@@ -143,6 +167,9 @@ eval "$(sheldon source)"
 export ZENO_HOME=~/.config/zeno
 
 export ZENO_GIT_CAT="bat --color=always"
+
+# キャッシュ実行を無効化
+export ZENO_DISABLE_EXECUTE_CACHE_COMMAND=1
 
 if [[ -n $ZENO_LOADED ]]; then
   bindkey ' '  zeno-auto-snippet
