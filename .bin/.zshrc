@@ -158,6 +158,9 @@ gcd() {
 # プラグインマネージャー
 ##########
 
+# ZENO の初期化抑制 (sheldon の前に必要)
+export ZENO_DISABLE_EXECUTE_CACHE_COMMAND=1
+
 # sheldon
 eval "$(sheldon source)"
 
@@ -167,9 +170,6 @@ eval "$(sheldon source)"
 export ZENO_HOME=~/.config/zeno
 
 export ZENO_GIT_CAT="bat --color=always"
-
-# キャッシュ実行を無効化
-export ZENO_DISABLE_EXECUTE_CACHE_COMMAND=1
 
 if [[ -n $ZENO_LOADED ]]; then
   bindkey ' '  zeno-auto-snippet
