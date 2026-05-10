@@ -38,9 +38,11 @@
   "enabledPlugins": {
     "lua-lsp@claude-plugins-official": true
   },
-  "preferredNotifChannel": "terminal_bell",
   "sandbox": {
     "enabled": true,
     "allowUnsandboxedCommands": true
-  }
+  },
+  "preferredNotifChannel": "terminal_bell",
+  "theme": "dark-ansi",
+  "editorMode": "vim"
 }
