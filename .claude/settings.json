@@ -42,7 +42,7 @@
     "enabled": true,
     "allowUnsandboxedCommands": true
   },
-  "preferredNotifChannel": "terminal_bell",
   "theme": "dark-ansi",
-  "editorMode": "vim"
+  "editorMode": "vim",
+  "preferredNotifChannel": "terminal_bell"
 }
