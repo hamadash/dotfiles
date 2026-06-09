@@ -38,27 +38,18 @@ export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"
 # tmux
 export TMUX_TMPDIR=/tmp
 
-# --- 毎回読み込むと遅いため遅延読み込み ---
-function nodenv() {
-  unset -f nodenv
-  export PATH="$HOME/.nodenv/bin:$PATH"
-  eval "$(command nodenv init -)"
-  nodenv "$@"
-}
+# rbenv
+export PATH="$HOME/.rbenv/bin:$PATH"
+eval "$(rbenv init - zsh)"
 
-function rbenv() {
-  unset -f rbenv
-  export PATH="$HOME/.rbenv/bin:$PATH"
-  eval "$(command rbenv init -)"
-  rbenv "$@"
-}
+# nodenv
+export PATH="$HOME/.nodenv/bin:$PATH"
+eval "$(nodenv init - zsh)"
 
-function pyenv() {
-  unset -f pyenv
-  export PATH="$HOME/.pyenv/bin:$PATH"
-  eval "$(command pyenv init -)"
-  pyenv "$@"
-}
+# pyenv
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init - zsh)"
 
 ##########
 # エイリアス
