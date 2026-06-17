@@ -1,4 +1,4 @@
-all: init link defaults brew other_apps vscode
+all: init link defaults brew
 
 init:
 	.bin/init.sh
@@ -11,12 +11,6 @@ defaults:
 
 brew:
 	.bin/brew.sh
-
-other_apps:
-	.bin/other_apps.sh
-
-vscode:
-	.vscode/sync.sh
 
 neovim:
 	.nvim/sync.sh
