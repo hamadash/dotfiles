@@ -1,19 +1,35 @@
 return {
 	"nvim-treesitter/nvim-treesitter",
+	branch = "main",
+	lazy = false,
 	build = ":TSUpdate",
-	event = "UIEnter",
-	dependencies = {
-		"nvim-treesitter/nvim-treesitter-textobjects",
-		"RRethy/nvim-treesitter-endwise",
-		"windwp/nvim-ts-autotag",
-	},
+
 	config = function()
-		require("nvim-treesitter.configs").setup({
-			highlight = { enable = true },
-			auto_install = false,
-			ensure_installed = "all",
-			endwise = { enable = true },
-			autotag = { enable = true },
+		local ts = require("nvim-treesitter")
+
+		ts.setup()
+
+		ts.install({
+			"bash",
+			"css",
+			"dockerfile",
+			"graphql",
+			"html",
+			"javascript",
+			"json",
+			"json5",
+			"lua",
+			"markdown",
+			"markdown_inline",
+			"regex",
+			"ruby",
+			"sql",
+			"toml",
+			"tsx",
+			"typescript",
+			"vim",
+			"vimdoc",
+			"yaml",
 		})
 	end,
 }
