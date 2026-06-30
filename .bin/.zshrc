@@ -195,3 +195,5 @@ if [[ -n $ZENO_LOADED ]]; then
   # fzf-tab のウィジェットにフォールバックして、zeno になければ fzf-tab を使う
   export ZENO_COMPLETION_FALLBACK=fzf-tab-complete
 fi
+
+[ -f ~/.zshrc.local ] && source ~/.zshrc.local

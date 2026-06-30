@@ -1,2 +1,4 @@
 .*env
 .config/wezterm/workspaces.json
+
+.bin/.zshrc.local
