@@ -1,48 +1,79 @@
 {
   "permissions": {
     "allow": [
-      "List(*)",
-      "Fetch(https://*)",
-      "Edit(*)",
-      "Bash(rg:*)"
+      "Read(./**)",
+      "Edit(./**)",
+      "Bash(rg:*)",
+      "Bash(curl:*)",
+      "Bash(wget:*)",
+      "Bash(npm:*)",
+      "Bash(node:*)",
+      "Bash(python3:*)",
+      "Bash(git status)",
+      "Bash(git diff:*)",
+      "Bash(git log:*)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "WebFetch(domain:docs.claude.com)",
+      "WebFetch(domain:github.com)"
     ],
     "deny": [
       "Bash(sudo:*)",
       "Bash(rm:*)",
-      "Bash(rm -rf:*)",
       "Bash(git config:*)",
-      "Bash(git push:*)",
-      "Bash(git commit:*)",
-      "Bash(git reset:*)",
-      "Bash(git rebase:*)",
-      "Bash(brew install:*)",
-      "Read(.env.*)",
+      "Read(.env*)",
       "Read(**/secrets/**)",
-      "Read(id_rsa)",
-      "Read(id_ed25519)",
-      "Read(**/.key)",
-      "Read(**/.pem)",
-      "Write(.env*)",
-      "Write(**/secrets/**)",
-      "Bash(curl:*)",
-      "Bash(wget:*)",
-      "Bash(nc:*)",
-      "Bash(npm uninstall:*)",
-      "Bash(npm remove:*)",
-      "Bash(psql:*)",
-      "Bash(mysql:*)",
-      "Bash(mongod:*)",
+      "Read(**/*.key)",
+      "Read(**/*.pem)",
+      "Read(~/.ssh/**)",
+      "Read(~/.aws/**)",
+      "Read(~/.claude/.credentials.json)",
+      "Edit(.env*)",
+      "Edit(**/secrets/**)",
+      "Edit(~/.ssh/**)",
       "mcp__supabase__execute_sql"
-    ]
+    ],
+    "disableBypassPermissionsMode": "disable"
   },
   "enabledPlugins": {
     "lua-lsp@claude-plugins-official": true
   },
   "sandbox": {
     "enabled": true,
-    "allowUnsandboxedCommands": true
+    "allowUnsandboxedCommands": false,
+    "network": {
+      "allowedDomains": [
+        "github.com",
+        "*.github.com",
+        "docs.claude.com"
+      ]
+    }
   },
   "theme": "dark-ansi",
   "editorMode": "vim",
-  "preferredNotifChannel": "terminal_bell"
+  "preferredNotifChannel": "terminal_bell",
+  "hooks": {
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "osascript -e 'display notification \"完了\" with title \"Claude Code\" sound name \"Glass\"' >/dev/null 2>&1 || true",
+            "async": true
+          }
+        ]
+      }
+    ],
+    "Notification": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "osascript -e 'display notification \"確認待ち\" with title \"Claude Code\" sound name \"Glass\"' >/dev/null 2>&1 || true",
+            "async": true
+          }
+        ]
+      }
+    ]
+  }
 }
