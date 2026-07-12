@@ -120,4 +120,7 @@
     "asvetliakov.vscode-neovim": 1
   },
   "window.autoDetectColorScheme": false,
+  "accessibility.signals.terminalBell": {
+    "sound": "on"
+  },
 }
