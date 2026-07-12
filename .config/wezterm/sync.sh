@@ -1,14 +1,25 @@
-#!/bin/zsh
+#!/bin/sh
 
 SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
 WEZTERM_CONF_DIR="${HOME}/.config/wezterm"
 
 mkdir -p "${WEZTERM_CONF_DIR}"
 
-rm -rf "${WEZTERM_CONF_DIR}/"{,.[!.],..?}*
+find "${WEZTERM_CONF_DIR}" -mindepth 1 -delete
 
-ln -fnsv "${SCRIPT_DIR}/wezterm.lua" "${WEZTERM_CONF_DIR}/wezterm.lua"
-ln -fnsv "${SCRIPT_DIR}/keybinds.lua" "${WEZTERM_CONF_DIR}/keybinds.lua"
-ln -fnsv "${SCRIPT_DIR}/appearance.lua" "${WEZTERM_CONF_DIR}/appearance.lua"
-ln -fnsv "${SCRIPT_DIR}/workspace.lua" "${WEZTERM_CONF_DIR}/workspace.lua"
-ln -fnsv "${SCRIPT_DIR}/workspaces.json" "${WEZTERM_CONF_DIR}/workspaces.json"
+# require() されない参照/バックアップ用ファイルはリンク対象から除外する
+is_excluded() {
+	case "$1" in
+	keybinds_default.lua) return 0 ;;
+	*) return 1 ;;
+	esac
+}
+
+for file in "${SCRIPT_DIR}"/*.lua "${SCRIPT_DIR}"/*.json; do
+	[ -e "$file" ] || continue
+	filename="$(basename "$file")"
+	if is_excluded "$filename"; then
+		continue
+	fi
+	ln -fnsv "$file" "${WEZTERM_CONF_DIR}/${filename}"
+done
