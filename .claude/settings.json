@@ -35,23 +35,6 @@
     ],
     "disableBypassPermissionsMode": "disable"
   },
-  "enabledPlugins": {
-    "lua-lsp@claude-plugins-official": true
-  },
-  "sandbox": {
-    "enabled": true,
-    "allowUnsandboxedCommands": false,
-    "network": {
-      "allowedDomains": [
-        "github.com",
-        "*.github.com",
-        "docs.claude.com"
-      ]
-    }
-  },
-  "theme": "dark-ansi",
-  "editorMode": "vim",
-  "preferredNotifChannel": "terminal_bell",
   "hooks": {
     "Stop": [
       {
@@ -75,5 +58,22 @@
         ]
       }
     ]
-  }
+  },
+  "enabledPlugins": {
+    "lua-lsp@claude-plugins-official": true
+  },
+  "sandbox": {
+    "enabled": true,
+    "network": {
+      "allowedDomains": [
+        "github.com",
+        "*.github.com",
+        "docs.claude.com"
+      ]
+    }
+  },
+  "theme": "dark-ansi",
+  "editorMode": "vim",
+  "preferredNotifChannel": "terminal_bell",
+  "model": "claude-fable-5[1m]"
 }
