@@ -152,6 +152,9 @@ gcd() {
 # ZENO の初期化抑制 (sheldon の前に必要)
 export ZENO_DISABLE_EXECUTE_CACHE_COMMAND=1
 
+# zeno をソケットモードで起動 (展開ごとの deno 起動をなくす)
+export ZENO_ENABLE_SOCK=1
+
 # sheldon
 eval "$(sheldon source)"
 
