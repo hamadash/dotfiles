@@ -49,24 +49,14 @@ export PATH="$HOME/dotfiles/custom_commands:$PATH"
 # .local/bin
 export PATH="$HOME/.local/bin:$PATH"
 
-# asdf
-export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"
-
 # tmux
 export TMUX_TMPDIR=/tmp
 
-# rbenv
-export PATH="$HOME/.rbenv/bin:$PATH"
-eval "$(rbenv init - zsh)"
+##########
+# 開発ツール
+##########
 
-# nodenv
-export PATH="$HOME/.nodenv/bin:$PATH"
-eval "$(nodenv init - zsh)"
-
-# pyenv
-export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init - zsh)"
+eval "$(mise activate zsh)"
 
 ##########
 # エイリアス
