@@ -26,7 +26,10 @@ return {
 			zsh = { "zsh" },
 		}
 
-		vim.api.nvim_create_autocmd({ "BufWritePost", "BufReadPost", "InsertLeave" }, {
+		-- InsertLeave は含めない。インサートモードを抜けるたびに linter プロセスが起動し、
+		-- Ruby では ruby(145ms) + rubocop(858ms) + cspell(108ms) で 1 回あたり約 1.1 秒かかるため。
+		vim.api.nvim_create_autocmd({ "BufWritePost", "BufReadPost" }, {
+			group = vim.api.nvim_create_augroup("nvim-lint", { clear = true }),
 			callback = function()
 				require("lint").try_lint()
 

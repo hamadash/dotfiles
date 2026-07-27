@@ -1,5 +1,6 @@
 return {
   "simeji/winresizer",
+  keys = { { "<M-e>", desc = "winresizer" } },
   init = function ()
     vim.g.winresizer_start_key = "<M-e>"
 
