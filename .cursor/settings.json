@@ -68,7 +68,10 @@
   "[ruby]": {
     "editor.defaultFormatter": "Shopify.ruby-lsp"
   },
-  "rdbg.rubyVersionManager": "rbenv",
+  "rubyLsp.rubyVersionManager": {
+    "identifier": "mise",
+    "miseExecutablePath": "/opt/homebrew/bin/mise"
+  },
   "cSpell.userWords": [
     "rubocop"
   ],
