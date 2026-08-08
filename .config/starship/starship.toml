@@ -6,7 +6,8 @@ add_newline = true
 
 format = """
 $directory\
-$custom\
+$git_branch\
+$git_status\
 $fill\
 $cmd_duration \
 $time
@@ -28,11 +29,16 @@ format = '[ $path ]($style)[$read_only]($read_only_style)'
 [fill]
 symbol = '─'
 
+# git 情報を囲む "(" ")" は custom モジュールをやめた代わりに
+# git_branch / git_status の format に直接持たせている。
+# git 管理外では両モジュールとも空になるため、括弧だけが残ることはない。
 [git_branch]
-format = '[$symbol$branch(:$remote_branch)]($style) '
+format = '\([$symbol$branch(:$remote_branch)]($style)'
 
+# ブランチ名とステータスの間の空白は、ステータスが空のとき
+# "( main )" にならないよう外側の条件付きグループの中に入れてある。
 [git_status]
-format = '[(\[$staged$conflicted$stashed$deleted$renamed$modified$typechanged$untracked\])($ahead_behind)]($style) '
+format = '[( (\[$staged$conflicted$stashed$deleted$renamed$modified$typechanged$untracked\])($ahead_behind))]($style)\)'
 untracked = '?${count}'
 modified = '*${count}'
 deleted = '-${count}'
@@ -48,8 +54,3 @@ style_root = 'black bold'
 format = 'user: [$user]($style) '
 disabled = false
 show_always = true
-
-[custom.git_info]
-when = 'git rev-parse --is-inside-work-tree >/dev/null 2>&1'
-command = 'starship module git_branch && starship module git_status'
-format = '\($output\)'

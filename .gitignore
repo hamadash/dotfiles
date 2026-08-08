@@ -2,3 +2,6 @@
 .config/wezterm/workspaces.json
 
 .bin/.zshrc.local
+
+# zcompile が生成するバイトコード
+*.zwc

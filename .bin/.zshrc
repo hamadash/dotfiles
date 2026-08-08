@@ -21,14 +21,64 @@ HISTFILE="$HOME/.zsh_history"
 HISTSIZE=1000000
 SAVEHIST=1000000
 
-# eval "$(cmd ...)" の出力をファイルにキャッシュして source する
+# zsh のバージョンを刻んだスタンプ。zcompile したファイルが古いかの判定に使う。
+#
+# zsh を上げると .zwc はバージョン不一致で黙って無視される。ソースに
+# フォールバックするので壊れはしないが、高速化だけが静かに失われる。
+# このときソース側の mtime は変わらないので、ソースとの比較では検知できない。
+# バージョンが変わるとこのファイルが作り直されて mtime が進むため、
+# 「スタンプより古い .zwc は作り直す」だけで追従できる。
+_ZWC_STAMP="$HOME/.zsh/cache/.zsh-$ZSH_VERSION"
+
+if [[ ! -e $_ZWC_STAMP ]]; then
+  mkdir -p "${_ZWC_STAMP:h}" 2>/dev/null
+  rm -f "$HOME"/.zsh/cache/.zsh-*(N)
+  : > "$_ZWC_STAMP" 2>/dev/null
+fi
+
+# <file>.zwc が無い / ソースより古い / zsh のバージョンが変わった場合に作り直す
+zcompile_if_stale() {
+  [[ -s "$1" ]] || return
+  [[ -s "$1.zwc" && ! "$1" -nt "$1.zwc" && ! "$_ZWC_STAMP" -nt "$1.zwc" ]] && return
+
+  zcompile -R -- "$1" 2>/dev/null
+}
+
+# eval "$(cmd ...)" の出力をファイルにキャッシュして source する。
+#
+# キャッシュはコマンド本体 (と CACHED_EVAL_DEPS で渡した設定ファイル) より
+# 古くなったときだけ作り直す。ツールを更新すればバイナリの mtime が進むので、
+# 手動でキャッシュを消さなくても追従する。
+# 生成時に zcompile しておくと、zsh は同名の .zwc が新しい場合そちらを読むため、
+# 2 回目以降は毎回のパースを省ける。
+#
+# 例: CACHED_EVAL_DEPS=(~/.config/foo.toml) cached_eval foo init zsh
 cached_eval() {
   local cache="$HOME/.zsh/cache/${1//\//_}.zsh"
+  local dep
+  local -i stale=0
 
-  if [[ ! -s "$cache" ]]; then
-    mkdir -p "${cache:h}"
-    "$@" > "$cache"
+  [[ -s "$cache" ]] || stale=1
+
+  for dep in "${commands[$1]}" "${CACHED_EVAL_DEPS[@]}"; do
+    [[ -n "$dep" && "$dep" -nt "$cache" ]] && stale=1
+  done
+
+  if (( stale )); then
+    local output
+    output="$("$@")" || return
+
+    mkdir -p "${cache:h}" 2>/dev/null
+
+    # キャッシュに書けない環境 (読み取り専用の HOME など) でも初期化は通す
+    if ! print -r -- "$output" > "$cache" 2>/dev/null; then
+      eval "$output"
+      return
+    fi
   fi
+
+  # 既存キャッシュの移行分もここで拾えるよう、source の直前で判定する
+  zcompile_if_stale "$cache"
 
   source "$cache"
 }
@@ -56,7 +106,7 @@ export TMUX_TMPDIR=/tmp
 # 開発ツール
 ##########
 
-eval "$(mise activate zsh)"
+CACHED_EVAL_DEPS=("$HOME/.config/mise/config.toml") cached_eval mise activate zsh
 
 ##########
 # エイリアス
@@ -78,24 +128,31 @@ source "$HOME/dotfiles/.zsh/git-prompt.sh"
 # git-completion の読み込み
 fpath=("$HOME/dotfiles/.zsh" $fpath)
 
-autoload -Uz compinit
-if [[ -n ${ZDOTDIR:-$HOME}/.zcompdump(#qN.m-1) ]]; then
-  compinit -C
-else
-  compinit
-fi
+# 匿名関数で包んでいるのは、グロブ修飾子 (#q...) に extended_glob が必要で、
+# かつ emulate -L のオプション退避を関数スコープに閉じ込めたいため。
+() {
+  emulate -L zsh -o extended_glob
+
+  local dump="${ZDOTDIR:-$HOME}/.zcompdump"
+  # 1 日以内に更新されたダンプがあれば、compaudit と dump 再生成を -C で省く
+  local -a fresh=("$dump"(N.m-1))
+
+  autoload -Uz compinit
+
+  if (( $#fresh )); then
+    compinit -C -d "$dump"
+  else
+    compinit -d "$dump"
+  fi
+
+  # 50KB 超のダンプをバイトコンパイルしておく (compinit は .zwc を自動で読む)
+  zcompile_if_stale "$dump"
+}
 
 zstyle ':completion:*:*:git:*' script "$HOME/dotfiles/.zsh/git-completion.bash"
 
 # GitHub CLI 補完
-GH_COMP_CACHE="$HOME/.zsh/cache/gh_completion"
-
-if [[ ! -f "$GH_COMP_CACHE" ]]; then
-  mkdir -p "${GH_COMP_CACHE:h}"
-  gh completion -s zsh > "$GH_COMP_CACHE" 2>/dev/null
-fi
-
-[[ -f "$GH_COMP_CACHE" ]] && source "$GH_COMP_CACHE"
+cached_eval gh completion -s zsh
 
 # starship
 cached_eval starship init zsh
@@ -179,7 +236,7 @@ export ZENO_DISABLE_EXECUTE_CACHE_COMMAND=1
 export ZENO_ENABLE_SOCK=1
 
 # sheldon
-eval "$(sheldon source)"
+CACHED_EVAL_DEPS=("$HOME/.config/sheldon/plugins.toml") cached_eval sheldon source
 
 ##########
 # zeno.zsh
@@ -207,3 +264,29 @@ if [[ -n $ZENO_LOADED ]]; then
 fi
 
 [[ -f "$HOME/.zshrc.local" ]] && source "$HOME/.zshrc.local"
+
+##########
+# バイトコンパイル
+##########
+
+# 起動のたびに読む静的なスクリプトを zcompile しておく。
+# zsh は <file>.zwc の方が新しければ自動でそちらを読むため、次回以降パースを省ける。
+# 生成は「編集した直後の 1 回」だけ走り、その回は今読み終えたソースが対象になる。
+#
+# sheldon のプラグイン本体もここで拾う (未コンパイルだと計 146KB を毎回パースする)。
+# 深さを固定しているのは、再帰グロブ ** がこのツリーで 3.5ms かかり、
+# 節約できる時間を食ってしまうため。深さ固定なら 0.2ms で済む。
+# fast-highlight / fast-string-highlight は拡張子がないので個別に拾う。
+_zsh_repos="$HOME/.local/share/sheldon/repos/github.com"
+
+for _zsh_src in \
+  "$HOME/.zshrc" \
+  "$HOME/dotfiles/.zsh/git-prompt.sh" \
+  $_zsh_repos/*/*/*.zsh(N) \
+  $_zsh_repos/*/*/lib/**/*.zsh(N) \
+  $_zsh_repos/*/*/fast-*highlight(N.)
+do
+  zcompile_if_stale "$_zsh_src"
+done
+
+unset _zsh_src _zsh_repos
