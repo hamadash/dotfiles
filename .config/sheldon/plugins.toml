@@ -12,16 +12,32 @@
 
 shell = "zsh"
 
+[templates]
+# プラグインの読み込みを最初のプロンプト表示後まで遅延させる。
+# zsh-defer はキュー順 (この設定ファイルの記述順) に実行するので、
+# プラグイン間の順序依存はここでの並び順で保証する。
+defer = "{% for file in files %}zsh-defer source \"{{ file }}\"\n{% endfor %}"
+
 [plugins]
+
+# zsh-defer 本体だけは同期で読む (他プラグインの遅延に必要)
+[plugins.zsh-defer]
+github = "romkatv/zsh-defer"
+
+# fzf-tab は compinit の後、かつ widget をラップする系
+# (fast-syntax-highlighting / zsh-autosuggestions) より前に読む必要がある
+[plugins.fzf-tab]
+github = "Aloxaf/fzf-tab"
+apply = ["defer"]
 
 [plugins.zeno]
 github = "yuki-yano/zeno.zsh"
-
-[plugins.zsh-autosuggestions]
-github = "zsh-users/zsh-autosuggestions"
+apply = ["defer"]
 
 [plugins.fast-syntax-highlighting]
 github = "zdharma-continuum/fast-syntax-highlighting"
+apply = ["defer"]
 
-[plugins.fzf-tab]
-github = "Aloxaf/fzf-tab"
+[plugins.zsh-autosuggestions]
+github = "zsh-users/zsh-autosuggestions"
+apply = ["defer"]

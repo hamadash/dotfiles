@@ -21,6 +21,16 @@ HISTFILE="$HOME/.zsh_history"
 HISTSIZE=1000000
 SAVEHIST=1000000
 
+##########
+# 高速化の方針
+#
+# 1. プロンプト表示までの同期パスでは外部プロセスを一切起動しない。
+#    eval "$(cmd init)" 系は cached_eval でファイルキャッシュ、
+#    mise / brew はそもそも呼ばず PATH を静的に組む。
+# 2. プラグイン・補完スクリプトは zsh-defer で最初のプロンプト表示後に読む。
+# 3. 毎回読むスクリプトは zcompile 済みの .zwc から読む。
+##########
+
 # zsh のバージョンを刻んだスタンプ。zcompile したファイルが古いかの判定に使う。
 #
 # zsh を上げると .zwc はバージョン不一致で黙って無視される。ソースに
@@ -87,26 +97,36 @@ cached_eval() {
 # パスの設定
 ##########
 
-# MySQL
-export PATH="/opt/homebrew/opt/mysql@8.0/bin:$PATH"
+path=(
+  "$HOME/.local/bin"
+  "$HOME/dotfiles/custom_commands"
+  "/opt/homebrew/opt/libpq/bin"
+  "/opt/homebrew/opt/mysql@8.0/bin"
+  $path
+)
 
-# PostgreSQL
-export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
+# mise: `mise activate zsh` はプロンプトごとに hook-env (実測 ~100ms) を
+# 起動するのでやめて、インストール済みツールの bin を直接 PATH に入れる。
+# グローバルの [tools] しか使っておらず (プロジェクト別の .mise.toml /
+# .tool-versions が無い) hook-env の結果はディレクトリに依らないため、
+# 静的な PATH で等価になる。ツールの追加・更新には glob で自動追従する。
+# プロジェクト別のバージョン切り替えを使い始めたら `mise activate zsh` に
+# 戻すか shims (実行ごと +50ms) を検討すること。
+() {
+  local tool
+  for tool in "$HOME/.local/share/mise/installs"/*/latest(N/); do
+    if [[ -d "$tool/bin" ]]; then
+      path[1,0]=("$tool/bin")
+    else
+      path[1,0]=("$tool")
+    fi
+  done
+}
 
-# custom_commands
-export PATH="$HOME/dotfiles/custom_commands:$PATH"
-
-# .local/bin
-export PATH="$HOME/.local/bin:$PATH"
+typeset -gU path
 
 # tmux
 export TMUX_TMPDIR=/tmp
-
-##########
-# 開発ツール
-##########
-
-CACHED_EVAL_DEPS=("$HOME/.config/mise/config.toml") cached_eval mise activate zsh
 
 ##########
 # エイリアス
@@ -119,11 +139,8 @@ alias cat='bat'
 alias ls='eza --icons auto -F always --hyperlink -h'
 
 ##########
-# プロンプト設定
+# 補完 (compinit)
 ##########
-
-# git-prompt の読み込み (starship を使わない場合に利用)
-source "$HOME/dotfiles/.zsh/git-prompt.sh"
 
 # git-completion の読み込み
 fpath=("$HOME/dotfiles/.zsh" $fpath)
@@ -151,21 +168,12 @@ fpath=("$HOME/dotfiles/.zsh" $fpath)
 
 zstyle ':completion:*:*:git:*' script "$HOME/dotfiles/.zsh/git-completion.bash"
 
-# GitHub CLI 補完
-cached_eval gh completion -s zsh
+##########
+# プロンプト設定
+##########
 
-# starship
+# starship (プロンプト描画に必要なので同期で読む。init 結果はキャッシュ済み)
 cached_eval starship init zsh
-
-# starship を使わない場合の設定
-# setopt PROMPT_SUBST
-# PROMPT='$(__git_ps1 "(%s) ")'$PROMPT
-
-# プロンプトのオプション表示設定
-# GIT_PS1_SHOWDIRTYSTATE=false
-# GIT_PS1_SHOWUNTRACKEDFILES=false
-# GIT_PS1_SHOWSTASHSTATE=false
-# GIT_PS1_SHOWUPSTREAM=none
 
 # カレントディレクトリをタブに表示する
 set_terminal_title() {
@@ -176,17 +184,91 @@ autoload -Uz add-zsh-hook
 add-zsh-hook precmd set_terminal_title
 
 ##########
-# 補完・サジェスト・ハイライト
+# プラグインマネージャー (sheldon + zsh-defer)
+#
+# zsh-defer 本体だけが同期で読まれ、残りのプラグイン
+# (fzf-tab / zeno / fast-syntax-highlighting / zsh-autosuggestions) は
+# 最初のプロンプト表示後に plugins.toml の記述順で遅延ロードされる。
 ##########
 
+# ZENO の初期化抑制 (sheldon の前に必要)
+export ZENO_DISABLE_EXECUTE_CACHE_COMMAND=1
+
+# zeno をソケットモードで起動
+export ZENO_ENABLE_SOCK=1
+
+export ZENO_HOME="$HOME/.config/zeno"
+export ZENO_GIT_CAT="bat --color=always"
+
+# zsh-autosuggestions: プロンプトごとの bindkey 再走査を省く
+export ZSH_AUTOSUGGEST_MANUAL_REBIND=1
+
+# sheldon
+CACHED_EVAL_DEPS=("$HOME/.config/sheldon/plugins.toml") cached_eval sheldon source
+
+# zsh-defer が読めなかった場合 (オフラインでの初回 clone 失敗など) は
+# 同期実行にフォールバックして、起動だけは通るようにする
+if ! (( $+functions[zsh-defer] )); then
+  zsh-defer() { "$@"; }
+fi
+
+##########
+# 遅延初期化
+#
+# ここから下の zsh-defer はすべて「最初のプロンプト表示後」に、
+# 積んだ順 (sheldon のプラグイン群 → ここ) で実行される。
+##########
+
+# zeno のキーバインド (zeno 本体の遅延ロード完了後に実行される)
+_setup_zeno_bindings() {
+  [[ -n $ZENO_LOADED ]] || return 0
+
+  bindkey ' ' zeno-auto-snippet
+  bindkey '^m' zeno-auto-snippet-and-accept-line
+  bindkey '^i' zeno-completion
+  bindkey '^xx' zeno-insert-snippet
+
+  bindkey '^x ' zeno-insert-space
+  bindkey '^x^m' accept-line
+  bindkey '^x^z' zeno-toggle-auto-snippet
+
+  # preprompt bindings
+  bindkey '^xp' zeno-preprompt
+  bindkey '^xs' zeno-preprompt-snippet
+
+  # zeno に候補がなければ fzf-tab を使う
+  export ZENO_COMPLETION_FALLBACK=fzf-tab-complete
+
+  # zeno サーバー (Deno) をここで先に立ち上げておく。
+  # サーバーはシェル PID ごとで、放っておくと初回の補完キーを押した
+  # タイミングで Deno の起動を待たされる (体感の「補完が遅い」の正体)。
+  if [[ ! -S $ZENO_SOCK ]] && (( $+functions[zeno-start-server] )); then
+    zeno-start-server
+  fi
+}
+zsh-defer _setup_zeno_bindings
+
 # fzf
-[[ -f "$HOME/.fzf.zsh" ]] && source "$HOME/.fzf.zsh"
+_setup_fzf_and_tools() {
+  [[ -f "$HOME/.fzf.zsh" ]] && source "$HOME/.fzf.zsh"
+
+  # zoxide
+  cached_eval zoxide init zsh
+
+  # GitHub CLI 補完
+  cached_eval gh completion -s zsh
+
+  # git-prompt (starship を使わない場合のフォールバック用)
+  source "$HOME/dotfiles/.zsh/git-prompt.sh"
+
+  # peco の履歴検索 (~/.fzf.zsh が ^R を取るので、その後に上書きする)
+  zle -N peco-history-selection
+  bindkey '^R' peco-history-selection
+}
+zsh-defer _setup_fzf_and_tools
 
 export FZF_DEFAULT_COMMAND='rg --files --hidden --glob "!.git"'
 export FZF_DEFAULT_OPTS='--height 40% --reverse --border'
-
-# zoxide
-cached_eval zoxide init zsh
 
 ##########
 # peco
@@ -197,9 +279,6 @@ peco-history-selection() {
   CURSOR=$#BUFFER
   zle reset-prompt
 }
-
-zle -N peco-history-selection
-bindkey '^R' peco-history-selection
 
 ##########
 # カスタム関数
@@ -225,44 +304,6 @@ gcd() {
   cd "$root"
 }
 
-##########
-# プラグインマネージャー
-##########
-
-# ZENO の初期化抑制 (sheldon の前に必要)
-export ZENO_DISABLE_EXECUTE_CACHE_COMMAND=1
-
-# zeno をソケットモードで起動
-export ZENO_ENABLE_SOCK=1
-
-# sheldon
-CACHED_EVAL_DEPS=("$HOME/.config/sheldon/plugins.toml") cached_eval sheldon source
-
-##########
-# zeno.zsh
-##########
-
-export ZENO_HOME="$HOME/.config/zeno"
-export ZENO_GIT_CAT="bat --color=always"
-
-if [[ -n $ZENO_LOADED ]]; then
-  bindkey ' ' zeno-auto-snippet
-  bindkey '^m' zeno-auto-snippet-and-accept-line
-  bindkey '^i' zeno-completion
-  bindkey '^xx' zeno-insert-snippet
-
-  bindkey '^x ' zeno-insert-space
-  bindkey '^x^m' accept-line
-  bindkey '^x^z' zeno-toggle-auto-snippet
-
-  # preprompt bindings
-  bindkey '^xp' zeno-preprompt
-  bindkey '^xs' zeno-preprompt-snippet
-
-  # zeno に候補がなければ fzf-tab を使う
-  export ZENO_COMPLETION_FALLBACK=fzf-tab-complete
-fi
-
 [[ -f "$HOME/.zshrc.local" ]] && source "$HOME/.zshrc.local"
 
 ##########
@@ -277,16 +318,18 @@ fi
 # 深さを固定しているのは、再帰グロブ ** がこのツリーで 3.5ms かかり、
 # 節約できる時間を食ってしまうため。深さ固定なら 0.2ms で済む。
 # fast-highlight / fast-string-highlight は拡張子がないので個別に拾う。
-_zsh_repos="$HOME/.local/share/sheldon/repos/github.com"
+_compile_static_scripts() {
+  local src
+  local repos="$HOME/.local/share/sheldon/repos/github.com"
 
-for _zsh_src in \
-  "$HOME/.zshrc" \
-  "$HOME/dotfiles/.zsh/git-prompt.sh" \
-  $_zsh_repos/*/*/*.zsh(N) \
-  $_zsh_repos/*/*/lib/**/*.zsh(N) \
-  $_zsh_repos/*/*/fast-*highlight(N.)
-do
-  zcompile_if_stale "$_zsh_src"
-done
-
-unset _zsh_src _zsh_repos
+  for src in \
+    "$HOME/.zshrc" \
+    "$HOME/dotfiles/.zsh/git-prompt.sh" \
+    $repos/*/*/*.zsh(N) \
+    $repos/*/*/lib/**/*.zsh(N) \
+    $repos/*/*/fast-*highlight(N.)
+  do
+    zcompile_if_stale "$src"
+  done
+}
+zsh-defer _compile_static_scripts
