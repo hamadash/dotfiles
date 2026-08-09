@@ -304,5 +304,11 @@
   {
     "key": "shift+cmd+l",
     "command": "-composer.newAgentChat"
+  },
+  {
+    "key": "cmd+alt+c",
+    "command": "workbench.action.tasks.runTask",
+    "args": "context-copy",
+    "when": "editorTextFocus"
   }
 ]

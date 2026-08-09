@@ -17,6 +17,23 @@
       "type": "shell",
       "command": "docker compose exec web bundle exec rspec ${relativeFile}:${lineNumber}",
       "problemMatcher": []
+    },
+    {
+      "label": "context-copy",
+      "type": "shell",
+      "command": "NC=$(printf '%s' \"$SEL\" | wc -l | tr -d ' '); START=$((LINE-NC)); LAST=$(printf '%s' \"$SEL\" | tail -c 1); if [ -z \"$LAST\" ]; then END=$((LINE-1)); else END=$LINE; fi; if [ \"$START\" -eq \"$END\" ]; then R=$START; else R=\"$START-$END\"; fi; { printf '%s:%s\\n```\\n' \"$FILE\" \"$R\"; printf '%s' \"$SEL\"; if [ -n \"$LAST\" ]; then printf '\\n'; fi; printf '```\\n'; } | pbcopy",
+      "options": {
+        "env": {
+          "FILE": "${relativeFile}",
+          "LINE": "${lineNumber}",
+          "SEL": "${selectedText}"
+        }
+      },
+      "presentation": {
+        "reveal": "never",
+        "close": true
+      },
+      "problemMatcher": []
     }
   ]
 }
