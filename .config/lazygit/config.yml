@@ -1,7 +1,6 @@
 gui:
   nerdFontsVersion: "3"
   showFileIcons: true
-
 customCommands:
   - key: "u"
     context: "files"
@@ -12,7 +11,6 @@ customCommands:
       - type: "input"
         title: "Stash Message"
         initialValue: "WIP"
-
   - key: "<c-c>"
     context: "files"
     description: "commit files with format"
@@ -76,34 +74,27 @@ customCommands:
     command: |
       git commit -m "{{.Form.Type}}: {{.Form.Message}}"
     loadingText: "Commiting..."
-
   - key: "<c-g>"
     context: "files"
     description: "AI commit message"
     output: "terminal"
     command: >
-      bash -lc 'git diff --cached > /tmp/lazygit_diff &&
-      MSG=$(claude --no-session-persistence --print --model haiku
-      "Generate ONLY a one-line Git commit message in Japanese based on the git diff below. Format: type(scope): description." < /tmp/lazygit_diff) &&
-      git commit -e -m "$MSG"'
+      bash -lc 'git diff --cached > /tmp/lazygit_diff && MSG=$(claude --no-session-persistence --print --model haiku "Generate ONLY a one-line Git commit message in Japanese based on the git diff below. Format: type(scope): description." < /tmp/lazygit_diff) && git commit -e -m "$MSG"'
 
 git:
-  pagers:
+  diffRenderers:
     - colorArg: always
-      pager: delta --dark --paging=never
-
+      command: delta --dark --paging=never
   branchLogCmd: |
     git log --graph --color=always \
     --date=format:'%Y-%m-%d %H:%M' \
     --pretty=format:'%C(#a0a0a0 reverse)%h%Creset %C(cyan)%ad%Creset %C(#dd4814)%ae%Creset %C(yellow reverse)%d%Creset %n%C(green bold)%s%Creset%n' \
     {{branchName}} --
-
   allBranchesLogCmds:
     - |
       git log --graph --color=always \
       --date=format:'%Y-%m-%d %H:%M' \
       --pretty=format:'%C(#a0a0a0 reverse)%h%Creset %C(cyan)%ad%Creset %C(#dd4814)%ae%Creset %C(yellow reverse)%d%Creset %n%C(green bold)%s%Creset%n' \
       --
-
 os:
   editPreset: "nvim"
