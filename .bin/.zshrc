@@ -114,7 +114,8 @@ path=(
 # 戻すか shims (実行ごと +50ms) を検討すること。
 () {
   local tool
-  for tool in "$HOME/.local/share/mise/installs"/*/latest(N/); do
+  # latest は実ディレクトリではなくシンボリックリンクなので (-/) で辿る
+  for tool in "$HOME/.local/share/mise/installs"/*/latest(N-/); do
     if [[ -d "$tool/bin" ]]; then
       path[1,0]=("$tool/bin")
     else
