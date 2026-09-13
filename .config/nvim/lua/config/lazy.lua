@@ -28,7 +28,6 @@ if vim.g.vscode then
 			{ import = "plugins.git" },
 			{ import = "plugins.hlslens" },
 			{ import = "plugins.keymemo" },
-			{ import = "plugins.nvim-anywise-reg" },
 			{ import = "plugins.open-browser" },
 			{ import = "plugins.rails-schema" },
 			{ import = "plugins.ruby-fqn" },
