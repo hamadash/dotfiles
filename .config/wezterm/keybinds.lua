@@ -10,6 +10,7 @@ return {
 		{ key = "p", mods = "SUPER", action = act.ActivateCommandPalette },
 		{ key = "X", mods = "CTRL", action = act.ActivateCopyMode },
 		{ key = "X", mods = "SHIFT|CTRL", action = act.ActivateCopyMode },
+		{ key = "X", mods = "SUPER|SHIFT", action = act.ActivateCopyMode },
 		{ key = "v", mods = "LEADER", action = act.SplitVertical({ domain = "CurrentPaneDomain" }) },
 		{ key = "d", mods = "LEADER", action = act.SplitHorizontal({ domain = "CurrentPaneDomain" }) },
 		{ key = "h", mods = "LEADER", action = act.ActivatePaneDirection("Left") },
