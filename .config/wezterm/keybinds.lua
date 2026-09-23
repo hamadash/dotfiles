@@ -7,6 +7,7 @@ return {
 		{ key = "Tab", mods = "SHIFT|CTRL", action = act.ActivateTabRelative(-1) },
 		{ key = "P", mods = "CTRL", action = act.ActivateCommandPalette },
 		{ key = "P", mods = "SHIFT|CTRL", action = act.ActivateCommandPalette },
+		{ key = "p", mods = "SUPER", action = act.ActivateCommandPalette },
 		{ key = "X", mods = "CTRL", action = act.ActivateCopyMode },
 		{ key = "X", mods = "SHIFT|CTRL", action = act.ActivateCopyMode },
 		{ key = "v", mods = "LEADER", action = act.SplitVertical({ domain = "CurrentPaneDomain" }) },
